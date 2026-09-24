@@ -1,0 +1,32 @@
+{
+  "campaign_comparison": {
+    "byte_identical_files": {
+      "ablations.jsonl": true,
+      "certificates.jsonl": true,
+      "mutations.jsonl": true,
+      "sensitivity.jsonl": true
+    },
+    "positive_non_timing_fields_equal": true,
+    "positive_rows": 200,
+    "positive_rows_with_changed_diagnostic_timing": 200,
+    "resource_fields_expected_to_vary": [
+      "cpu_s",
+      "wall_s",
+      "peak_rss_kib",
+      "producer_ns",
+      "checker_ns"
+    ],
+    "summary_non_resource_fields_equal": true
+  },
+  "historical_frozen_ledger_inclusion": false,
+  "interpretation": "The reproduction confirms every reported acceptance, rejection, objective, certificate, baseline, sensitivity, ablation, oracle, and obligation-count field. Timing and process-RSS observations are run-specific diagnostics and are not performance claims.",
+  "post_freeze_counted_obligations": {
+    "contract_suite": 247,
+    "final_source_replay": 750,
+    "full_campaign": 32774,
+    "total": 33771
+  },
+  "resource_contract_note": "This post-freeze reproduction is reported separately from the historical 150000-obligation campaign ledger. Adding it to that historical ledger yields 183771 counted obligations, so the complete execution history exceeds the original cumulative ceiling and must not be described as resource-cap compliant.",
+  "scope": "Delivered final producer, checker, generator, campaign, and tiny-oracle sources were executed from a clean standalone copy after the bounded-reader repair.",
+  "status": "clean_reproduction_semantically_matched"
+}

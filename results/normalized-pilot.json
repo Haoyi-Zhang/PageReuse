@@ -1,0 +1,542 @@
+{
+  "status": "finite_checks_passed",
+  "one_worker": true,
+  "cpu_s": 0.025892749000000048,
+  "wall_s": 0.02714764200004538,
+  "peak_rss_kib": 92840,
+  "obligations": 2544,
+  "cases": [
+    {
+      "case": "pilot-00",
+      "n": 3,
+      "pages": 3,
+      "incidences": 4,
+      "frontier": [
+        0,
+        0,
+        2
+      ],
+      "opt": 2052,
+      "cuts": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "greedy_cost": 2052,
+      "greedy": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "all_span_valid": false,
+      "oracle": 2052
+    },
+    {
+      "case": "pilot-01",
+      "n": 2,
+      "pages": 2,
+      "incidences": 2,
+      "frontier": [
+        0,
+        1
+      ],
+      "opt": 6,
+      "cuts": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "greedy_cost": 6,
+      "greedy": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "all_span_valid": false,
+      "oracle": 6
+    },
+    {
+      "case": "pilot-02",
+      "n": 3,
+      "pages": 2,
+      "incidences": 3,
+      "frontier": [
+        0,
+        0,
+        0
+      ],
+      "opt": 3,
+      "cuts": [
+        [
+          0,
+          2
+        ]
+      ],
+      "greedy_cost": 3,
+      "greedy": [
+        [
+          0,
+          2
+        ]
+      ],
+      "all_span_valid": true,
+      "oracle": 3
+    },
+    {
+      "case": "pilot-03",
+      "n": 4,
+      "pages": 1,
+      "incidences": 2,
+      "frontier": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "opt": 1,
+      "cuts": [
+        [
+          0,
+          3
+        ]
+      ],
+      "greedy_cost": 1,
+      "greedy": [
+        [
+          0,
+          3
+        ]
+      ],
+      "all_span_valid": true,
+      "oracle": 1
+    },
+    {
+      "case": "pilot-04",
+      "n": 4,
+      "pages": 2,
+      "incidences": 4,
+      "frontier": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "opt": 6,
+      "cuts": [
+        [
+          0,
+          3
+        ]
+      ],
+      "greedy_cost": 6,
+      "greedy": [
+        [
+          0,
+          3
+        ]
+      ],
+      "all_span_valid": true,
+      "oracle": 6
+    },
+    {
+      "case": "pilot-05",
+      "n": 4,
+      "pages": 2,
+      "incidences": 4,
+      "frontier": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "opt": 6,
+      "cuts": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "greedy_cost": 6,
+      "greedy": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "all_span_valid": false,
+      "oracle": 6
+    },
+    {
+      "case": "pilot-06",
+      "n": 3,
+      "pages": 4,
+      "incidences": 6,
+      "frontier": [
+        0,
+        1,
+        2
+      ],
+      "opt": 24,
+      "cuts": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "greedy_cost": 24,
+      "greedy": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "all_span_valid": false,
+      "oracle": 24
+    },
+    {
+      "case": "pilot-07",
+      "n": 64,
+      "pages": 256,
+      "incidences": 1024,
+      "frontier": [
+        0,
+        1,
+        1,
+        2,
+        4,
+        4,
+        4,
+        6,
+        6,
+        8,
+        8,
+        10,
+        10,
+        12,
+        12,
+        15,
+        15,
+        17,
+        17,
+        18,
+        18,
+        19,
+        21,
+        23,
+        23,
+        23,
+        26,
+        26,
+        26,
+        29,
+        29,
+        29,
+        29,
+        33,
+        33,
+        34,
+        35,
+        37,
+        37,
+        37,
+        40,
+        40,
+        40,
+        43,
+        43,
+        43,
+        44,
+        46,
+        46,
+        46,
+        46,
+        48,
+        48,
+        49,
+        49,
+        54,
+        54,
+        57,
+        58,
+        58,
+        58,
+        58,
+        58,
+        63
+      ],
+      "opt": 4959,
+      "cuts": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          14
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          20
+        ],
+        [
+          21,
+          22
+        ],
+        [
+          23,
+          25
+        ],
+        [
+          26,
+          28
+        ],
+        [
+          29,
+          32
+        ],
+        [
+          33,
+          34
+        ],
+        [
+          35,
+          36
+        ],
+        [
+          37,
+          39
+        ],
+        [
+          40,
+          42
+        ],
+        [
+          43,
+          45
+        ],
+        [
+          46,
+          48
+        ],
+        [
+          49,
+          54
+        ],
+        [
+          55,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          62
+        ],
+        [
+          63,
+          63
+        ]
+      ],
+      "greedy_cost": 5041,
+      "greedy": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          19,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          25
+        ],
+        [
+          26,
+          28
+        ],
+        [
+          29,
+          32
+        ],
+        [
+          33,
+          34
+        ],
+        [
+          35,
+          36
+        ],
+        [
+          37,
+          39
+        ],
+        [
+          40,
+          42
+        ],
+        [
+          43,
+          45
+        ],
+        [
+          46,
+          50
+        ],
+        [
+          51,
+          54
+        ],
+        [
+          55,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          62
+        ],
+        [
+          63,
+          63
+        ]
+      ],
+      "all_span_valid": false,
+      "oracle": null
+    }
+  ],
+  "negative_control_rejections": 5,
+  "hardest_dimensions": {
+    "pages": 256,
+    "steps": 64,
+    "incidences": 1024
+  },
+  "claims_not_established": [
+    "runtime integration",
+    "GPU speed",
+    "model quality",
+    "novelty against all closest work",
+    "mechanized proof"
+  ]
+}

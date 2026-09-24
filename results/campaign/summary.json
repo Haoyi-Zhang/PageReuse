@@ -1,0 +1,27 @@
+{
+  "ablation_certificates": 16,
+  "ablation_parent_cases": 8,
+  "ablation_scope": "first 8 identifiers",
+  "baseline_cases": 56,
+  "baseline_scope": "first 56 identifiers",
+  "cpu_s": 0.39120321999999996,
+  "generated_campaign_cases": 632,
+  "mutation_cases": 400,
+  "obligation_categories": {
+    "certificate_replays": 698,
+    "checker_intervals": 22783,
+    "exhaustive_choices": 5440,
+    "mutation_eligibility": 306,
+    "producer_candidate_intervals": 1634,
+    "producer_minimum_queries": 1913
+  },
+  "obligations": 32774,
+  "oracle_cases": 48,
+  "peak_rss_kib": 112168,
+  "positive_cases": 200,
+  "public_runtime_traces": 0,
+  "sensitivity_cases": 32,
+  "status": "finite_campaign_passed",
+  "wall_s": 0.3923204369999951,
+  "workers": 1
+}

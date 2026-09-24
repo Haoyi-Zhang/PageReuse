@@ -1,0 +1,16 @@
+{
+  "aggregate_rss_upper_kib": 223064,
+  "cpu_children_s": 1.8489939999999998,
+  "cpu_self_s": 0.09758106799999999,
+  "cut_masks": 48,
+  "cut_parent_cases": 8,
+  "direct_cut_intervals": 112,
+  "maximum_child_rss_kib": 111532,
+  "named_contract_tests": 34,
+  "obligations": 247,
+  "parallel_children_max": 1,
+  "peak_self_rss_kib": 111532,
+  "status": "finite_contract_tests_passed",
+  "wall_s": 1.9469760340000022,
+  "worker_cpu_affinity_count": 1
+}

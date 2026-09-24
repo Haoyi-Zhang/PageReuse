@@ -1,0 +1,16 @@
+{
+  "all_positive_safety_replays": 200,
+  "checker_certificate_replays": 250,
+  "checker_interval_obligations": 494,
+  "cpu_self_s": 0.09174641500000003,
+  "events": 250,
+  "fresh_producer_cases": 2,
+  "obligations": 750,
+  "parallel_children_max": 0,
+  "peak_self_rss_kib": 107560,
+  "producer_minimum_queries": 6,
+  "status": "final_source_replay_passed",
+  "tiny_strict_replays": 48,
+  "wall_s": 0.09146093200000394,
+  "worker_cpu_affinity_count": 1
+}

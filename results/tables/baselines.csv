@@ -1,0 +1,5 @@
+policy,parents,valid,invalid,strictly_worse,zero_opt_valid,ratio_n,max_ratio,sum_valid_cost,sum_paired_opt
+fresh,56,56,0,46,0,56,4.0,142571,72669
+greedy,56,56,0,10,0,56,1.9999542257281924,140660,72669
+periodic,56,56,0,15,0,56,2.4361702127659575,140941,72669
+single,56,15,41,0,0,15,1.0,339,339

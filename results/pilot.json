@@ -1,0 +1,115 @@
+{
+  "status": "typed_end_to_end_pilot_passed",
+  "cases": [
+    {
+      "id": "case-000",
+      "cost": 2052,
+      "greedy": 2052,
+      "check": {
+        "accepted": true,
+        "code": "accepted",
+        "total_cost": 2052,
+        "epochs": 2,
+        "descriptors": 4,
+        "page_visits": 6,
+        "certificate_obligations": 1,
+        "span_obligations": 6,
+        "dependency_edges": 4
+      },
+      "negative": "descriptor_binding",
+      "oracle": {
+        "cost": 2052,
+        "obligations": 52,
+        "intervals": 4
+      }
+    },
+    {
+      "id": "case-001",
+      "cost": 1027,
+      "greedy": 2051,
+      "check": {
+        "accepted": true,
+        "code": "accepted",
+        "total_cost": 1027,
+        "epochs": 2,
+        "descriptors": 2,
+        "page_visits": 3,
+        "certificate_obligations": 1,
+        "span_obligations": 6,
+        "dependency_edges": 3
+      },
+      "negative": "descriptor_binding",
+      "oracle": {
+        "cost": 1027,
+        "obligations": 28,
+        "intervals": 5
+      }
+    },
+    {
+      "id": "case-004",
+      "cost": 6,
+      "greedy": 6,
+      "check": {
+        "accepted": true,
+        "code": "accepted",
+        "total_cost": 6,
+        "epochs": 1,
+        "descriptors": 2,
+        "page_visits": 8,
+        "certificate_obligations": 1,
+        "span_obligations": 10,
+        "dependency_edges": 16
+      },
+      "negative": "descriptor_binding",
+      "oracle": {
+        "cost": 6,
+        "obligations": 48,
+        "intervals": 10
+      }
+    },
+    {
+      "id": "case-005",
+      "cost": 6,
+      "greedy": 6,
+      "check": {
+        "accepted": true,
+        "code": "accepted",
+        "total_cost": 6,
+        "epochs": 2,
+        "descriptors": 2,
+        "page_visits": 4,
+        "certificate_obligations": 1,
+        "span_obligations": 10,
+        "dependency_edges": 4
+      },
+      "negative": "descriptor_binding",
+      "oracle": {
+        "cost": 6,
+        "obligations": 48,
+        "intervals": 6
+      }
+    },
+    {
+      "id": "case-197",
+      "cost": 16420,
+      "greedy": 16580,
+      "check": {
+        "accepted": true,
+        "code": "accepted",
+        "total_cost": 16420,
+        "epochs": 32,
+        "descriptors": 942,
+        "page_visits": 2311,
+        "certificate_obligations": 1,
+        "span_obligations": 2080,
+        "dependency_edges": 1152
+      },
+      "negative": "descriptor_binding",
+      "oracle": null
+    }
+  ],
+  "obligations": 2298,
+  "cpu_s": 0.08055590000000001,
+  "wall_s": 0.08122732300012103,
+  "peak_rss_kib": 101168
+}
