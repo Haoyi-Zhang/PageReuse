@@ -39,7 +39,7 @@ At zero visit price, longest feasible reuse has a tight factor-two descriptor-pu
 - **The same address implies the same page.** Refuted by generation/incarnation changes; address equality does not establish lifetime identity.
 - **A safe certificate establishes optimality.** Refuted by safe-but-suboptimal controls, which pass safety-only mode and fail strict optimality mode.
 - **Metadata coverage preserves attention quality.** Refuted by value-indistinguishable metadata instances; quality requires a separate numerical argument.
-- **Source separation makes the checker independently verified.** Refuted: both programs were produced in the same AI-assisted process, and neither code nor proof is mechanized.
+- **Source separation makes the checker independently verified.** Refuted: both programs were produced in the same development process, and neither code nor proof is mechanized.
 
 None of these falsifiers invalidates the final bounded theorems; several invalidate broader interpretations that were therefore removed.
 

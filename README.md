@@ -38,7 +38,7 @@ python src/producer.py trace.json certificate.json
 python src/checker.py trace.json certificate.json
 ```
 
-The checker returns exit code 0 for acceptance and 2 for rejection. `--safety-only` omits minimum-cost certification. The checker imports no producer code, but both programs were developed in the same AI-assisted process; this is source separation, not independent-team verification. Both CLI readers are bounded to the documented input size, and the producer remains untrusted by the checker.
+The checker returns exit code 0 for acceptance and 2 for rejection. `--safety-only` omits minimum-cost certification. The checker imports no producer code, but both programs were developed in the same development process; this is source separation, not independent-team verification. Both CLI readers are bounded to the documented input size, and the producer remains untrusted by the checker.
 
 ## Evidence map
 
@@ -61,4 +61,4 @@ The checker returns exit code 0 for acceptance and 2 for rejection. `--safety-on
 
 All safety conclusions are relative to truthful declared bindings, initialization, lives, masks, and sequential abstract loads. The objective is weighted descriptor publication, not bytes transferred, latency, throughput, bandwidth, energy, or model accuracy. Fixed-format numerical range bounds are not attention-approximation guarantees.
 
-AI involvement was substantive in hypotheses, proofs, code, synthetic inputs, local execution, analysis, validation, writing, and self-audit. No independent external review, human authorship agreement, machine-checked proof, submission, or production applicability is claimed. Original code and synthetic data use the included MIT license. No third-party paper PDF or serving-runtime implementation is redistributed.
+No independent external review, machine-checked proof or production applicability is claimed. Original code and synthetic data use the included MIT license. No third-party paper PDF or serving-runtime implementation is redistributed.

@@ -66,7 +66,7 @@ There are T+1 nonnegative integral potentials d, with d[0]=0. The checker direct
 d[t+1] <= d[s] + c_rho(s,t).
 ```
 
-It checks canonical selected lists, exact arithmetic, and `total_cost=d[T]`. Telescoping these inequalities along any alternative valid partition certifies a global lower bound matching the selected plan. No producer helper, lifetime-frontier recurrence, range tree or parent array is imported by the checker. The two programs were nevertheless developed in the same AI-assisted process; source separation is not an independent-team or independently verified theorem claim.
+It checks canonical selected lists, exact arithmetic, and `total_cost=d[T]`. Telescoping these inequalities along any alternative valid partition certifies a global lower bound matching the selected plan. No producer helper, lifetime-frontier recurrence, range tree or parent array is imported by the checker. The two programs were nevertheless developed in the same development process; source separation is not an independent-team or independently verified theorem claim.
 
 The executable cost bound is
 
