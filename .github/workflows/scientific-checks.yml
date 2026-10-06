@@ -1,0 +1,52 @@
+name: Scientific checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+      MIN_EXPECTED_PYTHON_SOURCES: '8'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - name: Run the bounded scientific sequence from the flat artifact root
+        shell: bash
+        run: |
+          set -euo pipefail
+          export OUT="$RUNNER_TEMP/p054-scientific"
+          mkdir -p "$OUT"
+          ulimit -v 2560000
+          ulimit -t 120
+          timeout --signal=TERM --kill-after=10s 180s bash -euo pipefail -c '
+            python -B .github/scripts/check_repository.py
+            python -B tests/semantic_regressions.py --out "$OUT/regressions"
+            python -B tests/contracts.py --out "$OUT/contracts"
+            python -B tests/final_replay.py --out "$OUT/replay"
+            python -B tools/campaign.py --out "$OUT/campaign"
+            python -B tools/summarize.py --campaign "$OUT/campaign" --out "$OUT/tables"
+            python -B tests/check_reproduction.py --campaign "$OUT/campaign" --tables "$OUT/tables"
+          ' 2>&1 | tee "$OUT/run.log"
+      - name: Retain raw outputs including partial or failed attempts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: p054-scientific-raw
+          path: ${{ runner.temp }}/p054-scientific/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14

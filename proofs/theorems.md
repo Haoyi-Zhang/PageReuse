@@ -79,7 +79,7 @@ Define maximal reuse by repeatedly taking the longest feasible interval from the
 C_G <= 2*OPT - lambda*k_* <= 2*OPT.
 ```
 
-The factor two is approached by a family with two page incarnations and three steps. There is no analogous bound asserted here for rho>0.
+The factor two is approached by a family with two page incarnations and three steps in the abstract positive-integer-weight model without a fixed upper weight cap. The inequality also holds for every admitted executable trace, but the limiting family M->infinity is not wholly admitted by the reader's weight cap of 2^20. Its retained finite cases have ratios strictly below two. There is no analogous bound asserted here for rho>0.
 
 Proof. Feasibility is hereditary under taking contiguous subintervals, since a smaller union and a shorter lifetime interval preserve containment. The standard endpoint domination argument implies that maximal reuse uses no more epochs than any valid partition: induct on the epoch index, comparing endpoints. If a greedy start is beyond the comparator's current endpoint, domination is automatic. Otherwise, the suffix from that greedy start to the comparator's endpoint is a subinterval of the comparator's epoch and hence feasible; maximality extends at least that far. Thus k_G<=k_*.
 

@@ -9,11 +9,13 @@ This is **not** an implementation of LServe, a native GPU memory checker, a conc
 From this directory on Linux with Python 3.10 or newer:
 
 ```sh
-python -m compileall -q src tests tools
+python -B .github/scripts/check_repository.py
+python -B tests/semantic_regressions.py --out semantic-results
 python tests/contracts.py --out contract-results
 python tests/final_replay.py --out final-replay-results
 python tools/campaign.py --out reproduced
 python tools/summarize.py --campaign reproduced --out reproduced-tables
+python -B tests/check_reproduction.py --campaign reproduced --tables reproduced-tables
 ```
 
 Use new or empty output directories. The contract suite exercises 34 named parser, CLI, producer, checker, and malformed-input cases plus every cut mask of eight existing tiny parents. The replay checks all 200 positives in safety mode, all 48 tiny certificates in strict mode, and two freshly regenerated certificates. The full campaign checks 200 positives, 48 exhaustive tiny cases, 400 constructed negative controls, 32 visit-price variants, fixed baselines on 56 identifiers, and two lifetime ablations on eight identifiers. The summarizer performs arithmetic only over saved JSONL results.
@@ -24,9 +26,11 @@ A clean reproduction of the delivered final sources passed all three scientific 
 
 The original development ledger closed exactly at **150000 / 150000** counted obligations: 149003 before closeout, then 247 contract obligations and 750 final-source replay obligations. That historical ledger remains unchanged.
 
-After the freeze, a separate clean validation executed the final bounded-reader-repaired sources: 32774 campaign obligations, 247 contract obligations, and 750 replay obligations. This later validation is not backfilled into the historical ledger. Across the complete execution history, the total is therefore **183771** counted obligations, exceeding the original cumulative ceiling by 33771. The deviation is disclosed in `results/resource-accounting.json`; deleting outputs or relabeling the run would not repair it. The additional run was used only to test reproduction, not to select inputs, tune methods, or broaden claims.
+After the freeze, a separate clean validation executed the bounded-reader-repaired sources: 32774 campaign obligations, 247 contract obligations, and 750 replay obligations. This later validation is not backfilled into the historical ledger. The recorded development and historical Linux reproduction total is **183771** counted obligations, exceeding the original cumulative ceiling by 33771. The deviation is disclosed in `results/resource-accounting.json`; deleting outputs or relabeling the run would not repair it. Subsequent local checks are additional executions, recorded separately in `docs/reproduction.md`; 183771 is not an ever-current cumulative total. The historical reproduction was used only to test reproduction, not to select inputs, tune methods, or broaden claims.
 
-All scientific runners use one pinned worker, a 2500 MiB address-space limit, a 90-second CPU limit, and explicit enumeration guards. No package installation, network, GPU, solver, model weights, API, private data, paper directory, or unseen cache is needed. Exact provenance is in `docs/reproduction.md`.
+The three historical Linux campaign/contract/replay runners use one pinned worker, a 2500 MiB address-space limit, a 90-second CPU limit, and explicit enumeration guards. The small `semantic_regressions.py` runner is portable and relies on its caller for process limits. No package installation, network, GPU, solver, model weights, API, private data, paper directory, or unseen cache is needed. Exact provenance is in `docs/reproduction.md`.
+
+The `scientific-checks.yml` workflow is configured for the flat artifact repository on Ubuntu 24.04, including pushes to `main`. Its scientific sequence has a 180-second wall limit, 120-second shell CPU limit, 2500 MiB address-space limit, retained assertion/failure gates, and always-attempted raw-output upload. It also compares regenerated non-timing campaign rows and tables with the retained records. Preparing this workflow is not evidence that remote CI has run.
 
 ## Check one certificate
 
@@ -61,4 +65,4 @@ The checker returns exit code 0 for acceptance and 2 for rejection. `--safety-on
 
 All safety conclusions are relative to truthful declared bindings, initialization, lives, masks, and sequential abstract loads. The objective is weighted descriptor publication, not bytes transferred, latency, throughput, bandwidth, energy, or model accuracy. Fixed-format numerical range bounds are not attention-approximation guarantees.
 
-No independent external review, machine-checked proof or production applicability is claimed. Original code and synthetic data use the included MIT license. No third-party paper PDF or serving-runtime implementation is redistributed.
+AI assistance was substantive in research design, proofs, code, synthetic data, execution, analysis, validation, writing and self-audit. No independent external review, machine-checked proof or production applicability is claimed. Original code and synthetic data use the included MIT license. No third-party paper PDF or serving-runtime implementation is redistributed.

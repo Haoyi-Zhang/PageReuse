@@ -23,11 +23,13 @@ The final campaign was compared with the earlier retained pass that preceded the
 Use new or empty output directories:
 
 ```sh
-python -m compileall -q src tests tools
+python -B .github/scripts/check_repository.py
+python -B tests/semantic_regressions.py --out semantic-results
 python tests/contracts.py --out contract-results
 python tests/final_replay.py --out final-replay-results
 python tools/campaign.py --out reproduced
 python tools/summarize.py --campaign reproduced --out reproduced-tables
+python -B tests/check_reproduction.py --campaign reproduced --tables reproduced-tables
 ```
 
 The arithmetic summarizer invokes no producer, checker, oracle, or optimizer. Its eight files should agree with `results/tables/`, apart from expected diagnostic timing changes when summarizing a newly timed campaign. The scientific counts and all non-timing tables are deterministic. `coverage.csv` deliberately reports the timers from the delivered final clean campaign rather than the earlier run.
@@ -36,7 +38,38 @@ The arithmetic summarizer invokes no producer, checker, oracle, or optimizer. It
 
 The original research ledger was frozen at 149003 obligations before closeout. Its 247-obligation contract run and 750-obligation replay closed that ledger exactly at **150000 / 150000**. The detailed historical accounting remains under `historical_frozen_campaign_ledger` in `results/resource-accounting.json`.
 
-The later clean reproduction of the final sources added 32774 campaign, 247 contract, and 750 replay obligations. These 33771 obligations are recorded under `post_freeze_clean_reproduction`; they are not backfilled into the historical ledger. The complete execution history is therefore **183771** counted obligations. It exceeds the original cumulative ceiling by 33771, an irreversible process-contract deviation that is reported rather than hidden. The later run was confirmatory: it did not alter case inclusion, tune the implementation, select favorable outcomes, or expand the paper's claims.
+The later clean reproduction of the retained sources added 32774 campaign, 247 contract, and 750 replay obligations. These 33771 obligations are recorded under `post_freeze_clean_reproduction`; they are not backfilled into the historical ledger. The recorded development and historical Linux reproduction total is **183771** counted obligations. It exceeds the original cumulative ceiling by 33771, an irreversible process-contract deviation that is reported rather than hidden. Subsequent regression checks are separate executions. The historical reproduction was confirmatory: it did not alter case inclusion, tune the implementation, select favorable outcomes, or expand the paper's claims.
+
+## Separate local revalidation
+
+A subsequent Windows/Python 3.12.14 library replay regenerated all 200 positive
+certificates, 32 visit-price certificates and 16 lifetime-ablation certificates;
+replayed all 400 frozen negative controls and the 50 safety-only positive
+controls; recomputed the 48 tiny exhaustive minima and the fixed 56-parent
+baselines; and matched every checked retained semantic outcome. Its 32468
+counted obligations were 1913 producer minimum queries, 1634 direct producer
+candidate intervals, 22783 checker intervals, 698 certificate replays and 5440
+exhaustive choices. It did not regenerate mutation eligibility, so it is not
+a new execution of the 32774-obligation Linux campaign driver.
+
+The 12 focused regressions cover zero costs, tied optima, empty requirements,
+birth/expiry boundaries, masked descriptors, alias/cycle deduplication, the
+cost bound, and the corrected QUEST metric mapping. The first attempt failed
+at the reversed citation mapping after 71 counted scientific obligations; the
+corrected attempt passed another 71. This revalidation therefore adds 32610
+obligations across successful and failed attempts, without altering the frozen
+historical ledger. Together with its recorded 183771 obligations, the recorded
+total through these attempts is 216381, not compliance with the original cap.
+The Windows job limits were 90 seconds of process CPU, 120 seconds of wall time,
+2500 MiB of committed memory per job/process, and at most two processes. These
+are not Linux address-space/RSS measurements, and no performance comparison is
+made. No scientific worker ran in an initial launcher-configuration failure.
+
+The Linux-specific `contracts.py`, `final_replay.py` and `campaign.py` drivers
+were not executed with this Windows interpreter. The separate prepared
+Ubuntu-24.04 workflow retains those drivers and their fail gates; it has not
+been run remotely in this revalidation. Logs and before-edit backups are kept
+outside the delivered research tree.
 
 A counted obligation is a candidate interval, exact selection or partition choice, certificate replay, or explicitly charged eligibility evaluation. It is not a CPU instruction, graph edge, or real memory access. The historical ledger includes a conservative 9000-operation allowance and an unretained failed pass, so it is an accounting record rather than instruction profiling.
 
