@@ -1,0 +1,424 @@
+[
+  {
+    "expected_accept": true,
+    "expected_code": null,
+    "name": "ordinary-valid",
+    "result": {
+      "accepted": true,
+      "certificate_obligations": 1,
+      "code": "accepted",
+      "dependency_edges": 3,
+      "descriptors": 1,
+      "epochs": 1,
+      "page_visits": 3,
+      "span_obligations": 6,
+      "total_cost": 3
+    }
+  },
+  {
+    "expected_accept": true,
+    "expected_code": null,
+    "name": "alias-cycle-valid",
+    "result": {
+      "accepted": true,
+      "certificate_obligations": 1,
+      "code": "accepted",
+      "dependency_edges": 16,
+      "descriptors": 2,
+      "epochs": 1,
+      "page_visits": 8,
+      "span_obligations": 10,
+      "total_cost": 6
+    }
+  },
+  {
+    "expected_accept": true,
+    "expected_code": null,
+    "name": "recycled-slot-valid",
+    "result": {
+      "accepted": true,
+      "certificate_obligations": 1,
+      "code": "accepted",
+      "dependency_edges": 4,
+      "descriptors": 2,
+      "epochs": 2,
+      "page_visits": 4,
+      "span_obligations": 10,
+      "total_cost": 6
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "integer",
+    "name": "boolean-is-not-integer",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "integer",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "setup"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "integer",
+    "name": "zero-page-weight",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "integer",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "page 0 weight"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "address",
+    "name": "address-overflow",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "address",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "page 1"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "fields",
+    "name": "unknown-top-level-field",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "fields",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "trace"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "empty_model",
+    "name": "empty-time-domain",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "empty_model",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "pages/steps"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "duplicate_binding",
+    "name": "duplicate-logical-binding",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "duplicate_binding",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "step 0 binding 1"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "missing_binding",
+    "name": "missing-logical-binding",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "missing_binding",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "step 0 node 0 atom 0"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "integer",
+    "name": "invalid-root",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "integer",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "step 0 root"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "integer",
+    "name": "uninitialized-lane",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "integer",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "step 0 node 0 atom 0 upper"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "causal_dependency",
+    "name": "future-required-lane",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "causal_dependency",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "step 0 node 0 atom 0"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "physical_alias",
+    "name": "overlapping-slot-lifetimes",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "physical_alias",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "slot 0, pages 0,1"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "generation_order",
+    "name": "nonincreasing-generation",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "generation_order",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "slot 0, pages 0,1"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "inactive_binding",
+    "name": "inactive-binding",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "inactive_binding",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "step 2 binding 1"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "edge_bound",
+    "name": "aggregate-edge-limit",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "edge_bound",
+      "dependency_edges": 0,
+      "span_obligations": 0,
+      "witness": "step 1 node 0"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "descriptor_binding",
+    "name": "stale-descriptor-generation",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "descriptor_binding",
+      "dependency_edges": 3,
+      "span_obligations": 0,
+      "witness": "epoch 0 descriptor 0"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "descriptor_binding",
+    "name": "wrong-descriptor-slot",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "descriptor_binding",
+      "dependency_edges": 3,
+      "span_obligations": 0,
+      "witness": "epoch 0 descriptor 0"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "descriptor_order",
+    "name": "duplicate-descriptor",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "descriptor_order",
+      "dependency_edges": 3,
+      "span_obligations": 0,
+      "witness": "epoch 0 descriptor 1"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "coverage",
+    "name": "missing-coverage",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "coverage",
+      "dependency_edges": 3,
+      "span_obligations": 0,
+      "witness": "epoch 0"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "partition",
+    "name": "partition-gap",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "partition",
+      "dependency_edges": 3,
+      "span_obligations": 0,
+      "witness": "epoch 0"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "epoch_cost",
+    "name": "incorrect-epoch-cost",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "epoch_cost",
+      "dependency_edges": 3,
+      "span_obligations": 0,
+      "witness": "epoch 0"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "causal_frontier",
+    "name": "incorrect-mask-copy",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "causal_frontier",
+      "dependency_edges": 3,
+      "span_obligations": 0,
+      "witness": "step 0"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "dual_inequality",
+    "name": "raised-prefix-bound",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "dual_inequality",
+      "dependency_edges": 3,
+      "span_obligations": 1,
+      "witness": "interval [0,0]"
+    }
+  },
+  {
+    "expected_accept": false,
+    "expected_code": "primal_dual_gap",
+    "name": "primal-dual-gap",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "primal_dual_gap",
+      "dependency_edges": 3,
+      "span_obligations": 6,
+      "witness": "final prefix"
+    }
+  },
+  {
+    "expected_accept": true,
+    "expected_code": null,
+    "name": "unreachable-future-atom-is-not-required",
+    "result": {
+      "accepted": true,
+      "certificate_obligations": 1,
+      "code": "accepted",
+      "dependency_edges": 4,
+      "descriptors": 1,
+      "epochs": 1,
+      "page_visits": 3,
+      "span_obligations": 6,
+      "total_cost": 3
+    }
+  },
+  {
+    "expected_accept": true,
+    "expected_code": null,
+    "name": "address-end-equals-space-bound",
+    "result": {
+      "accepted": true,
+      "certificate_obligations": 1,
+      "code": "accepted",
+      "dependency_edges": 3,
+      "descriptors": 1,
+      "epochs": 1,
+      "page_visits": 3,
+      "span_obligations": 6,
+      "total_cost": 3
+    }
+  },
+  {
+    "name": "duplicate-json-key",
+    "rejected": "duplicate_key"
+  },
+  {
+    "name": "nonfinite-json",
+    "rejected": "nonfinite"
+  },
+  {
+    "name": "bounded-file-read",
+    "rejected": "input_bytes"
+  },
+  {
+    "exit_code": 0,
+    "name": "producer-cli"
+  },
+  {
+    "exit_code": 0,
+    "name": "checker-cli",
+    "result": {
+      "accepted": true,
+      "certificate_obligations": 1,
+      "code": "accepted",
+      "dependency_edges": 3,
+      "descriptors": 1,
+      "epochs": 1,
+      "page_visits": 3,
+      "span_obligations": 6,
+      "total_cost": 3
+    }
+  },
+  {
+    "exit_code": 2,
+    "name": "checker-cli-rejection",
+    "result": {
+      "accepted": false,
+      "certificate_obligations": 1,
+      "code": "descriptor_binding",
+      "dependency_edges": 3,
+      "span_obligations": 0,
+      "witness": "epoch 0 descriptor 0"
+    }
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "certificate_replays": 10,
+  "checker_intervals": 42,
+  "counted_obligations": 71,
+  "cpu_s": 0.003924011000000005,
+  "named_tests": 12,
+  "producer_minimum_queries": 19,
+  "scope": "Owned finite boundary cases and one frozen citation-to-metric mapping; not a full citation audit.",
+  "wall_s": 0.004226115999998115
+}

@@ -1,0 +1,14 @@
+{
+  "positive": 200,
+  "oracle": 48,
+  "mutations": 400,
+  "sensitivity": 32,
+  "ablations": 16,
+  "max_certificate_bytes": 25074,
+  "min_certificate_bytes": 131,
+  "max_actual_edges": 1152,
+  "total_steps": 1913,
+  "positive_checker_intervals": 21050,
+  "zero_opt_ids": [],
+  "notes": "Arithmetic and aggregation of saved records only; no new optimization or validation execution."
+}

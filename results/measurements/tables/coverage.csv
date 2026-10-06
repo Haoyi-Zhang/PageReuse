@@ -1,0 +1,6 @@
+stratum,cases,steps_min,steps_max,pages_min,pages_max,max_edges,max_certificate_bytes,median_producer_us,median_checker_us
+Tiny controls,48,3,5,1,4,20,304,60.4435,109.606
+Short including tight family,112,3,8,2,16,56,1172,142.031,267.813
+Medium,24,16,16,32,32,208,4006,811.9195,1392.9055
+Large,12,32,32,64,64,764,13839,4439.1665,8064.8895
+Boundary,4,64,64,256,256,1152,25074,6875.3615,13529.767

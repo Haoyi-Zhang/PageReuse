@@ -1,0 +1,9 @@
+family,verdict,cases,rejected,safety_only_accepts
+alias-identity,alias_binding,50,50,0
+arithmetic,epoch_cost,50,50,0
+causal-frontier,causal_frontier,50,50,0
+lifetime,lifetime,50,50,0
+lower-bound,dual_inequality,50,50,0
+omission,coverage,50,50,0
+stale-generation,descriptor_binding,50,50,0
+suboptimal,primal_dual_gap,50,50,50

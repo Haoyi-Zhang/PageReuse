@@ -1,0 +1,49 @@
+{
+  "check": "repository-material-integrity",
+  "python_sources_parsed": 11,
+  "research_sources_present": 10,
+  "minimum_supplied_sources": 8,
+  "usage_document_present": true,
+  "errors": [],
+  "scope": "Documentation and source/configuration integrity only. Research programs, proofs and experiments are not executed."
+}
+{"certificate_replays": 10, "checker_intervals": 42, "counted_obligations": 71, "cpu_s": 0.003924011000000005, "named_tests": 12, "producer_minimum_queries": 19, "scope": "Owned finite boundary cases and one frozen citation-to-metric mapping; not a full citation audit.", "wall_s": 0.004226115999998115}
+{"aggregate_rss_upper_kib": 65928, "cpu_children_s": 0.15630699999999997, "cpu_self_s": 0.07644015400000001, "cut_masks": 48, "cut_parent_cases": 8, "direct_cut_intervals": 112, "maximum_child_rss_kib": 32964, "named_contract_tests": 34, "obligations": 247, "parallel_children_max": 1, "peak_self_rss_kib": 32964, "status": "finite_contract_tests_passed", "wall_s": 0.2344726080000008, "worker_cpu_affinity_count": 1}
+{"all_positive_safety_replays": 200, "checker_certificate_replays": 250, "checker_interval_obligations": 494, "cpu_self_s": 0.27052411099999996, "events": 250, "fresh_producer_cases": 2, "obligations": 750, "parallel_children_max": 0, "peak_self_rss_kib": 28080, "producer_minimum_queries": 6, "status": "final_source_replay_passed", "tiny_strict_replays": 48, "wall_s": 0.27821423800000034, "worker_cpu_affinity_count": 1}
+positive 25/200; obligations=3219
+positive 50/200; obligations=6925
+positive 75/200; obligations=7662
+positive 100/200; obligations=8487
+positive 125/200; obligations=9288
+positive 150/200; obligations=10096
+positive 175/200; obligations=12732
+positive 200/200; obligations=29421
+{
+  "positive_cases": 200,
+  "mutation_cases": 400,
+  "sensitivity_cases": 32,
+  "generated_campaign_cases": 632,
+  "oracle_cases": 48,
+  "baseline_cases": 56,
+  "ablation_parent_cases": 8,
+  "ablation_certificates": 16,
+  "obligations": 32774,
+  "obligation_categories": {
+    "producer_minimum_queries": 1913,
+    "certificate_replays": 698,
+    "checker_intervals": 22783,
+    "exhaustive_choices": 5440,
+    "producer_candidate_intervals": 1634,
+    "mutation_eligibility": 306
+  },
+  "cpu_s": 0.635089233,
+  "wall_s": 0.6361325000000022,
+  "peak_rss_kib": 31996,
+  "workers": 1,
+  "status": "finite_campaign_passed",
+  "public_runtime_traces": 0,
+  "baseline_scope": "first 56 identifiers",
+  "ablation_scope": "first 8 identifiers"
+}
+{"ablations": 16, "max_actual_edges": 1152, "max_certificate_bytes": 25074, "min_certificate_bytes": 131, "mutations": 400, "notes": "Arithmetic and aggregation of saved records only; no new optimization or validation execution.", "oracle": 48, "positive": 200, "positive_checker_intervals": 21050, "sensitivity": 32, "total_steps": 1913, "zero_opt_ids": []}
+{"compared_rows": {"ablations": 16, "certificates": 200, "mutations": 400, "positive": 200, "sensitivity": 32}, "compared_tables": 7, "scope": "Saved non-timing outputs only; no live sources, optimization or scientific obligations added."}
