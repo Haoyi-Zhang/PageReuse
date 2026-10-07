@@ -34,6 +34,7 @@ jobs:
           ulimit -t 120
           timeout --signal=TERM --kill-after=10s 180s bash -euo pipefail -c '
             python -B .github/scripts/check_repository.py
+            python -B tests/requirements_regression.py
             python -B tests/semantic_regressions.py --out "$OUT/regressions"
             python -B tests/contracts.py --out "$OUT/contracts"
             python -B tests/final_replay.py --out "$OUT/replay"

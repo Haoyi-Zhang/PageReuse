@@ -104,13 +104,18 @@ def solve(trace:dict[str,Any], *,mode:str='fast')->dict[str,Any]:
     while t:
         s=parent[t-1];intervals.append([s,t-1]);t=s
     intervals.reverse()
-    cert=make_certificate(trace,intervals,dp)
+    cert=_make_certificate_from_requirements(trace,intervals,dp,req)
     return {'certificate':cert,'producer_metrics':{'operations':ops,'frontier':frontier,
              'algorithm':'last-use-range-min' if mode=='fast' and trace['visit_weight']==0 else 'direct-dynamic-program'}}
 
 
 def make_certificate(trace:dict[str,Any],intervals:list[list[int]],potentials:list[int])->dict[str,Any]:
-    req=requirements(trace); epochs=[];total=0
+    return _make_certificate_from_requirements(trace,intervals,potentials,requirements(trace))
+
+
+def _make_certificate_from_requirements(trace:dict[str,Any],intervals:list[list[int]],
+                                        potentials:list[int],req:list[set[int]])->dict[str,Any]:
+    epochs=[];total=0
     for s,t in intervals:
         U=set().union(*req[s:t+1]);descriptors=[]
         for p in sorted(U):
@@ -134,7 +139,7 @@ def baseline(trace:dict[str,Any],kind:str)->dict[str,Any]:
             cuts.append([s,end]);s=end+1
     else:raise ValueError('unknown baseline')
     valid=all(span(trace,req,s,t) is not None for s,t in cuts)
-    c=make_certificate(trace,cuts,[0]*(n+1))
+    c=_make_certificate_from_requirements(trace,cuts,[0]*(n+1),req)
     visits=sum((e['end']-e['start']+1)*len(e['pages']) for e in c['epochs'])
     return {'cost':c['total_cost'],'epochs':len(cuts),'page_visits':visits,'valid':valid,'cuts':cuts}
 

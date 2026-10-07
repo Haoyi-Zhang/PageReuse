@@ -12,12 +12,30 @@ zero-cap, address/integer and resident-metadata checks. A source-separated audit
 checks 741951 actual transition, lease, address and load events. The unchanged
 Python checker accepts every new plan.
 
-The predeclared 14-case campaign retains all 308 samples / 154 paired comparisons.
-Mandatory-lane actual values match the fresh baseline. Complete-path paired
-medians are slower under certification on every case, by factors 1.672--121.481,
-including the transparent direct-DP harness setup. All seven overhead phases,
-extra loads and negative gains are retained; these are not timings of the Python
-range-tree producer or evidence of GPU, attention or production-serving gains.
+The current native producer maintains backward unions incrementally rather
+than rebuilding each candidate union. Full certificates agree with the
+direct-union semantic benchmark on 207 cases; `proofs/native-planning.md`
+derives the same recurrence, early-stop rule and tie handling.
+
+Two complete three-arm runs retain all 756 samples on the same fourteen cases.
+Every planner and complete-path paired median improves relative to direct
+union construction in both runs. Planning ratios depend strongly on case and
+warm state; raw samples and both repetitions are in `results/native-comparison`.
+The separate 308-sample current-producer phase campaign has complete-path
+medians 1.037--1.245 times fresh publication and 138/154 slower complete-path
+pairs. Mandatory values match, but legal extra loads remain. A wide-rotate
+gain in only one three-arm repetition is not stable serving evidence. These
+are native CPU results, not timings of the Python range-tree or GPU attention.
+
+To repeat the matched comparison after building the existing native library:
+
+```powershell
+./native/compare.ps1 -Library /path/to/p054_allocator.dll -Output comparison-results
+python -B native/summarize_comparison.py comparison-results
+```
+
+Use a new output directory and one otherwise idle pinned worker. This command
+does not install a compiler or change the Python scientific implementation.
 
 From this directory, check the saved public records without compilation or
 native execution:
@@ -35,7 +53,19 @@ PowerShell/Roslyn and Zig, installs nothing, and keeps correctness separate from
 explicitly reserved performance runs. The Linux scientific commands below are
 the unchanged Python workflow, not a native performance CI.
 
-## Verify the delivered final sources
+## Reproduce the scientific implementation
+
+The Python producer reuses its freshly normalized requirement sets when
+materializing a certificate within the same `solve` or `baseline` call.
+Standalone `make_certificate` still normalizes afresh. No sets persist between
+calls or enter the independently normalizing checker. This changes neither
+interval/operation counts nor the native planner, measured source bindings or
+historical results. A portable independent closure/cut regression is an
+explicit additional scientific-CI step:
+
+```sh
+python -B tests/requirements_regression.py
+```
 
 From this directory on Linux with Python 3.10 or newer:
 
