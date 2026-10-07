@@ -1,0 +1,163 @@
+{
+  "raw_samples": 378,
+  "pairs_per_case": 9,
+  "cases": [
+    {
+      "id": "case-000",
+      "planner_reference_over_incremental": 2.810126582278481,
+      "full_reference_over_incremental": 1.2893772893772895,
+      "full_incremental_over_fresh": 1.1093117408906883,
+      "incremental_faster_than_fresh_pairs": 0,
+      "incremental_loads": 18,
+      "fresh_loads": 12,
+      "incremental_publications": 2,
+      "fresh_publications": 3
+    },
+    {
+      "id": "case-001",
+      "planner_reference_over_incremental": 3.0441176470588234,
+      "full_reference_over_incremental": 1.2955465587044535,
+      "full_incremental_over_fresh": 1.1205357142857142,
+      "incremental_faster_than_fresh_pairs": 0,
+      "incremental_loads": 9,
+      "fresh_loads": 9,
+      "incremental_publications": 2,
+      "fresh_publications": 3
+    },
+    {
+      "id": "case-003",
+      "planner_reference_over_incremental": 5.291666666666667,
+      "full_reference_over_incremental": 1.4872881355932204,
+      "full_incremental_over_fresh": 1.0599078341013826,
+      "incremental_faster_than_fresh_pairs": 0,
+      "incremental_loads": 12,
+      "fresh_loads": 6,
+      "incremental_publications": 1,
+      "fresh_publications": 4
+    },
+    {
+      "id": "case-004",
+      "planner_reference_over_incremental": 5.666666666666667,
+      "full_reference_over_incremental": 1.4912891986062717,
+      "full_incremental_over_fresh": 1.1025641025641026,
+      "incremental_faster_than_fresh_pairs": 1,
+      "incremental_loads": 24,
+      "fresh_loads": 12,
+      "incremental_publications": 1,
+      "fresh_publications": 4
+    },
+    {
+      "id": "case-005",
+      "planner_reference_over_incremental": 3.970149253731343,
+      "full_reference_over_incremental": 1.375,
+      "full_incremental_over_fresh": 1.0698529411764706,
+      "incremental_faster_than_fresh_pairs": 1,
+      "incremental_loads": 12,
+      "fresh_loads": 12,
+      "incremental_publications": 2,
+      "fresh_publications": 4
+    },
+    {
+      "id": "case-056",
+      "planner_reference_over_incremental": 6.782178217821782,
+      "full_reference_over_incremental": 1.5761078998073217,
+      "full_incremental_over_fresh": 1.0561330561330562,
+      "incremental_faster_than_fresh_pairs": 0,
+      "incremental_loads": 75,
+      "fresh_loads": 30,
+      "incremental_publications": 1,
+      "fresh_publications": 5
+    },
+    {
+      "id": "case-120",
+      "planner_reference_over_incremental": 3.9950248756218905,
+      "full_reference_over_incremental": 1.3340494092373791,
+      "full_incremental_over_fresh": 1.0921985815602837,
+      "incremental_faster_than_fresh_pairs": 0,
+      "incremental_loads": 54,
+      "fresh_loads": 54,
+      "incremental_publications": 4,
+      "fresh_publications": 5
+    },
+    {
+      "id": "case-160",
+      "planner_reference_over_incremental": 31.67065868263473,
+      "full_reference_over_incremental": 3.9932136602451838,
+      "full_incremental_over_fresh": 1.0176088971269694,
+      "incremental_faster_than_fresh_pairs": 1,
+      "incremental_loads": 1488,
+      "fresh_loads": 480,
+      "incremental_publications": 1,
+      "fresh_publications": 16
+    },
+    {
+      "id": "case-184",
+      "planner_reference_over_incremental": 122.92945417095777,
+      "full_reference_over_incremental": 8.80072463768116,
+      "full_incremental_over_fresh": 1.0597507578309195,
+      "incremental_faster_than_fresh_pairs": 3,
+      "incremental_loads": 6144,
+      "fresh_loads": 2016,
+      "incremental_publications": 1,
+      "fresh_publications": 32
+    },
+    {
+      "id": "case-196",
+      "planner_reference_over_incremental": 417.07532186259175,
+      "full_reference_over_incremental": 68.52275729554461,
+      "full_incremental_over_fresh": 1.6545900119221089,
+      "incremental_faster_than_fresh_pairs": 1,
+      "incremental_loads": 48576,
+      "fresh_loads": 3072,
+      "incremental_publications": 1,
+      "fresh_publications": 64
+    },
+    {
+      "id": "case-199",
+      "planner_reference_over_incremental": 716.4777904328018,
+      "full_reference_over_incremental": 73.7218158597469,
+      "full_incremental_over_fresh": 1.2156987424049739,
+      "incremental_faster_than_fresh_pairs": 2,
+      "incremental_loads": 12096,
+      "fresh_loads": 3072,
+      "incremental_publications": 4,
+      "fresh_publications": 64
+    },
+    {
+      "id": "native-wide-repeat",
+      "planner_reference_over_incremental": 155.90309278350514,
+      "full_reference_over_incremental": 1.2657360634455457,
+      "full_incremental_over_fresh": 2.563225978622695,
+      "incremental_faster_than_fresh_pairs": 2,
+      "incremental_loads": 131072,
+      "fresh_loads": 131072,
+      "incremental_publications": 1,
+      "fresh_publications": 64
+    },
+    {
+      "id": "native-wide-rotate",
+      "planner_reference_over_incremental": 163.35955056179776,
+      "full_reference_over_incremental": 1.7671758563757791,
+      "full_incremental_over_fresh": 0.7354643212672158,
+      "incremental_faster_than_fresh_pairs": 6,
+      "incremental_loads": 262144,
+      "fresh_loads": 8192,
+      "incremental_publications": 1,
+      "fresh_publications": 64
+    },
+    {
+      "id": "native-wide-recycle",
+      "planner_reference_over_incremental": 245.44166666666666,
+      "full_reference_over_incremental": 1.81884680858236,
+      "full_incremental_over_fresh": 1.0699612544776664,
+      "incremental_faster_than_fresh_pairs": 3,
+      "incremental_loads": 65536,
+      "fresh_loads": 16384,
+      "incremental_publications": 4,
+      "fresh_publications": 64
+    }
+  ],
+  "exact_certificate_agreements": 207,
+  "complete_path": "plan/check/allocate/materialize/native execute/project/free",
+  "excluded_from_timer": "compilation, JSON input decoding, output comparison, record serialization"
+}

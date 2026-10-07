@@ -7,7 +7,7 @@
   "pairs": 154,
   "actual_values_and_counts_equal": true,
   "paired_order_verified": true,
-  "native_execution_slower_pairs": 109,
-  "complete_path_slower_pairs": 151,
+  "native_execution_slower_pairs": 103,
+  "complete_path_slower_pairs": 138,
   "no_compilation_execution_or_timing": true
 }

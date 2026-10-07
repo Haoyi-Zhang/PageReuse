@@ -127,10 +127,17 @@ verification and serialization are outside these timers. Every sample retains
 the actual mandatory values and native load/byte/publication counts. The
 summary preserves every paired ratio, slowdown and negative gain. The retained
 run is in `../results/native-campaign/`: all 308 samples and 154 paired comparisons
-are present. Certification is slower in 109 native-execution comparisons and
-151 complete-path comparisons; all 14 complete-path paired medians are above
-one (1.672--121.481). The wide-rotate case retains its 32-fold increase in actual
+are present. Certification is slower in 103 native-execution comparisons and
+138 complete-path comparisons; all 14 complete-path paired medians are above
+one (1.037--1.245). The wide-rotate case retains its 32-fold increase in actual
 lane loads. Small near-parity differences are not a stable-speedup claim.
+
+`Produce` uses incremental backward unions; `ProduceReference` implements the
+direct-union semantic comparator. `compare.ps1` checks full certificate
+agreement on 207 cases and measures both plus fresh publication on the same
+fourteen inputs. `summarize_comparison.py` recomputes each paired ratio.
+Both repetitions, including all 756 samples, are retained under
+`results/native-comparison`. The proof is `proofs/native-planning.md`.
 
 ## Published evidence without execution
 
@@ -146,8 +153,8 @@ and recomputes paired arithmetic without compilation, native execution or
 timing. It was added after measurement; the seven measured source files remain
 unchanged. `protocol.json` remains the frozen premeasurement declaration.
 
-The complete observation record compresses from 148129303 to 9627054 bytes;
-the raw samples compress from 15213670 to 814804 bytes. No records were removed.
+The complete observation record retains 741951 events; exact compressed and
+uncompressed sizes are recorded in its environment metadata. No records were removed.
 See the campaign README for decompression before `check_native.py` or
 `summarize_native.py`, whose uncompressed interfaces are unchanged. The public
 environment omits machine paths and coordination identifiers; no executable

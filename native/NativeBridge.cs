@@ -147,8 +147,8 @@ public static class Bridge {
         for (int t = 0; t < x.T; ++t) { es[t] = new Epoch { Start = t, End = t, Pages = x.Required[t].ToArray(), Cost = Cost(x, x.Required[t], t, t) }; cost += es[t].Cost; }
         return new Plan { Epochs = es, Cost = cost };
     }
-    // Transparent native direct DP, not the Python range-tree producer. Its cost is timed separately.
-    public static Plan Produce(Trace x) {
+    // Direct-union comparator: same partition class, costs and tie rule.
+    public static Plan ProduceReference(Trace x) {
         var d = new long[x.T+1]; var parent = new int[x.T+1];
         for (int t = 0; t < x.T; ++t) {
             d[t+1] = long.MaxValue;
@@ -161,6 +161,30 @@ public static class Bridge {
         var es = new List<Epoch>(); int end = x.T;
         while (end > 0) { int start = parent[end]; var u = Union(x, start, end-1); es.Add(new Epoch { Start = start, End = end-1, Pages = u, Cost = Cost(x,u,start,end-1) }); end = start; }
         es.Reverse(); return new Plan { Epochs = es.ToArray(), Potentials = d, Cost = d[x.T] };
+    }
+    // Backward interval scan maintains union weight and lifetime intersection.
+    // Each required occurrence is visited at most once for a fixed right end.
+    public static Plan Produce(Trace x) {
+        var d = new long[x.T+1]; var parent = new int[x.T+1];
+        for(int t=0;t<x.T;++t) {
+            d[t+1]=long.MaxValue; parent[t+1]=t;
+            var seen=new bool[x.Pages.Length]; long weight=0; int first=0,last=x.T-1;
+            for(int s=t;s>=0;--s) {
+                foreach(int p in x.Required[s]) if(!seen[p]) {
+                    seen[p]=true; var m=x.Pages[p]; weight+=m.Weight;
+                    first=Math.Max(first,m.First); last=Math.Min(last,m.Last);
+                }
+                if(first>s || last<t) break;
+                long value=checked(d[s]+x.Setup+(1+x.Rho*(t-s+1))*weight);
+                if(value<d[t+1] || (value==d[t+1] && s<parent[t+1])) {
+                    d[t+1]=value; parent[t+1]=s;
+                }
+            }
+        }
+        var es=new List<Epoch>(); int end=x.T;
+        while(end>0) {int start=parent[end];var u=Union(x,start,end-1);
+            es.Add(new Epoch {Start=start,End=end-1,Pages=u,Cost=Cost(x,u,start,end-1)});end=start;}
+        es.Reverse();return new Plan {Epochs=es.ToArray(),Potentials=d,Cost=d[x.T]};
     }
     public static Plan ParsePlan(Trace x, JsonElement c) {
         Exact(c,"epochs","potentials","frontiers","total_cost");
@@ -360,6 +384,42 @@ public static class Bridge {
                     actual_values=result.MandatoryValues,actual_loads=result.Loads,actual_bytes=result.Bytes,publications=result.Publications,descriptor_copies=result.DescriptorCopies,sink=result.Sink,correct=true}));raw.Flush();
             }}
         }
+    }
+    public static void ComparePlanners(string root,string output) {
+        Directory.CreateDirectory(output);
+        var all=LoadTraces(Path.Combine(root,"inputs","traces.jsonl"));
+        all.AddRange(new[]{Synthetic("native-wide-repeat"),Synthetic("native-wide-rotate"),Synthetic("native-wide-recycle"),
+            Edge("native-edge-capzero"),Edge("native-edge-empty"),Edge("native-edge-address64"),Edge("native-edge-maxcost")});
+        foreach(var x in all) {
+            var a=ProduceReference(x);var b=Produce(x);Check(x,b,true);
+            Need(JsonSerializer.Serialize(Certificate(x,a))==JsonSerializer.Serialize(Certificate(x,b)),"exact planner output mismatch");
+        }
+        using(var raw=new StreamWriter(Path.Combine(output,"samples.jsonl"))) foreach(string id in Panel) {
+            var x=all.Single(v=>v.Id==id);var expected=Expected(x);
+            foreach(string mode in new[]{"fresh","direct-union","incremental"}) for(int w=0;w<3;++w) {
+                var plan=mode=="fresh"?Fresh(x):mode=="direct-union"?ProduceReference(x):Produce(x);
+                Check(x,plan,mode!="fresh");using(var arena=new Arena(x))Equal(arena.Execute(plan).MandatoryValues,expected);
+            }
+            for(int pair=0;pair<9;++pair) {
+                var modes=pair%3==0?new[]{"fresh","direct-union","incremental"}:pair%3==1?new[]{"incremental","fresh","direct-union"}:new[]{"direct-union","incremental","fresh"};
+                foreach(string mode in modes) {
+                    long start=Stopwatch.GetTimestamp();Plan plan=null;
+                    for(int r=0;r<8;++r)plan=mode=="fresh"?Fresh(x):mode=="direct-union"?ProduceReference(x):Produce(x);
+                    long setup=Stopwatch.GetTimestamp()-start;
+                    start=Stopwatch.GetTimestamp();Output actual=null;
+                    for(int r=0;r<4;++r) {
+                        var p=mode=="fresh"?Fresh(x):mode=="direct-union"?ProduceReference(x):Produce(x);
+                        Check(x,p,mode!="fresh");using(var arena=new Arena(x))actual=arena.Execute(p);
+                    }
+                    long complete=Stopwatch.GetTimestamp()-start;Equal(actual.MandatoryValues,expected);
+                    raw.WriteLine(JsonSerializer.Serialize(new {id,pair,mode,frequency=Stopwatch.Frequency,
+                        planner_repeats=8,planner_ticks=setup,complete_repeats=4,complete_ticks=complete,
+                        actual_values=actual.MandatoryValues,actual_loads=actual.Loads,publications=actual.Publications,correct=true}));
+                    raw.Flush();
+                }
+            }
+        }
+        File.WriteAllText(Path.Combine(output,"checks.json"),JsonSerializer.Serialize(new {cases=all.Count,identical_certificates=true,panel=Panel,pairs=9}));
     }
 }
 }

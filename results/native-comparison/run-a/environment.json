@@ -1,0 +1,17 @@
+{
+  "os": "Microsoft Windows 10.0.28000",
+  "architecture": "X64",
+  "dotnet": "10.0.11",
+  "powershell": "7.6.5",
+  "cpu": {
+    "Name": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "NumberOfCores": 12,
+    "NumberOfLogicalProcessors": 20
+  },
+  "affinity_mask": 1,
+  "timer": "Stopwatch",
+  "compiler_flags": "C++17 -O2",
+  "pairs": 9,
+  "workload": "unchanged 14-case native panel",
+  "comparison": "fresh/direct-union/incremental"
+}

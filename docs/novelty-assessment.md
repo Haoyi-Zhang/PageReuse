@@ -55,8 +55,12 @@ The 13+5+7 full-paper calibration shows a consistent bar. TACO architecture/code
 
 The original packet supplied none of those deployment connections. The added
 CPU bridge now realizes its own declared sequential buffer and measures actual
-allocation, preparation, checking and masked loads. All 308 paired samples are
-retained, and every case's complete-path median is slower under certification.
+allocation, preparation, checking and masked loads. All 308 current-producer
+samples are retained, and every case's complete-path median is slower under
+certification by factors 1.037--1.245. Incremental backward unions substantially
+reduce planning cost relative to direct union reconstruction, with identical
+certificates and two complete matched repetitions retained. This supplies an
+additional concrete algorithm-engineering result, not a serving speedup.
 This repairs the trace-to-native/overhead gap for the synthetic lane-array
 object, not the absence of representative serving workloads or GPU/attention
 integration. The certificate itself still cannot authenticate an external
