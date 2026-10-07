@@ -1,0 +1,13 @@
+{
+  "status": "PUBLISHED_NATIVE_EVIDENCE_PASSED",
+  "source_bindings": 7,
+  "gzip_full_records_lossless": true,
+  "original_checker_acceptances": 207,
+  "samples": 308,
+  "pairs": 154,
+  "actual_values_and_counts_equal": true,
+  "paired_order_verified": true,
+  "native_execution_slower_pairs": 109,
+  "complete_path_slower_pairs": 151,
+  "no_compilation_execution_or_timing": true
+}

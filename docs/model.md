@@ -78,6 +78,27 @@ All admitted costs and potentials are <=B; the maximum admitted B is less than 2
 
 `--safety-only` omits canonical-minimum and dual-optimality obligations but keeps the common certificate shape, descriptor validation, lifetime, coverage, masks and exact stated cost. It is not an optimality verdict. A rejected input returns a deterministic error category and location, not a claim that the proposed schedule is a counterexample to an actual runtime.
 
+## Native sequential realization
+
+`native/allocator.cpp` implements the boundary rule in real C++ heap storage.
+Abstract address offsets map to `arena_base + offset`; the declared address
+width is not a claim about the host pointer width. Slot activation initializes
+all lanes before installation, and every query consults its generation/lease,
+checks initialization and extent, and executes exactly the selected causal
+prefix loads. The existing nonnegative frontier domain is unchanged.
+
+The matched computation returns actual raw values for unique mandatory atom
+lanes. Extra legal prefix loads remain real but do not enter that output vector;
+this is not numerical attention equivalence. The written refinement and
+source-separated observation checks are in `native/README.md`; all measured
+overhead phases and regressions are in `results/native-campaign/`.
+
 ## Excluded execution behavior
 
-No asynchronous DMA, concurrent allocator actions, reclamation races, mutable page contents, copy-on-write implementation, tensor values, actual head dimensions, quantization scales, speculative decoding, native memory instructions, model quality, throughput or production scheduler is executed or verified. To deploy a certificate, a separate refinement argument would have to relate the authoritative runtime state and native loads to this abstract semantics and invalidate or recompute the certificate after every relevant change. That argument is not supplied by this artifact.
+The native adapter executes CPU memory instructions for this controlled buffer.
+It does not execute asynchronous DMA, concurrent allocation or reclamation,
+mutable live pages, copy-on-write, tensor arithmetic, actual head dimensions,
+quantization scales, speculative decoding, GPU attention, model quality or a
+production scheduler. Deployment still requires authority and ordering
+arguments for the actual external runtime, and invalidation after every relevant
+change; the local refinement does not establish them.

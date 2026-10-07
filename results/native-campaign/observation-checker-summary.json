@@ -1,0 +1,9 @@
+{
+  "status": "INDEPENDENT_CHECKS_PASSED",
+  "cases": 207,
+  "original_checker_acceptances": 207,
+  "native_observation_groups": 36,
+  "native_event_obligations": 741951,
+  "actual_values_equal": true,
+  "performance_measurements_started": false
+}

@@ -53,16 +53,27 @@ The 13+5+7 full-paper calibration shows a consistent bar. TACO architecture/code
 - measured overhead, performance, memory behavior, or quality; and
 - sensitivity or comparison against realistic baselines.
 
-This project supplies none of those deployment connections. It validates a declared finite trace and reports synthetic discriminating evidence. The checker cannot establish that a native selector, page table, allocator, reclamation protocol, mask implementation, or GPU kernel generated truthful declarations or executed only the declared loads.
+The original packet supplied none of those deployment connections. The added
+CPU bridge now realizes its own declared sequential buffer and measures actual
+allocation, preparation, checking and masked loads. All 308 paired samples are
+retained, and every case's complete-path median is slower under certification.
+This repairs the trace-to-native/overhead gap for the synthetic lane-array
+object, not the absence of representative serving workloads or GPU/attention
+integration. The certificate itself still cannot authenticate an external
+selector, allocator or reclamation protocol.
 
 ## Final decision
 
 The exact composition is sufficiently coherent for a formal technical report and reproducible artifact. It is not sufficiently original or practically connected for the intended TACO Original Research Article claim. The final paper therefore states the negative significance judgment explicitly instead of hiding it in a status file.
 
-The project is scientifically closed under the current object and budget:
+The historical closeout remains recorded separately:
 
 - the bounded mathematical claims remain proved in writing and finitely checked;
 - the literature gate is complete;
 - the venue-significance gate is negative;
-- a later clean final-source rerun was completed and is preserved, but it created the separately disclosed 33771-obligation process overrun; no further scientific expansion is part of this locked packet; and
-- a runtime/concurrency/native-kernel study would be a distinct project, not a missing patch.
+- a later clean final-source rerun is preserved with its disclosed 33771-obligation process overrun, unchanged by the new native evidence; and
+- the subsequent authorized synthetic CPU campaign is recorded separately in `results/native-campaign/`, not backfilled into that ledger.
+
+The limited CPU refinement and overhead evidence do not overturn the historical
+venue-significance decision. Concurrent/device execution and representative
+serving evaluation remain distinct research obligations.

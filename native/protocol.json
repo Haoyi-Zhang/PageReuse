@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "status": "PREDECLARED_NO_MEASUREMENTS",
+  "implementation": "C++17 CPU allocator and volatile byte loads; C#/.NET input, direct-DP planner, bitmap checker, C-ABI driver",
+  "panel": ["case-000", "case-001", "case-003", "case-004", "case-005", "case-056", "case-120", "case-160", "case-184", "case-196", "case-199", "native-wide-repeat", "native-wide-rotate", "native-wide-recycle"],
+  "synthetic_panel_rules": {"steps":64,"page_size":128,"widths":"alternating fp16/int8 bit patterns","wide_repeat":"16 permanent pages required every step","wide_rotate":"32 permanent pages; one required page t mod 32 each step","wide_recycle":"8 slots, four successive generation cohorts of 16 steps; two required pages per step"},
+  "baseline": "fresh canonical R_t descriptor list at every query; same native buffer allocator, mask and load loop",
+  "certified": "minimum publication plan from native-harness direct DP; checked with independent bitmap intervals and potentials; frozen costs matched to all 200 existing certificates",
+  "outputs": "exact raw bit values for the union of mandatory atom lanes, canonical (page,lane) order per query; extra prefix loads are separately retained and consumed in sink",
+  "pairs_per_case": 11,
+  "trace_replays_per_block": 8,
+  "warmup": "exactly two untimed complete baseline/certified setup-check-execution pairs per case",
+  "order": "baseline then certified for even pair index; certified then baseline for odd index",
+  "execution": "one pinned logical CPU; native steady-clock nanoseconds around eight full sequential trace replays; separate managed host envelope",
+  "separate_phases": ["native-harness planner setup", "native-harness certificate checking", "arena allocation plus C-ABI configuration", "descriptor adapter materialization", "native trace execution", "host call/output projection envelope", "separately measured complete plan/check/allocate/adapter/execute/free path from decoded input"],
+  "excluded_from_timers": ["compilation", "corpus JSON decoding", "untimed warmup", "post-sample exact output verification", "raw-output serialization"],
+  "native_execution_includes": ["slot retirement/activation", "payload initialization", "descriptor publication copies", "per-query generation/lifetime/initialization checks", "causal prefix byte loads", "mandatory output capture", "scratch reset", "canary verification"],
+  "summary": "per-case median paired certified/baseline ratios for each phase and actual complete-from-decoded-trace run; full 11 raw pairs retained; min/max paired ratios and counts of slower certified pairs; no pooled speedup, invented sum-as-runtime, or discarded negative gains",
+  "timer_resolution": "zero baseline phase ticks yield null ratios with an explicit below-resolution pair count; raw pairs and absolute times are retained",
+  "correctness": "207 native positive cases (200 frozen, three wide panel cases, four max-integer/address/empty/capzero controls); all 200 frozen costs and 400 checker mutants; complete audited loads for 14-case panel plus four edge controls; original source-separated Python checker validates all new plans; independent observer reconstructs every expected load and slot transition; four rejected runtime metadata controls never issue invalid loads",
+  "bounds": {"measurement_wall_seconds":120,"conformance_wall_seconds":120,"compiler_wall_seconds":240,"memory_mib":1024,"compiler_memory_mib":2048,"maximum_arena_bytes":65536,"maximum_native_scratch_bytes":8388608,"audit_file_bytes":268435456},
+  "limits": ["synthetic CPU lane-array workload only", "not a GPU, service, production KV cache, neural attention or online implementation", "publication weights are unchanged abstract weights, not fitted nanoseconds", "native direct-DP overhead is not a timing of the original Python range-tree producer", "sequential allocator snapshot controlled by this adapter; concurrent allocation and external trace authentication excluded", "single-host blocked paired study; no confidence claim about serving populations"]
+}

@@ -1,8 +1,39 @@
 # Page-selection safety certificates
 
-A standalone standard-library Python artifact for generation-aware page-list reuse on complete declared finite sequential traces. It contains the frozen synthetic inputs, a source-separated producer and checker, written proofs, exact tiny-instance oracles, the final clean campaign results, mutation controls, evidence ledgers, and completed literature/novelty calibration for *Generation-Aware Certificates for Page-List Reuse*.
+A standalone artifact for generation-aware page-list reuse on complete finite sequential traces. The standard-library Python core retains the frozen synthetic inputs, source-separated producer/checker, written proofs, tiny oracles and historical results. A C++ CPU buffer adapter with a C#/.NET harness adds real slot allocation and masked byte loads, conformance records and a separately declared paired overhead campaign for *Generation-Aware Certificates for Page-List Reuse*.
 
-This is **not** an implementation of LServe, a native GPU memory checker, a concurrent page-table protocol, an online selector, or an attention-quality guarantee. The audit concludes that the bounded result is a reproducible formal boundary study, not a submission-ready TACO systems contribution. See `docs/novelty-assessment.md` and `docs/literature-scope.md`.
+This is **not** LServe, a GPU memory checker, a concurrent page-table protocol, an online selector or an attention-quality guarantee. The CPU bridge realizes the small sequential lane-array contract, not a production KV cache. The historical venue-significance assessment remains negative; the native addition supplies measured CPU evidence without establishing TACO readiness. See `docs/novelty-assessment.md` and `docs/literature-scope.md`.
+
+## Native CPU evidence
+
+The native adapter passes 207 positive cases, matches all 200 retained optima,
+rejects the 400 retained checker controls, and passes explicit empty/null-list,
+zero-cap, address/integer and resident-metadata checks. A source-separated audit
+checks 741951 actual transition, lease, address and load events. The unchanged
+Python checker accepts every new plan.
+
+The predeclared 14-case campaign retains all 308 samples / 154 paired comparisons.
+Mandatory-lane actual values match the fresh baseline. Complete-path paired
+medians are slower under certification on every case, by factors 1.672--121.481,
+including the transparent direct-DP harness setup. All seven overhead phases,
+extra loads and negative gains are retained; these are not timings of the Python
+range-tree producer or evidence of GPU, attention or production-serving gains.
+
+From this directory, check the saved public records without compilation or
+native execution:
+
+```sh
+python -B native/check_saved.py results/native-campaign
+```
+
+`results/native-campaign/` includes readable summaries, plans, counts and
+path-redacted environment/source bindings. Complete observations and samples
+are losslessly compressed as `.jsonl.gz`. Its README explains decompression for
+the original working-file checkers. Native reproduction uses parameterized
+`native/bounded.ps1`; see `native/README.md`. It requires existing Windows x64
+PowerShell/Roslyn and Zig, installs nothing, and keeps correctness separate from
+explicitly reserved performance runs. The Linux scientific commands below are
+the unchanged Python workflow, not a native performance CI.
 
 ## Verify the delivered final sources
 
@@ -50,6 +81,8 @@ The checker returns exit code 0 for acceptance and 2 for rejection. `--safety-on
 - `proofs/theorems.md` — written general arguments, not proof-assistant proofs.
 - `inputs/` — frozen generated traces and retained controls.
 - `results/campaign/` — final clean full campaign over the delivered sources.
+- `native/` — C++ CPU execution, C# direct-DP/checking harness, fixed measurement protocol and saved-evidence checkers.
+- `results/native-campaign/` — complete compressed native records and all paired overhead phases; synthetic CPU results only.
 - `results/contracts/` — final clean contract and cut-formulation run.
 - `results/final-replay/` — final-source replay over all positives, all tiny cases, and two fresh producer outputs.
 - `results/reproduction-comparison.json` — semantic comparison with the pre-repair retained campaign.
@@ -63,6 +96,11 @@ The checker returns exit code 0 for acceptance and 2 for rejection. `--safety-on
 - `docs/venue-rules.md` — current format/policy record and retrieval limits.
 - `readme.txt` — short electronic-supplement description.
 
-All safety conclusions are relative to truthful declared bindings, initialization, lives, masks, and sequential abstract loads. The objective is weighted descriptor publication, not bytes transferred, latency, throughput, bandwidth, energy, or model accuracy. Fixed-format numerical range bounds are not attention-approximation guarantees.
+The abstract safety conclusions require truthful bindings, initialization, lives,
+masks and sequential loads. The CPU adapter supplies a written refinement for
+its own controlled buffer and directly checks resident state. It does not
+authenticate an external allocator. Weighted descriptor publication remains a
+different objective from the separately measured CPU runtime; fixed-format
+numerical range bounds are not attention-approximation guarantees.
 
 AI assistance was substantive in research design, proofs, code, synthetic data, execution, analysis, validation, writing and self-audit. No independent external review, machine-checked proof or production applicability is claimed. Original code and synthetic data use the included MIT license. No third-party paper PDF or serving-runtime implementation is redistributed.
