@@ -125,7 +125,8 @@ jobs:
           $stdout = Join-Path $work 'projection.stdout.log'
           $stderr = Join-Path $work 'projection.stderr.log'
           if ((Test-Path -LiteralPath $stdout) -or (Test-Path -LiteralPath $stderr)) { throw 'Preserve previous projection logs' }
-          $python = (Get-Command python -CommandType Application).Source
+          $python = Join-Path $env:pythonLocation 'python.exe'
+          if (-not (Test-Path -LiteralPath $python -PathType Leaf)) { throw 'Configured Python executable missing' }
           $arguments = @('-B', ('"' + $script + '"'), '--library', ('"' + $library + '"'), '-v')
           $p = Start-Process -FilePath $python -ArgumentList $arguments -WindowStyle Hidden -PassThru -RedirectStandardOutput $stdout -RedirectStandardError $stderr
           try {
