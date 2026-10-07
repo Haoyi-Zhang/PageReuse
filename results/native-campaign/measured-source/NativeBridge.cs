@@ -268,30 +268,24 @@ public static class Bridge {
         Need(Marshal.SizeOf<NativePage>()==36&&Marshal.SizeOf<NativeEpoch>()==16&&Marshal.SizeOf<Descriptor>()==40&&Marshal.SizeOf<NativeCounts>()==40,"native ABI sizes");
     }
     public sealed class Arena : IDisposable {
-        readonly Trace x;readonly IntPtr context;readonly uint[] flat;readonly int[][] outputs;readonly int[][] mandatoryIndices;bool disposed;
+        readonly Trace x;readonly IntPtr context;readonly uint[] flat;readonly int[][] outputs;bool disposed;
         readonly Dictionary<Plan,(NativeEpoch[],Descriptor[],int)> plans=new Dictionary<Plan,(NativeEpoch[],Descriptor[],int)>();
         public int ArenaBytes {get{return (x.Pages.Max(p=>p.Slot)+1)*2*x.B;}}
         static void Status(int status,byte[] error){Need(status==0,"native: "+System.Text.Encoding.UTF8.GetString(error).TrimEnd('\0'));}
         public Arena(Trace trace){x=trace;var pages=x.Pages.Select(m=>new NativePage {Slot=m.Slot,Generation=m.Generation,Content=m.Content,Group=m.Group,First=m.First,Last=m.Last,Base=m.Base,Length=m.Length,Width=m.Width}).ToArray();
-            // Build the unchanged dense native mask and its ordered projection
-            // together, inside arena creation (also inside complete-path timing).
-            var masks=new byte[x.T*x.Pages.Length*x.B];mandatoryIndices=new int[x.T][];
-            for(int t=0;t<x.T;++t){var indices=new List<int>();int start=t*x.Pages.Length*x.B;
-                for(int k=0;k<x.Mandatory[t].Length;++k)if(x.Mandatory[t][k]){masks[start+k]=1;indices.Add(k);}
-                mandatoryIndices[t]=indices.ToArray();}
-            var error=new byte[256];context=Native.nb_create(x.B,x.A,x.T,x.Pages.Length,pages,x.Frontiers,masks,error,error.Length);Status(context==IntPtr.Zero?1:0,error);
-            flat=new uint[x.T*x.Pages.Length*x.B];outputs=mandatoryIndices.Select(indices=>new int[indices.Length]).ToArray();}
+            var error=new byte[256];context=Native.nb_create(x.B,x.A,x.T,x.Pages.Length,pages,x.Frontiers,x.Mandatory.SelectMany(m=>m.Select(b=>(byte)(b?1:0))).ToArray(),error,error.Length);Status(context==IntPtr.Zero?1:0,error);
+            flat=new uint[x.T*x.Pages.Length*x.B];outputs=Enumerable.Range(0,x.T).Select(t=>new int[x.Mandatory[t].Count(b=>b)]).ToArray();}
         public void Prepare(Plan plan){if(plans.ContainsKey(plan))return;var ds=new List<Descriptor>();var es=new List<NativeEpoch>();
             foreach(var e in plan.Epochs){es.Add(new NativeEpoch {Start=e.Start,End=e.End,Offset=ds.Count,Count=e.Pages.Length});foreach(int p in e.Pages){var m=x.Pages[p];ds.Add(new Descriptor {Page=p,Slot=m.Slot,Generation=m.Generation,Content=m.Content,Width=m.Width,Group=m.Group,Offset=m.Slot*2*x.B,Length=m.Length,Start=e.Start,End=e.End});}}
             int count=ds.Count;plans.Add(plan,(es.ToArray(),ds.ToArray(),count));}
         public Output Execute(Plan plan,Action<object> audit=null){Prepare(plan);var args=plans[plan];var error=new byte[256];Observer observe=null;
             if(audit!=null)observe=(kind,t,p,slot,generation,lane,width,offset,value,start,end,address)=>audit(new {kind=new[]{"retire","activate","publish","consult","load"}[kind],step=t,page=p,slot,generation,lane,width,offset,value,start,end,address=address.ToString("x")});
             NativeCounts c;Status(Native.nb_run(context,args.Item1,args.Item1.Length,args.Item2,args.Item3,flat,out c,observe,error,error.Length),error);
-            for(int t=0;t<x.T;++t){int j=0;foreach(int k in mandatoryIndices[t])outputs[t][j++]=(int)flat[t*x.Pages.Length*x.B+k];}
+            for(int t=0;t<x.T;++t){int j=0;for(int k=0;k<x.Mandatory[t].Length;++k)if(x.Mandatory[t][k])outputs[t][j++]=(int)flat[t*x.Pages.Length*x.B+k];}
             GC.KeepAlive(observe);return new Output {MandatoryValues=outputs,Loads=c.Loads,Bytes=c.Bytes,Publications=c.Publications,DescriptorCopies=c.Copies,Sink=c.Sink};}
         public Output Batch(Plan plan,int repeats,out long nativeNs){Prepare(plan);var args=plans[plan];var error=new byte[256];NativeCounts c;
             Status(Native.nb_batch(context,args.Item1,args.Item1.Length,args.Item2,args.Item3,flat,out c,repeats,out nativeNs,error,error.Length),error);
-            for(int t=0;t<x.T;++t){int j=0;foreach(int k in mandatoryIndices[t])outputs[t][j++]=(int)flat[t*x.Pages.Length*x.B+k];}
+            for(int t=0;t<x.T;++t){int j=0;for(int k=0;k<x.Mandatory[t].Length;++k)if(x.Mandatory[t][k])outputs[t][j++]=(int)flat[t*x.Pages.Length*x.B+k];}
             return new Output {MandatoryValues=outputs,Loads=c.Loads,Bytes=c.Bytes,Publications=c.Publications,DescriptorCopies=c.Copies,Sink=c.Sink};}
         public void Guards(){var error=new byte[256];Status(Native.nb_guards(context,error,error.Length),error);}
         public void RejectionTests(){var error=new byte[256];Status(Native.nb_selftest(context,error,error.Length),error);}

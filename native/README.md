@@ -87,6 +87,26 @@ native panel/edge observation logs. It checks every retirement, activation,
 publication, descriptor consultation, lane value and relative/absolute address
 mapping. These checks are source-separated, not independent-team review.
 
+## Mandatory-lane bookkeeping
+
+Arena construction derives ordered mandatory-cell indices from the unchanged
+dense mask. C++ builds its indices during the existing mask-admission checks;
+the managed bridge builds its projection indices while preparing that mask.
+Every replay resets all mandatory scratch cells, checks that each was loaded,
+and returns them in the original `(page,lane)` order. Nonmandatory scratch cells
+are not returned or used to establish coverage. Selected extra prefix loads,
+their sink contributions, resident checks and zero-cap lease checks are unchanged.
+Fresh and certified execution use this same implementation.
+
+Index construction and allocation remain inside the complete decoded-trace path,
+not in an excluded preprocessing phase. Replay reset and projection visit the
+mandatory cells rather than the entire dense grid. Dense mask admission is still
+performed. The additional native index payload is at most 8 MiB plus 260 bytes
+of step offsets under the existing bounds, excluding vector capacity and allocator
+overhead. Managed index arrays and temporary lists also require additional memory.
+These complexity bounds alone do not establish a wall-time gain, particularly
+for dense masks.
+
 ## Reproduction and reserved measurements
 
 Requirements: Windows x64, PowerShell 7 with its existing Roslyn compiler,
@@ -98,6 +118,22 @@ or give its executable path with `-Zig`. From the artifact directory:
 ./native/bounded.ps1 -Mode Conformance -Zig /path/to/zig.exe -WallSeconds 120 -MemoryMiB 1024
 python -B ./native/check_native.py ./results/native-reproduction/conformance
 ```
+
+After compilation, an explicit additional regression step exercises sparse and
+dense projections, all-empty/null lists, recycled slots, zero-cap resident
+checking, repeated replay with a missing mandatory load, and the native ABI's
+maximum configuration axes using owned benign arrays:
+
+```sh
+python -B native/test_mandatory_projection.py --library /path/to/owned/p054_allocator.dll -v
+```
+
+The seven tests require only Python's standard library and a locally compiled
+native library; a compatible `.so` path is also accepted by the test interface.
+They are separate from the 207-case conformance route and 400 retained checker
+controls, and are an explicit optional step, not silently included in their
+counts or in the unchanged hosted workflow. Bound this step externally; the
+recorded finite checks used one CPU, 90 seconds and 512 MiB.
 
 The default work root is `artifact/results/native-reproduction`; `-WorkRoot`
 selects another root and `-OutDir` a new empty subdirectory. Compiler caches and
@@ -126,7 +162,8 @@ timed; it is not a sum of phase estimates. JSON decoding, compilation, result
 verification and serialization are outside these timers. Every sample retains
 the actual mandatory values and native load/byte/publication counts. The
 summary preserves every paired ratio, slowdown and negative gain. The retained
-run is in `../results/native-campaign/`: all 308 samples and 154 paired comparisons
+run predates the mandatory-index change and is in `../results/native-campaign/`:
+all 308 samples and 154 paired comparisons
 are present. Certification is slower in 103 native-execution comparisons and
 138 complete-path comparisons; all 14 complete-path paired medians are above
 one (1.037--1.245). The wide-rotate case retains its 32-fold increase in actual
@@ -137,21 +174,40 @@ direct-union semantic comparator. `compare.ps1` checks full certificate
 agreement on 207 cases and measures both plus fresh publication on the same
 fourteen inputs. `summarize_comparison.py` recomputes each paired ratio.
 Both repetitions, including all 756 samples, are retained under
-`results/native-comparison`. The proof is `proofs/native-planning.md`.
+`results/native-comparison`; these measurements also predate the mandatory-index
+change. The proof is `proofs/native-planning.md`.
 
 ## Published evidence without execution
 
 From the artifact directory:
 
 ```sh
-python -B native/check_saved.py results/native-campaign
+python -B native/check_saved.py results/native-campaign --measured-source-root results/native-campaign/measured-source
 ```
 
 This saved-data checker reads the full `.gz` evidence, verifies functional
 source/data bindings, checks the plans and all 308 actual value/count records,
 and recomputes paired arithmetic without compilation, native execution or
 timing. It was added after measurement; the seven measured source files remain
-unchanged. `protocol.json` remains the frozen premeasurement declaration.
+bound to their recorded hashes. `results/native-campaign/measured-source` retains
+all seven original files, copied byte-for-byte from the pre-change sources.
+`--measured-source-root` selects that directory for hashing and reads its verified
+protocol; it does not import, compile or execute those files. The option changes
+neither the original hashes nor the data/value/count/paired-arithmetic checks.
+Without it, the checker still uses `artifact/native` and rejects changed measured
+sources. This is verification of historical evidence, not certification of a
+changed executable. `protocol.json` remains the frozen premeasurement declaration.
+
+The portable routing controls are a separate explicit step:
+
+```sh
+python -B native/test_saved_routing.py -v
+```
+
+They check all seven bindings and selected protocol, each altered or missing
+source, incomplete/extra manifests and a non-directory root using inert local
+fixtures. These five tests do not execute native code and are not part of the
+unchanged 207/400 conformance counts or hosted workflow.
 
 The complete observation record retains 741951 events; exact compressed and
 uncompressed sizes are recorded in its environment metadata. No records were removed.

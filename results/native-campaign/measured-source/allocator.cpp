@@ -28,9 +28,6 @@ struct Context {
     std::vector<Page> pages;
     std::vector<int32_t> frontiers;
     std::vector<uint8_t> mandatory;
-    // Admitted mandatory cells in the same (step,page,lane) order as the mask.
-    std::vector<uint32_t> mandatory_indices;
-    uint32_t mandatory_offsets[65]{};
     std::vector<uint32_t> scratch;
     std::vector<Descriptor> published;
     int resident[256], generations[256], initialized[256];
@@ -62,10 +59,7 @@ struct Context {
         for(int e=0;e<E;++e){auto& ep=epochs[e];need(ep.start==next&&ep.end>=ep.start&&ep.end<T&&ep.offset==priorOffset&&ep.count>=0&&ep.count<=P&&int64_t(ep.offset)+ep.count<=D,"epoch bounds");
             int prior=-1;for(int j=0;j<ep.count;++j){auto& d=ds[ep.offset+j];need(d.page>prior&&d.page<P&&d.start==ep.start&&d.end==ep.end,"descriptor order/lease");prior=d.page;}
             next=ep.end+1;priorOffset+=ep.count;}
-        need(next==T&&priorOffset==D,"partition end");reset();count={};int ep=0;
-        // Only these cells are projected or checked for missing loads. Reset
-        // every one on each replay; stale values can never satisfy the check.
-        for(uint32_t k:mandatory_indices)scratch[k]=std::numeric_limits<uint32_t>::max();
+        need(next==T&&priorOffset==D,"partition end");reset();count={};int ep=0;std::fill(scratch.begin(),scratch.end(),std::numeric_limits<uint32_t>::max());
         for(int t=0;t<T;++t){boundary(t,obs);auto& e=epochs[ep];if(t==e.start){if(e.count==0)published.clear();else published.assign(ds+e.offset,ds+e.offset+e.count);++count.publications;count.copies+=e.count;
             if(obs)obs(2,t,-1,-1,0,-1,0,0,e.count,e.start,e.end,0);}
             for(auto& d:published){validate(d,t);int n=cap(t,pages[d.page]);if(obs)obs(3,t,d.page,d.slot,d.generation,-1,d.width,d.offset,n,d.start,d.end,0);
@@ -75,7 +69,7 @@ struct Context {
                     scratch[(size_t(t)*P+d.page)*B+i]=value;++count.loads;count.bytes+=d.width;count.sink=count.sink*1099511628211ULL+value+1;
                     if(obs)obs(4,t,d.page,d.slot,d.generation,i,d.width,off,int(value),d.start,d.end,reinterpret_cast<uintptr_t>(data+off));
                 }}
-            for(uint32_t j=mandatory_offsets[t];j<mandatory_offsets[t+1];++j){uint32_t k=mandatory_indices[j];need(scratch[k]!=std::numeric_limits<uint32_t>::max(),"mandatory lane missing");output[k]=scratch[k];}
+            for(int p=0;p<P;++p)for(int i=0;i<B;++i){size_t k=(size_t(t)*P+p)*B+i;if(mandatory[k]){need(scratch[k]!=std::numeric_limits<uint32_t>::max(),"mandatory lane missing");output[k]=scratch[k];}}
             if(t==e.end)++ep;
         }
         need(ep==E,"execution end");guards();
@@ -87,8 +81,7 @@ EXPORT void* nb_create(int B,int A,int T,int P,const Page* pages,const int32_t* 
         int largest=0;for(int p=0;p<P;++p){auto& m=c->pages[p];need(m.slot>=0&&m.slot<=255&&m.generation>0&&m.content>=0&&m.group>=0&&m.group<=31&&m.first>=0&&m.last>=m.first&&m.last<T&&m.base>=0&&m.length>=1&&m.length<=B&&(m.width==1||m.width==2),"page bounds");
             int end=m.slot*2*B+m.length*m.width;need(A>=17||uint64_t(end)<=(uint64_t(1)<<A),"address width");largest=std::max(largest,m.slot);
             for(int q=0;q<p;++q){auto& o=c->pages[q];if(o.slot!=m.slot)continue;need(o.last<m.first||m.last<o.first,"slot overlap");need(o.first<m.first?o.generation<m.generation:m.generation<o.generation,"generation order");}}
-        for(int t=0;t<T;++t){c->mandatory_offsets[t]=static_cast<uint32_t>(c->mandatory_indices.size());need(frontiers[t]>=0,"frontier");for(int p=0;p<P;++p)for(int i=0;i<B;++i){auto k=(size_t(t)*P+p)*B+i;need(masks[k]<=1,"mask type");if(masks[k]){need(c->pages[p].first<=t&&t<=c->pages[p].last&&i<c->cap(t,c->pages[p]),"mandatory lane bound");c->mandatory_indices.push_back(static_cast<uint32_t>(k));}}}
-        c->mandatory_offsets[T]=static_cast<uint32_t>(c->mandatory_indices.size());
+        for(int t=0;t<T;++t){need(frontiers[t]>=0,"frontier");for(int p=0;p<P;++p)for(int i=0;i<B;++i){auto k=(size_t(t)*P+p)*B+i;need(masks[k]<=1,"mask type");if(masks[k])need(c->pages[p].first<=t&&t<=c->pages[p].last&&i<c->cap(t,c->pages[p]),"mandatory lane bound");}}
         c->bytes=(largest+1)*2*B;c->raw=static_cast<uint8_t*>(std::malloc(c->bytes+64));need(c->raw!=nullptr,"allocation failed");c->data=c->raw+32;std::memset(c->raw,0xD3,c->bytes+64);c->reset();return c.release();
     }catch(const std::exception& e){error(err,errcap,e.what());return nullptr;}}
 EXPORT int nb_run(void* context,const Epoch* epochs,int E,const Descriptor* descriptors,int D,uint32_t* output,Counts* counts,Observe observe,char* err,int errcap){

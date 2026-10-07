@@ -1,7 +1,8 @@
 """Verify the published CPU evidence and functional source/data bindings.
 
 Reads complete .gz records; performs no compilation, native execution or timing.
-The frozen measurement sources and existing original-trace checker are unchanged.
+An explicit measured-source directory retains the original seven source bindings
+when the executable changes. Sources are hashed, not imported or executed.
 """
 import argparse
 import gzip
@@ -15,6 +16,9 @@ import check_native
 import summarize_native
 
 ROOT = Path(__file__).resolve().parents[1]
+MEASURED_SOURCE_NAMES = frozenset(("allocator.cpp", "NativeBridge.cs", "bounded.ps1",
+                                  "run.ps1", "check_native.py", "summarize_native.py",
+                                  "protocol.json"))
 
 
 def digest(stream):
@@ -39,14 +43,26 @@ def rows(path):
             yield json.loads(line)
 
 
+def measured_protocol(env, source_root):
+    """Validate all original bindings before reading that source's protocol."""
+    hashes = env["source_sha256"]
+    assert isinstance(hashes, dict) and set(hashes) == MEASURED_SOURCE_NAMES, "seven measured sources required"
+    source_root = source_root.resolve(strict=True)
+    assert source_root.is_dir(), "measured source directory required"
+    for name in sorted(MEASURED_SOURCE_NAMES):
+        assert file_digest(source_root / name) == hashes[name], (name, "measured source binding")
+    return json.loads((source_root / "protocol.json").read_text(encoding="utf-8"))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("campaign", type=Path, nargs="?", default=ROOT / "results/native-campaign")
+    ap.add_argument("--measured-source-root", type=Path, default=ROOT / "native",
+                    help="directory containing all seven recorded native files; default: artifact/native")
     args = ap.parse_args()
     out = args.campaign.resolve()
     env = json.loads((out / "environment.json").read_text(encoding="utf-8"))
-    for name, expected in env["source_sha256"].items():
-        assert file_digest(ROOT / "native" / name) == expected, (name, "measured source binding")
+    protocol = measured_protocol(env, args.measured_source_root)
     assert file_digest(ROOT / "inputs/traces.jsonl") == env["original_input_sha256"]
     assert file_digest(ROOT / "results/campaign/certificates.jsonl") == env["original_certificate_sha256"]
     for name, info in env["compressed_records"].items():
@@ -72,7 +88,6 @@ def main():
             counts[case, actual["mode"]] = actual
         n += 1
     assert n == 207
-    protocol = json.loads((ROOT / "native/protocol.json").read_text(encoding="utf-8"))
     order = [(case, pair, mode) for case in protocol["panel"] for pair in range(protocol["pairs_per_case"])
              for mode in (("baseline", "certified") if pair % 2 == 0 else ("certified", "baseline"))]
     samples = {}

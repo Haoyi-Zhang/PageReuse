@@ -16,6 +16,7 @@ jobs:
     env:
       PYTHONUTF8: '1'
       PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONOPTIMIZE: '0'
       MIN_EXPECTED_PYTHON_SOURCES: '8'
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -41,6 +42,10 @@ jobs:
             python -B tools/campaign.py --out "$OUT/campaign"
             python -B tools/summarize.py --campaign "$OUT/campaign" --out "$OUT/tables"
             python -B tests/check_reproduction.py --campaign "$OUT/campaign" --tables "$OUT/tables"
+            python -B native/test_saved_routing.py -v
+            mkdir "$OUT/retained-native"
+            cp results/native-campaign/{environment.json,conformance.jsonl,samples.jsonl.gz,observations.jsonl.gz,summary.json} "$OUT/retained-native/"
+            python -B native/check_saved.py "$OUT/retained-native" --measured-source-root results/native-campaign/measured-source
           ' 2>&1 | tee "$OUT/run.log"
       - name: Retain raw outputs including partial or failed attempts
         if: always()
@@ -58,6 +63,7 @@ jobs:
     env:
       PYTHONUTF8: '1'
       PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONOPTIMIZE: '0'
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -108,6 +114,38 @@ jobs:
           ./native/bounded.ps1 -Mode Conformance -WorkRoot $work -Zig "$env:ZIG_EXE" -WallSeconds 120 -MemoryMiB 1024
           python -B native/check_native.py "$work/conformance"
           if ($LASTEXITCODE -ne 0) { throw 'Independent native checks failed' }
+      - name: Run seven bounded owned projection regressions
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $work = Join-Path $env:RUNNER_TEMP 'p054-native'
+          $script = Join-Path $PWD.Path 'native/test_mandatory_projection.py'
+          $library = Join-Path $work 'build/p054_allocator.dll'
+          if (-not (Test-Path -LiteralPath $script -PathType Leaf) -or -not (Test-Path -LiteralPath $library -PathType Leaf)) { throw 'Current projection test or compiled allocator missing' }
+          $stdout = Join-Path $work 'projection.stdout.log'
+          $stderr = Join-Path $work 'projection.stderr.log'
+          if ((Test-Path -LiteralPath $stdout) -or (Test-Path -LiteralPath $stderr)) { throw 'Preserve previous projection logs' }
+          $python = (Get-Command python -CommandType Application).Source
+          $arguments = @('-B', ('"' + $script + '"'), '--library', ('"' + $library + '"'), '-v')
+          $p = Start-Process -FilePath $python -ArgumentList $arguments -WindowStyle Hidden -PassThru -RedirectStandardOutput $stdout -RedirectStandardError $stderr
+          try {
+            $p.ProcessorAffinity = [IntPtr]1
+            $deadline = [DateTime]::UtcNow.AddSeconds(90)
+            while (-not $p.WaitForExit(250)) {
+              $p.Refresh()
+              if ($p.WorkingSet64 -gt 512MB -or [DateTime]::UtcNow -gt $deadline) {
+                $p.Kill($true)
+                throw 'Projection correctness exceeded 90 seconds or 512 MiB; partial logs retained'
+              }
+            }
+            $p.Refresh()
+            if ($p.ExitCode -ne 0) { throw "Projection regressions failed: $($p.ExitCode)" }
+          } finally {
+            if (-not $p.HasExited) { $p.Kill($true); [void]$p.WaitForExit(5000) }
+            if (Test-Path -LiteralPath $stdout) { Get-Content -LiteralPath $stdout }
+            if (Test-Path -LiteralPath $stderr) { Get-Content -LiteralPath $stderr }
+            $p.Dispose()
+          }
       - name: Retain correctness evidence; do not benchmark shared runners
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

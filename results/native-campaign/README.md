@@ -1,7 +1,7 @@
 # Native CPU campaign
 
-This is the current incremental backward producer on the declared fourteen
-synthetic CPU workloads. The C++ slot-buffer execution, requirement sets,
+This retained campaign measures the pre-index incremental backward producer on
+the declared fourteen synthetic CPU workloads. The C++ slot-buffer execution, requirement sets,
 lifetime constraints and publication objective are unchanged. Fresh and
 certified publication return identical mandatory-lane values; the reused
 list can cause extra legal prefix loads.
@@ -24,11 +24,13 @@ distributed.
 From the artifact directory:
 
 ```sh
-python -B native/check_saved.py results/native-campaign
+python -B native/check_saved.py results/native-campaign --measured-source-root results/native-campaign/measured-source
 ```
 
 This recomputes saved-data arithmetic and validates complete records with the
-original Python checker. To use the uncompressed checker interfaces,
+original Python checker. Explicit source selection verifies all seven recorded
+hashes against the byte-identical originals in `measured-source`; those archived
+sources are not executed. To use the uncompressed checker interfaces,
 decompress copies into a separate working directory. Native reproduction
 commands are in `native/README.md`. The two additional complete planner
 comparison repetitions are in `results/native-comparison`; they do not

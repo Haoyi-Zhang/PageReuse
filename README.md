@@ -21,7 +21,7 @@ Two complete three-arm runs retain all 756 samples on the same fourteen cases.
 Every planner and complete-path paired median improves relative to direct
 union construction in both runs. Planning ratios depend strongly on case and
 warm state; raw samples and both repetitions are in `results/native-comparison`.
-The separate 308-sample current-producer phase campaign has complete-path
+The separate retained 308-sample pre-index phase campaign has complete-path
 medians 1.037--1.245 times fresh publication and 138/154 slower complete-path
 pairs. Mandatory values match, but legal extra loads remain. A wide-rotate
 gain in only one three-arm repetition is not stable serving evidence. These
@@ -41,17 +41,35 @@ From this directory, check the saved public records without compilation or
 native execution:
 
 ```sh
-python -B native/check_saved.py results/native-campaign
+python -B native/check_saved.py results/native-campaign --measured-source-root results/native-campaign/measured-source
 ```
 
 `results/native-campaign/` includes readable summaries, plans, counts and
 path-redacted environment/source bindings. Complete observations and samples
 are losslessly compressed as `.jsonl.gz`. Its README explains decompression for
-the original working-file checkers. Native reproduction uses parameterized
+the original working-file checkers. Its `measured-source` directory preserves
+all seven source files bound to those historical timings. The explicit option
+hashes those original bytes and uses their verified protocol; it does not
+execute them or relabel the records as measurements of the current executable.
+Native reproduction uses parameterized
 `native/bounded.ps1`; see `native/README.md`. It requires existing Windows x64
 PowerShell/Roslyn and Zig, installs nothing, and keeps correctness separate from
 explicitly reserved performance runs. The Linux scientific commands below are
 the unchanged Python workflow, not a native performance CI.
+
+Current native projection uses ordered mandatory-cell indices built inside arena
+construction. Both fresh and certified paths retain every selected prefix load
+and lease check; extra loads still enter the sink. The indices reduce repeated
+dense-mask bookkeeping but add memory. After compilation, two separate optional
+portable regression steps are documented in `native/README.md`:
+
+```sh
+python -B native/test_mandatory_projection.py --library /path/to/owned/p054_allocator.dll -v
+python -B native/test_saved_routing.py -v
+```
+
+Their seven projection and five source-routing tests are separate from the
+retained conformance counts and are not silently included in hosted CI.
 
 ## Reproduce the scientific implementation
 
