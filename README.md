@@ -69,7 +69,8 @@ python -B native/test_saved_routing.py -v
 ```
 
 Their seven projection and five source-routing tests are separate from the
-retained conformance counts and are not silently included in hosted CI.
+retained conformance counts. Both are configured in the current hosted workflow;
+workflow configuration alone does not establish a successful execution.
 
 ## Reproduce the scientific implementation
 

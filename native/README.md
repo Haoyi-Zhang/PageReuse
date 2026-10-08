@@ -131,8 +131,8 @@ python -B native/test_mandatory_projection.py --library /path/to/owned/p054_allo
 The seven tests require only Python's standard library and a locally compiled
 native library; a compatible `.so` path is also accepted by the test interface.
 They are separate from the 207-case conformance route and 400 retained checker
-controls, and are an explicit optional step, not silently included in their
-counts or in the unchanged hosted workflow. Bound this step externally; the
+controls, and remain separate from those counts. The current Windows hosted
+workflow configures this step; configuration alone is not execution evidence. The
 recorded finite checks used one CPU, 90 seconds and 512 MiB.
 
 The default work root is `artifact/results/native-reproduction`; `-WorkRoot`
@@ -207,7 +207,8 @@ python -B native/test_saved_routing.py -v
 They check all seven bindings and selected protocol, each altered or missing
 source, incomplete/extra manifests and a non-directory root using inert local
 fixtures. These five tests do not execute native code and are not part of the
-unchanged 207/400 conformance counts or hosted workflow.
+unchanged 207/400 conformance counts. They are configured in the current Linux
+hosted workflow; its presence is not a test-pass record.
 
 The complete observation record retains 741951 events; exact compressed and
 uncompressed sizes are recorded in its environment metadata. No records were removed.

@@ -6,8 +6,11 @@ lifetime constraints and publication objective are unchanged. Fresh and
 certified publication return identical mandatory-lane values; the reused
 list can cause extra legal prefix loads.
 
-The campaign retains eleven alternating pairs per case and eight replays per
-timed block: 308 raw samples and 154 paired comparisons. Two warmup pairs
+The campaign retains eleven alternating pairs per case: 308 raw samples and
+154 paired comparisons. Planning/checking and native execution each repeat
+eight times per timed sample. Allocation/materialization and the separately
+timed complete-path replay each run once; complete-path ticks are not divided
+by eight. Two warmup pairs
 precede each case. The environment records Intel Core i7-12700KF, one pinned
 logical CPU, Windows x64, Zig 0.15.2/C++17 -O2, PowerShell 7.6.5 and .NET
 10.0.11. Complete-path medians are 1.037--1.245 times fresh publication;
