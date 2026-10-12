@@ -1,0 +1,99 @@
+{
+  "mode": "Measure",
+  "protocol": "current-five-policy-timing",
+  "slot_id": "p054-current-five-policy-20261012",
+  "performance_measurements_started": true,
+  "os": "Microsoft Windows 10.0.28000",
+  "architecture": "X64",
+  "cpu": [
+    {
+      "Name": "12th Gen Intel(R) Core(TM) i7-12700KF",
+      "Manufacturer": "GenuineIntel",
+      "NumberOfCores": 12,
+      "NumberOfLogicalProcessors": 20
+    }
+  ],
+  "powershell": "7.6.5",
+  "dotnet": "10.0.11",
+  "python_used": false,
+  "python_version": null,
+  "native_compiler": "0.15.2",
+  "native_compiler_flags": "c++ -std=c++17 -O2 -Wall -Wextra -Werror -target x86_64-windows-gnu -shared",
+  "native_compiler_metadata_origin": "copied verified native-build-environment.json; binds allocator and DLL, not the new managed assembly",
+  "managed_compiler_flags": "/optimize+",
+  "library_sha256": "E328ACDE95CC69B33BAFF5D0A8EF7BFFB759954F11EA7BBD86ED423C737D6486",
+  "managed_assembly_sha256": "AAB87EFD2ED4D5CEC5277FB6D6DEEFC99DB4BE5678C332D6A04852E58A908D7B",
+  "build_environment_sha256": "8350F8BF8FD798C861A1D514DCC4EB20AF80FAC62DBD33230392B9EC1FE0A44F",
+  "affinity": 1,
+  "cpu_threads": 1,
+  "clock": {
+    "name": "System.Diagnostics.Stopwatch",
+    "frequency": 10000000,
+    "is_high_resolution": true,
+    "zero_ticks_retained": true
+  },
+  "runtime": {
+    "server_gc": false,
+    "gc_latency_mode": "Interactive",
+    "forced_gc": false
+  },
+  "protocol_details": {
+    "panel": [
+      "case-000",
+      "case-001",
+      "case-003",
+      "case-004",
+      "case-005",
+      "case-056",
+      "case-120",
+      "case-160",
+      "case-184",
+      "case-196",
+      "case-199",
+      "native-wide-repeat",
+      "native-wide-rotate",
+      "native-wide-recycle"
+    ],
+    "policies": [
+      "fresh",
+      "longest-feasible",
+      "four-step",
+      "exact-rho0-range-min",
+      "exact-rho1-incremental"
+    ],
+    "warmup_complete_calls_per_arm": 3,
+    "rounds": 11,
+    "calls_per_arm_per_round": 4,
+    "expected_clock_samples": 3080,
+    "fixed_visit_price": 1,
+    "order": "for each case: policy[(round+position)%5]; 11 rounds = two cycles plus one rotation, not perfectly position-balanced",
+    "warmup_order": "policy[(warmup+position)%5]; exactly three untimed complete calls per arm",
+    "phases": [
+      "price preparation + native planner (including full plan materialization)",
+      "appropriate managed safety/optimality checker on that plan",
+      "actual shared ReplayPolicy complete decoded-input path"
+    ],
+    "complete_includes": "price/plan/check/mask/index/allocate/descriptors/native execute/mandatory projection/guards/free",
+    "excluded": "compile, input/reference decoding, source/binary checks, output comparison, compression and JSON IO",
+    "guarantees": "three heuristics are safety-checked only; rho0 and rho1 exact arms also certify their different declared accounting objectives",
+    "raw_values": "not repeated: every timed execution is compared outside timers with the complete functional vector, and its full certificate/counts/sink",
+    "retention": "all four individual calls, zero ticks and slowdowns; no outlier filter, chosen seed, fitted price, automatic repeats or forced GC",
+    "interpretation": "synthetic sequential CPU buffer; not GPU attention, deployment or a serving-population estimate"
+  },
+  "wall_limit_seconds": 120,
+  "memory_limit_mib": 1024,
+  "runtime_files_distributed": false,
+  "source_manifest_sha256": "5C27FE978B9164A1C01B3A14689062A9F4A1A6E0C99B20723B793F03E2AC4E6E",
+  "input_manifest_sha256": "3CC2CD376E9F037B4B00E7A97443504DD4D0BC56D7EDC883F4DD18A20FE04BB1",
+  "provenance_sha256": "1DBFF10CD1DE279944208835E1C8BFC7C588EA5C390BC58BBE1963F6EBF41463",
+  "record_sha256": {
+    "samples.jsonl.gz": "AA8083D3D6673F1F70829B80225CD74550F0A6823940D374A25416292B8ED27D",
+    "timing-summary.json": "335F4F4C2DBC0E84101D09A476DB7A7C19B3C4D2F77A693A0DA1DD17E67FF2A1"
+  },
+  "record_decoded": {
+    "samples.jsonl.gz": {
+      "bytes": 1572704,
+      "sha256": "B0B0E7B2A522E4D78AFFC73209822B3B7A4ADA1C84B5DFD72A799611E350C314"
+    }
+  }
+}

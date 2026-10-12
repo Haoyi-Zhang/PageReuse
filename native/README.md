@@ -221,3 +221,90 @@ All measurements are synthetic single-host CPU evidence. Abstract publication
 weights are not fitted to runtime. Concurrent allocation, external-trace
 authentication, device execution, neural quality, public serving workloads
 and production applicability remain outside this bridge.
+
+## Current-source five-policy functional comparison
+
+`NativePolicies.cs` adds longest-feasible reuse, anchored four-step reuse, and
+a C# port of `src/producer.py`'s rho=0 last-occurrence/range-add/range-min kernel.
+The tree preserves earliest-start ties, point replacement, lazy additions,
+expiry buckets and the persistent birth frontier. It returns full epochs and
+prefix potentials, not just the optimal cost. It rejects nonzero rho rather than
+silently calling a different algorithm. The direct-union reference and incremental
+backward DP remain available under their original names and implementations.
+
+The five arms are fresh, longest-feasible, four-step, exact rho=0 range-min, and
+exact rho=1 incremental DP. Price 1 is fixed, not fitted to loads or time. The
+four-step cap is the next multiple-of-four boundary even after an earlier
+lifetime cut. All arms use `ReplayPolicy`: price/plan/check, mask and mandatory
+index construction, allocation, descriptor materialization, native execution,
+mandatory projection, guard checks and free. No plan, index or arena is reused
+between arms. Future complete-path timing must charge this entire path.
+Heuristics call safety checking only and never solve a DP to supply potentials;
+the exported safety-checker JSON has zero placeholders solely for its existing
+schema. Exact arms retain the full optimality checker. Thus their certification
+costs differ intentionally.
+
+`policies.ps1` is a bounded, single-CPU functional driver with **no timing branch**.
+It compiles the three current C# files to a private `policy_bridge.dll`, checks
+the allocator source/binary against a real Compile manifest, and records source,
+input, saved-certificate, managed/native binary and output-record SHA-256 bindings.
+Only JSON / losslessly gzip-compressed JSONL evidence is retained in the stable `results/native-policy-comparison`
+directory. Binaries, compiler/runtime caches and worker logs remain in an explicit
+private work directory outside this artifact-root repository. The driver rejects
+in-repository build/runtime paths and refuses an existing result directory.
+An explicit private `-OutDir` (for example in `RUNNER_TEMP`) is supported for CI
+reproduction; the public dataset path remains stable.
+To reproduce from `artifact/` with an
+existing Zig compiler (a matching previously compiled current allocator may
+also be reused):
+
+```powershell
+$private = '/absolute/path/outside/artifact'
+./native/bounded.ps1 -Mode Compile -Zig /path/to/zig.exe -WorkRoot "$private/native-build" -WallSeconds 240 -MemoryMiB 2048
+./native/policies.ps1 -Library "$private/native-build/build/p054_allocator.dll" -BuildEnvironment "$private/native-build/compile/environment.json" -WorkRoot "$private/policy-runtime" -WallSeconds 120 -MemoryMiB 1024
+python -B ./native/check_policies.py ./results/native-policy-comparison --library "$private/native-build/build/p054_allocator.dll" --managed-assembly "$private/policy-runtime/policy_bridge.dll" --build-environment "$private/native-build/compile/environment.json"
+```
+
+The driver records 200 original cases plus three wide workloads and four edge
+controls, with five executions per case (1,035 total). `cases.jsonl.gz` retains
+the original graphs, strata and declared prices. Full-certificate gates compare
+direct/incremental on all 207 original inputs, all three exact planners on all
+207 explicitly repriced rho=0 inputs, and direct/incremental on all 207 repriced
+rho=1 inputs. The max-cost edge declares nonzero rho; its rho=0 gate is explicitly
+a repriced control, not evidence that the range tree implements arbitrary rho.
+The 200 saved certificates are also compared in full. `NativePolicyTests.cs`
+adds 134 finite policy controls and primitive tree tests, including empty and
+repeated-page ties, unused expiry, persistent birth and off-anchor lifetime cuts.
+The equivalence gates and paired-optimum calculations are outside `ReplayPolicy`
+and must remain outside every future per-arm complete-path timer.
+
+`check_policies.py` independently checks every plan using the unchanged Python
+producer specification and source-separated checker, reconstructs every mandatory
+value and native count/sink, and verifies the bindings. Its `independent-summary.json`
+separates the full 200 from the seven native controls and reports every original
+stratum plus the 48 tiny / 8 tight-family / 104 regular / 24 medium / 12 large /
+4 boundary families. Publication accounting and the fixed-price objective have
+separate paired optima and above-optimum counts; weighted visits are not bytes.
+All five policies were valid on all 200 in the current functional run. Publication
+cost was above the rho=0 optimum on 175 fresh, 26 longest-feasible, 104 four-step,
+zero range-min and 93 rho=1-exact cases. The last arm instead reaches the rho=1
+optimum on all 200. Synthetic stratum frequencies do not estimate serving use.
+
+A portable saved-record check needs no binary distribution or native execution:
+
+```sh
+python -B ./native/check_policies.py ./results/native-policy-comparison --verify-only
+```
+
+It recomputes the saved summary, plans, values, counts and source/data bindings;
+it explicitly reports `binary_files_checked=false`. Supplying all three private
+binary/build paths additionally verifies the actual recorded runtime files.
+The three large record files are `cases.jsonl.gz`, `planner-agreement.jsonl.gz`
+and `policies.jsonl.gz`. Their compressed and complete decompressed identities
+are recorded; all rows and mandatory vectors are retained. The transparent
+reader caps bytes actually decompressed at 256 MiB, not compressed file size.
+
+This functional route does not call `Measure`, `ComparePlanners`, `Batch` or
+`nb_batch`. It provides no current timing, speedup, GPU or deployment result.
+Historical campaigns, their original measured sources, protocol and unfavorable
+results are unchanged. A separately authorized timing slot is still required.

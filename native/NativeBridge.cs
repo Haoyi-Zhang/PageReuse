@@ -43,7 +43,7 @@ public sealed class Output {
     public long Loads, Bytes, Publications, DescriptorCopies;
     public ulong Sink;
 }
-public static class Bridge {
+public static partial class Bridge {
     public static readonly string[] Panel = {
         "case-000", "case-001", "case-003", "case-004", "case-005", "case-056",
         "case-120", "case-160", "case-184", "case-196", "case-199",

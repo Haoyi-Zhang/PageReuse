@@ -1,0 +1,6 @@
+policy,valid,invalid,publication_above_rho0_optimum,maximum_publication_ratio,fixed_price_above_rho1_optimum,publication_cost_sum,weighted_page_visits_sum,native_loads_sum,native_bytes_sum
+fresh,200,0,175,10.510959940,138,430996,412825,48456,72726
+longest-feasible,200,0,26,1.999954226,109,319316,964624,133281,199881
+four-step,200,0,104,6.405895692,131,365016,682061,83610,125574
+exact-rho0-range-min,200,0,0,1.000000000,98,250530,892060,132390,198519
+exact-rho1-incremental,200,0,93,10.510959940,0,324117,417465,50073,75204

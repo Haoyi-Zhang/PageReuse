@@ -1,0 +1,15 @@
+{
+  "kind": "public-private-path-omission",
+  "omitted_fields": ["measured-input/native-build-environment.json:compiler_path"],
+  "original_environment_sha256": "77F2FF6311BD6F61488C46E7B026EC7F76B33589E4FC70A736673BC77F321A58",
+  "original_input_manifest_sha256": "A8FC893DA1281A171E295B13EA2723100D21B0F4600F4A13E478E8912863EF8C",
+  "original_native_build_environment_sha256": "8350F8BF8FD798C861A1D514DCC4EB20AF80FAC62DBD33230392B9EC1FE0A44F",
+  "native_build_semantic_sha256": "423D37F5FF4307B7D6051150099A0EAFBBF4AD96E8137F88105B3CC2933065B1",
+  "unchanged_source_manifest_sha256": "5C27FE978B9164A1C01B3A14689062A9F4A1A6E0C99B20723B793F03E2AC4E6E",
+  "unchanged_record_sha256": {
+    "samples.jsonl.gz": "AA8083D3D6673F1F70829B80225CD74550F0A6823940D374A25416292B8ED27D",
+    "timing-summary.json": "335F4F4C2DBC0E84101D09A476DB7A7C19B3C4D2F77A693A0DA1DD17E67FF2A1"
+  },
+  "originals_preserved_privately": true,
+  "scope": "One compiler executable pathname omitted from the public metadata copy. Original digests retained; all substantive build fields, measured source snapshots, original input data and raw timing samples are unchanged. No remeasurement or retrospective source attribution."
+}

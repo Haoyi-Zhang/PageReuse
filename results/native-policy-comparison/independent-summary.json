@@ -1,0 +1,5643 @@
+{
+  "environment_sha256": "48C57BA99540BDCDDCC4B7E49007F944EA7EFC62EC5212BEA4BB84D1684CC0E4",
+  "fixed_visit_price": 1,
+  "full200_by_family_and_policy": [
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "boundary",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 112461,
+        "actual_loads": 75054,
+        "cost_at_fixed_visit_price": 466442,
+        "descriptor_copies": 2355,
+        "page_visits": 25018,
+        "publication_cost": 41408,
+        "publications": 67,
+        "weighted_page_visits": 425034
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "boundary",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 4.13290411588871,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 18495,
+        "actual_loads": 12288,
+        "cost_at_fixed_visit_price": 142810,
+        "descriptor_copies": 4096,
+        "page_visits": 4096,
+        "publication_cost": 72685,
+        "publications": 256,
+        "weighted_page_visits": 70125
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "boundary",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.6674511649799952,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 48306,
+        "actual_loads": 32142,
+        "cost_at_fixed_visit_price": 244859,
+        "descriptor_copies": 3550,
+        "page_visits": 10714,
+        "publication_cost": 62320,
+        "publications": 106,
+        "weighted_page_visits": 182539
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "boundary",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 4.13290411588871,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 18495,
+        "actual_loads": 12288,
+        "cost_at_fixed_visit_price": 142810,
+        "descriptor_copies": 4096,
+        "page_visits": 4096,
+        "publication_cost": 72685,
+        "publications": 256,
+        "weighted_page_visits": 70125
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "boundary",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0097442143727162,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 113601,
+        "actual_loads": 75810,
+        "cost_at_fixed_visit_price": 471203,
+        "descriptor_copies": 2353,
+        "page_visits": 25270,
+        "publication_cost": 41707,
+        "publications": 65,
+        "weighted_page_visits": 429496
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 8,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "greedy",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 96,
+        "actual_loads": 72,
+        "cost_at_fixed_visit_price": 200741,
+        "descriptor_copies": 16,
+        "page_visits": 24,
+        "publication_cost": 66927,
+        "publications": 16,
+        "weighted_page_visits": 133814
+      },
+      "valid": 8,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 8,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "greedy",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 96,
+        "actual_loads": 72,
+        "cost_at_fixed_visit_price": 200741,
+        "descriptor_copies": 16,
+        "page_visits": 24,
+        "publication_cost": 66927,
+        "publications": 16,
+        "weighted_page_visits": 133814
+      },
+      "valid": 8,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 8,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "greedy",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.9999542257281924,
+      "publication_above_rho0_optimum": 8,
+      "sums": {
+        "actual_bytes": 168,
+        "actual_loads": 120,
+        "cost_at_fixed_visit_price": 334555,
+        "descriptor_copies": 24,
+        "page_visits": 40,
+        "publication_cost": 133830,
+        "publications": 16,
+        "weighted_page_visits": 200725
+      },
+      "valid": 8,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 8,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "greedy",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.999969483818795,
+      "publication_above_rho0_optimum": 8,
+      "sums": {
+        "actual_bytes": 96,
+        "actual_loads": 72,
+        "cost_at_fixed_visit_price": 267652,
+        "descriptor_copies": 24,
+        "page_visits": 24,
+        "publication_cost": 133838,
+        "publications": 24,
+        "weighted_page_visits": 133814
+      },
+      "valid": 8,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 8,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "greedy",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.9999542257281924,
+      "publication_above_rho0_optimum": 8,
+      "sums": {
+        "actual_bytes": 168,
+        "actual_loads": 120,
+        "cost_at_fixed_visit_price": 334555,
+        "descriptor_copies": 24,
+        "page_visits": 40,
+        "publication_cost": 133830,
+        "publications": 16,
+        "weighted_page_visits": 200725
+      },
+      "valid": 8,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 12,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "large",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 46950,
+        "actual_loads": 31485,
+        "cost_at_fixed_visit_price": 247094,
+        "descriptor_copies": 3906,
+        "page_visits": 10495,
+        "publication_cost": 67099,
+        "publications": 205,
+        "weighted_page_visits": 179995
+      },
+      "valid": 12,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 12,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 10.510959939531368,
+      "publication_above_rho0_optimum": 8,
+      "sums": {
+        "actual_bytes": 30531,
+        "actual_loads": 20499,
+        "cost_at_fixed_visit_price": 207192,
+        "descriptor_copies": 5426,
+        "page_visits": 6833,
+        "publication_cost": 94315,
+        "publications": 307,
+        "weighted_page_visits": 112877
+      },
+      "valid": 12,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 12,
+      "fixed_price_above_rho1_optimum": 10,
+      "group": [
+        "large",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 6.405895691609977,
+      "publication_above_rho0_optimum": 10,
+      "sums": {
+        "actual_bytes": 42171,
+        "actual_loads": 28278,
+        "cost_at_fixed_visit_price": 243597,
+        "descriptor_copies": 4805,
+        "page_visits": 9426,
+        "publication_cost": 83188,
+        "publications": 236,
+        "weighted_page_visits": 160409
+      },
+      "valid": 12,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 12,
+      "fixed_price_above_rho1_optimum": 10,
+      "group": [
+        "large",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 10.510959939531368,
+      "publication_above_rho0_optimum": 12,
+      "sums": {
+        "actual_bytes": 29706,
+        "actual_loads": 19935,
+        "cost_at_fixed_visit_price": 225014,
+        "descriptor_copies": 6645,
+        "page_visits": 6645,
+        "publication_cost": 114427,
+        "publications": 384,
+        "weighted_page_visits": 110587
+      },
+      "valid": 12,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 12,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "large",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0138388625592416,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 46971,
+        "actual_loads": 31488,
+        "cost_at_fixed_visit_price": 247157,
+        "descriptor_copies": 3911,
+        "page_visits": 10496,
+        "publication_cost": 67306,
+        "publications": 205,
+        "weighted_page_visits": 179851
+      },
+      "valid": 12,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 24,
+      "fixed_price_above_rho1_optimum": 17,
+      "group": [
+        "medium",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 24342,
+        "actual_loads": 16176,
+        "cost_at_fixed_visit_price": 130821,
+        "descriptor_copies": 2054,
+        "page_visits": 5392,
+        "publication_cost": 38750,
+        "publications": 209,
+        "weighted_page_visits": 92071
+      },
+      "valid": 24,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 24,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "medium",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 5.625776397515528,
+      "publication_above_rho0_optimum": 17,
+      "sums": {
+        "actual_bytes": 15618,
+        "actual_loads": 10350,
+        "cost_at_fixed_visit_price": 108712,
+        "descriptor_copies": 2734,
+        "page_visits": 3450,
+        "publication_cost": 49866,
+        "publications": 309,
+        "weighted_page_visits": 58846
+      },
+      "valid": 24,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 24,
+      "fixed_price_above_rho1_optimum": 19,
+      "group": [
+        "medium",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.459627329192547,
+      "publication_above_rho0_optimum": 16,
+      "sums": {
+        "actual_bytes": 21564,
+        "actual_loads": 14295,
+        "cost_at_fixed_visit_price": 126576,
+        "descriptor_copies": 2415,
+        "page_visits": 4765,
+        "publication_cost": 45059,
+        "publications": 234,
+        "weighted_page_visits": 81517
+      },
+      "valid": 24,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 24,
+      "fixed_price_above_rho1_optimum": 19,
+      "group": [
+        "medium",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 5.625776397515528,
+      "publication_above_rho0_optimum": 23,
+      "sums": {
+        "actual_bytes": 14916,
+        "actual_loads": 9894,
+        "cost_at_fixed_visit_price": 119738,
+        "descriptor_copies": 3298,
+        "page_visits": 3298,
+        "publication_cost": 61789,
+        "publications": 384,
+        "weighted_page_visits": 57949
+      },
+      "valid": 24,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 24,
+      "fixed_price_above_rho1_optimum": 17,
+      "group": [
+        "medium",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0530913978494623,
+      "publication_above_rho0_optimum": 5,
+      "sums": {
+        "actual_bytes": 24369,
+        "actual_loads": 16188,
+        "cost_at_fixed_visit_price": 131330,
+        "descriptor_copies": 2061,
+        "page_visits": 5396,
+        "publication_cost": 39010,
+        "publications": 209,
+        "weighted_page_visits": 92320
+      },
+      "valid": 24,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 104,
+      "fixed_price_above_rho1_optimum": 56,
+      "group": [
+        "regular",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 13542,
+        "actual_loads": 8919,
+        "cost_at_fixed_visit_price": 82671,
+        "descriptor_copies": 1484,
+        "page_visits": 2973,
+        "publication_cost": 30604,
+        "publications": 426,
+        "weighted_page_visits": 52067
+      },
+      "valid": 104,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 104,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "regular",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.588235294117647,
+      "publication_above_rho0_optimum": 55,
+      "sums": {
+        "actual_bytes": 9564,
+        "actual_loads": 6327,
+        "cost_at_fixed_visit_price": 69169,
+        "descriptor_copies": 1710,
+        "page_visits": 2109,
+        "publication_cost": 34441,
+        "publications": 561,
+        "weighted_page_visits": 34728
+      },
+      "valid": 104,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 104,
+      "fixed_price_above_rho1_optimum": 73,
+      "group": [
+        "regular",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.7647058823529411,
+      "publication_above_rho0_optimum": 59,
+      "sums": {
+        "actual_bytes": 12243,
+        "actual_loads": 8094,
+        "cost_at_fixed_visit_price": 80248,
+        "descriptor_copies": 1636,
+        "page_visits": 2698,
+        "publication_cost": 33508,
+        "publications": 481,
+        "weighted_page_visits": 46740
+      },
+      "valid": 104,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 104,
+      "fixed_price_above_rho1_optimum": 69,
+      "group": [
+        "regular",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.1782178217821784,
+      "publication_above_rho0_optimum": 90,
+      "sums": {
+        "actual_bytes": 8706,
+        "actual_loads": 5784,
+        "cost_at_fixed_visit_price": 72938,
+        "descriptor_copies": 1928,
+        "page_visits": 1928,
+        "publication_cost": 39524,
+        "publications": 676,
+        "weighted_page_visits": 33414
+      },
+      "valid": 104,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 104,
+      "fixed_price_above_rho1_optimum": 57,
+      "group": [
+        "regular",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0823529411764705,
+      "publication_above_rho0_optimum": 7,
+      "sums": {
+        "actual_bytes": 13614,
+        "actual_loads": 8973,
+        "cost_at_fixed_visit_price": 82711,
+        "descriptor_copies": 1489,
+        "page_visits": 2991,
+        "publication_cost": 30633,
+        "publications": 426,
+        "weighted_page_visits": 52078
+      },
+      "valid": 104,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 48,
+      "fixed_price_above_rho1_optimum": 13,
+      "group": [
+        "tiny",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 1128,
+        "actual_loads": 684,
+        "cost_at_fixed_visit_price": 14821,
+        "descriptor_copies": 107,
+        "page_visits": 228,
+        "publication_cost": 5742,
+        "publications": 105,
+        "weighted_page_visits": 9079
+      },
+      "valid": 48,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 48,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.3333333333333335,
+      "publication_above_rho0_optimum": 9,
+      "sums": {
+        "actual_bytes": 900,
+        "actual_loads": 537,
+        "cost_at_fixed_visit_price": 12958,
+        "descriptor_copies": 113,
+        "page_visits": 179,
+        "publication_cost": 5883,
+        "publications": 127,
+        "weighted_page_visits": 7075
+      },
+      "valid": 48,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 48,
+      "fixed_price_above_rho1_optimum": 17,
+      "group": [
+        "tiny",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.4361702127659575,
+      "publication_above_rho0_optimum": 7,
+      "sums": {
+        "actual_bytes": 1122,
+        "actual_loads": 681,
+        "cost_at_fixed_visit_price": 17242,
+        "descriptor_copies": 114,
+        "page_visits": 227,
+        "publication_cost": 7111,
+        "publications": 112,
+        "weighted_page_visits": 10131
+      },
+      "valid": 48,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 48,
+      "fixed_price_above_rho1_optimum": 32,
+      "group": [
+        "tiny",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 4.0,
+      "publication_above_rho0_optimum": 38,
+      "sums": {
+        "actual_bytes": 807,
+        "actual_loads": 483,
+        "cost_at_fixed_visit_price": 15669,
+        "descriptor_copies": 161,
+        "page_visits": 161,
+        "publication_cost": 8733,
+        "publications": 189,
+        "weighted_page_visits": 6936
+      },
+      "valid": 48,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 48,
+      "fixed_price_above_rho1_optimum": 15,
+      "group": [
+        "tiny",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.997078870496592,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 1158,
+        "actual_loads": 702,
+        "cost_at_fixed_visit_price": 16984,
+        "descriptor_copies": 109,
+        "page_visits": 234,
+        "publication_cost": 6830,
+        "publications": 105,
+        "weighted_page_visits": 10154
+      },
+      "valid": 48,
+      "zero_publication_optimum_cases": 0
+    }
+  ],
+  "full200_by_policy": [
+    {
+      "cases": 200,
+      "fixed_price_above_rho1_optimum": 98,
+      "group": "exact-rho0-range-min",
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 198519,
+        "actual_loads": 132390,
+        "cost_at_fixed_visit_price": 1142590,
+        "descriptor_copies": 9922,
+        "page_visits": 44130,
+        "publication_cost": 250530,
+        "publications": 1028,
+        "weighted_page_visits": 892060
+      },
+      "valid": 200,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 200,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": "exact-rho1-incremental",
+      "invalid": 0,
+      "maximum_publication_ratio": 10.510959939531368,
+      "publication_above_rho0_optimum": 93,
+      "sums": {
+        "actual_bytes": 75204,
+        "actual_loads": 50073,
+        "cost_at_fixed_visit_price": 741582,
+        "descriptor_copies": 14095,
+        "page_visits": 16691,
+        "publication_cost": 324117,
+        "publications": 1576,
+        "weighted_page_visits": 417465
+      },
+      "valid": 200,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 200,
+      "fixed_price_above_rho1_optimum": 131,
+      "group": "four-step",
+      "invalid": 0,
+      "maximum_publication_ratio": 6.405895691609977,
+      "publication_above_rho0_optimum": 104,
+      "sums": {
+        "actual_bytes": 125574,
+        "actual_loads": 83610,
+        "cost_at_fixed_visit_price": 1047077,
+        "descriptor_copies": 12544,
+        "page_visits": 27870,
+        "publication_cost": 365016,
+        "publications": 1185,
+        "weighted_page_visits": 682061
+      },
+      "valid": 200,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 200,
+      "fixed_price_above_rho1_optimum": 138,
+      "group": "fresh",
+      "invalid": 0,
+      "maximum_publication_ratio": 10.510959939531368,
+      "publication_above_rho0_optimum": 175,
+      "sums": {
+        "actual_bytes": 72726,
+        "actual_loads": 48456,
+        "cost_at_fixed_visit_price": 843821,
+        "descriptor_copies": 16152,
+        "page_visits": 16152,
+        "publication_cost": 430996,
+        "publications": 1913,
+        "weighted_page_visits": 412825
+      },
+      "valid": 200,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 200,
+      "fixed_price_above_rho1_optimum": 109,
+      "group": "longest-feasible",
+      "invalid": 0,
+      "maximum_publication_ratio": 1.9999542257281924,
+      "publication_above_rho0_optimum": 26,
+      "sums": {
+        "actual_bytes": 199881,
+        "actual_loads": 133281,
+        "cost_at_fixed_visit_price": 1283940,
+        "descriptor_copies": 9947,
+        "page_visits": 44427,
+        "publication_cost": 319316,
+        "publications": 1026,
+        "weighted_page_visits": 964624
+      },
+      "valid": 200,
+      "zero_publication_optimum_cases": 0
+    }
+  ],
+  "full200_by_stratum_and_policy": [
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-birth",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 10557,
+        "actual_loads": 6933,
+        "cost_at_fixed_visit_price": 55654,
+        "descriptor_copies": 942,
+        "page_visits": 2311,
+        "publication_cost": 16420,
+        "publications": 32,
+        "weighted_page_visits": 39234
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "boundary-birth",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.15,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 4653,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 35718,
+        "descriptor_copies": 1024,
+        "page_visits": 1024,
+        "publication_cost": 18883,
+        "publications": 64,
+        "weighted_page_visits": 16835
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-birth",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0500609013398294,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 9273,
+        "actual_loads": 6129,
+        "cost_at_fixed_visit_price": 50245,
+        "descriptor_copies": 970,
+        "page_visits": 2043,
+        "publication_cost": 17242,
+        "publications": 39,
+        "weighted_page_visits": 33003
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "boundary-birth",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.15,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 4653,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 35718,
+        "descriptor_copies": 1024,
+        "page_visits": 1024,
+        "publication_cost": 18883,
+        "publications": 64,
+        "weighted_page_visits": 16835
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-birth",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0097442143727162,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 11265,
+        "actual_loads": 7398,
+        "cost_at_fixed_visit_price": 58322,
+        "descriptor_copies": 937,
+        "page_visits": 2466,
+        "publication_cost": 16580,
+        "publications": 31,
+        "weighted_page_visits": 41742
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-expiry",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 11040,
+        "actual_loads": 7449,
+        "cost_at_fixed_visit_price": 61182,
+        "descriptor_copies": 908,
+        "page_visits": 2483,
+        "publication_cost": 16390,
+        "publications": 30,
+        "weighted_page_visits": 44792
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "boundary-expiry",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.1194020744356314,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 4569,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 36694,
+        "descriptor_copies": 1024,
+        "page_visits": 1024,
+        "publication_cost": 18347,
+        "publications": 64,
+        "weighted_page_visits": 18347
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-expiry",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0481391092129346,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 9645,
+        "actual_loads": 6501,
+        "cost_at_fixed_visit_price": 55631,
+        "descriptor_copies": 954,
+        "page_visits": 2167,
+        "publication_cost": 17179,
+        "publications": 35,
+        "weighted_page_visits": 38452
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "boundary-expiry",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.1194020744356314,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 4569,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 36694,
+        "descriptor_copies": 1024,
+        "page_visits": 1024,
+        "publication_cost": 18347,
+        "publications": 64,
+        "weighted_page_visits": 18347
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-expiry",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0084807809640024,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 11472,
+        "actual_loads": 7740,
+        "cost_at_fixed_visit_price": 63275,
+        "descriptor_copies": 911,
+        "page_visits": 2580,
+        "publication_cost": 16529,
+        "publications": 29,
+        "weighted_page_visits": 46746
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-recycle",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18096,
+        "actual_loads": 12096,
+        "cost_at_fixed_visit_price": 73869,
+        "descriptor_copies": 252,
+        "page_visits": 4032,
+        "publication_cost": 4349,
+        "publications": 4,
+        "weighted_page_visits": 69520
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "boundary-recycle",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 4.13290411588871,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 4608,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 35884,
+        "descriptor_copies": 1024,
+        "page_visits": 1024,
+        "publication_cost": 17974,
+        "publications": 64,
+        "weighted_page_visits": 17910
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-recycle",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.8319153828466312,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 12528,
+        "actual_loads": 8364,
+        "cost_at_fixed_visit_price": 61516,
+        "descriptor_copies": 697,
+        "page_visits": 2788,
+        "publication_cost": 12316,
+        "publications": 16,
+        "weighted_page_visits": 49200
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "boundary-recycle",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 4.13290411588871,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 4608,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 35884,
+        "descriptor_copies": 1024,
+        "page_visits": 1024,
+        "publication_cost": 17974,
+        "publications": 64,
+        "weighted_page_visits": 17910
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-recycle",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18096,
+        "actual_loads": 12096,
+        "cost_at_fixed_visit_price": 73869,
+        "descriptor_copies": 252,
+        "page_visits": 4032,
+        "publication_cost": 4349,
+        "publications": 4,
+        "weighted_page_visits": 69520
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-stable",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 72768,
+        "actual_loads": 48576,
+        "cost_at_fixed_visit_price": 275737,
+        "descriptor_copies": 253,
+        "page_visits": 16192,
+        "publication_cost": 4249,
+        "publications": 1,
+        "weighted_page_visits": 271488
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "boundary-stable",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 4.114144504589315,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 4665,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 34514,
+        "descriptor_copies": 1024,
+        "page_visits": 1024,
+        "publication_cost": 17481,
+        "publications": 64,
+        "weighted_page_visits": 17033
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-stable",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.6674511649799952,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 16860,
+        "actual_loads": 11148,
+        "cost_at_fixed_visit_price": 77467,
+        "descriptor_copies": 929,
+        "page_visits": 3716,
+        "publication_cost": 15583,
+        "publications": 16,
+        "weighted_page_visits": 61884
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "boundary-stable",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 4.114144504589315,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 4665,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 34514,
+        "descriptor_copies": 1024,
+        "page_visits": 1024,
+        "publication_cost": 17481,
+        "publications": 64,
+        "weighted_page_visits": 17033
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "boundary-stable",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 72768,
+        "actual_loads": 48576,
+        "cost_at_fixed_visit_price": 275737,
+        "descriptor_copies": 253,
+        "page_visits": 16192,
+        "publication_cost": 4249,
+        "publications": 1,
+        "weighted_page_visits": 271488
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 8,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "greedy-tight-family",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 96,
+        "actual_loads": 72,
+        "cost_at_fixed_visit_price": 200741,
+        "descriptor_copies": 16,
+        "page_visits": 24,
+        "publication_cost": 66927,
+        "publications": 16,
+        "weighted_page_visits": 133814
+      },
+      "valid": 8,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 8,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "greedy-tight-family",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 96,
+        "actual_loads": 72,
+        "cost_at_fixed_visit_price": 200741,
+        "descriptor_copies": 16,
+        "page_visits": 24,
+        "publication_cost": 66927,
+        "publications": 16,
+        "weighted_page_visits": 133814
+      },
+      "valid": 8,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 8,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "greedy-tight-family",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.9999542257281924,
+      "publication_above_rho0_optimum": 8,
+      "sums": {
+        "actual_bytes": 168,
+        "actual_loads": 120,
+        "cost_at_fixed_visit_price": 334555,
+        "descriptor_copies": 24,
+        "page_visits": 40,
+        "publication_cost": 133830,
+        "publications": 16,
+        "weighted_page_visits": 200725
+      },
+      "valid": 8,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 8,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "greedy-tight-family",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.999969483818795,
+      "publication_above_rho0_optimum": 8,
+      "sums": {
+        "actual_bytes": 96,
+        "actual_loads": 72,
+        "cost_at_fixed_visit_price": 267652,
+        "descriptor_copies": 24,
+        "page_visits": 24,
+        "publication_cost": 133838,
+        "publications": 24,
+        "weighted_page_visits": 133814
+      },
+      "valid": 8,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 8,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "greedy-tight-family",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.9999542257281924,
+      "publication_above_rho0_optimum": 8,
+      "sums": {
+        "actual_bytes": 168,
+        "actual_loads": 120,
+        "cost_at_fixed_visit_price": 334555,
+        "descriptor_copies": 24,
+        "page_visits": 40,
+        "publication_cost": 133830,
+        "publications": 16,
+        "weighted_page_visits": 200725
+      },
+      "valid": 8,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-birth",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 8322,
+        "actual_loads": 5532,
+        "cost_at_fixed_visit_price": 48708,
+        "descriptor_copies": 1060,
+        "page_visits": 1844,
+        "publication_cost": 17950,
+        "publications": 42,
+        "weighted_page_visits": 30758
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large-birth",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.2008108108108109,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 6246,
+        "actual_loads": 4158,
+        "cost_at_fixed_visit_price": 43575,
+        "descriptor_copies": 1239,
+        "page_visits": 1386,
+        "publication_cost": 20985,
+        "publications": 58,
+        "weighted_page_visits": 22590
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-birth",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.05,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 8109,
+        "actual_loads": 5379,
+        "cost_at_fixed_visit_price": 48227,
+        "descriptor_copies": 1088,
+        "page_visits": 1793,
+        "publication_cost": 18466,
+        "publications": 44,
+        "weighted_page_visits": 29761
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-birth",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.3033783783783783,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 5964,
+        "actual_loads": 3972,
+        "cost_at_fixed_visit_price": 44608,
+        "descriptor_copies": 1324,
+        "page_visits": 1324,
+        "publication_cost": 22832,
+        "publications": 64,
+        "weighted_page_visits": 21776
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-birth",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0138388625592416,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 8373,
+        "actual_loads": 5562,
+        "cost_at_fixed_visit_price": 49030,
+        "descriptor_copies": 1065,
+        "page_visits": 1854,
+        "publication_cost": 18157,
+        "publications": 42,
+        "weighted_page_visits": 30873
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-empty",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 3501,
+        "actual_loads": 2433,
+        "cost_at_fixed_visit_price": 27567,
+        "descriptor_copies": 628,
+        "page_visits": 811,
+        "publication_cost": 12642,
+        "publications": 51,
+        "weighted_page_visits": 14925
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large-empty",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0205128205128204,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 2766,
+        "actual_loads": 1914,
+        "cost_at_fixed_visit_price": 24721,
+        "descriptor_copies": 628,
+        "page_visits": 638,
+        "publication_cost": 12809,
+        "publications": 63,
+        "weighted_page_visits": 11912
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-empty",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.004102564102564,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 3300,
+        "actual_loads": 2301,
+        "cost_at_fixed_visit_price": 26708,
+        "descriptor_copies": 628,
+        "page_visits": 767,
+        "publication_cost": 12675,
+        "publications": 53,
+        "weighted_page_visits": 14033
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "large-empty",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0342833539859562,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 2766,
+        "actual_loads": 1914,
+        "cost_at_fixed_visit_price": 24880,
+        "descriptor_copies": 638,
+        "page_visits": 638,
+        "publication_cost": 12968,
+        "publications": 64,
+        "weighted_page_visits": 11912
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-empty",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 3471,
+        "actual_loads": 2406,
+        "cost_at_fixed_visit_price": 27308,
+        "descriptor_copies": 628,
+        "page_visits": 802,
+        "publication_cost": 12642,
+        "publications": 51,
+        "weighted_page_visits": 14666
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-expiry",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 7620,
+        "actual_loads": 5169,
+        "cost_at_fixed_visit_price": 36544,
+        "descriptor_copies": 1018,
+        "page_visits": 1723,
+        "publication_cost": 13421,
+        "publications": 41,
+        "weighted_page_visits": 23123
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large-expiry",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.1217296511627908,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 6270,
+        "actual_loads": 4254,
+        "cost_at_fixed_visit_price": 33409,
+        "descriptor_copies": 1151,
+        "page_visits": 1418,
+        "publication_cost": 15003,
+        "publications": 54,
+        "weighted_page_visits": 18406
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-expiry",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0635043562439497,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 7131,
+        "actual_loads": 4827,
+        "cost_at_fixed_visit_price": 35892,
+        "descriptor_copies": 1080,
+        "page_visits": 1609,
+        "publication_cost": 14230,
+        "publications": 46,
+        "weighted_page_visits": 21662
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-expiry",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.3369670542635659,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 5856,
+        "actual_loads": 3960,
+        "cost_at_fixed_visit_price": 34556,
+        "descriptor_copies": 1320,
+        "page_visits": 1320,
+        "publication_cost": 17390,
+        "publications": 64,
+        "weighted_page_visits": 17166
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-expiry",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 7620,
+        "actual_loads": 5169,
+        "cost_at_fixed_visit_price": 36544,
+        "descriptor_copies": 1018,
+        "page_visits": 1723,
+        "publication_cost": 13421,
+        "publications": 41,
+        "weighted_page_visits": 23123
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large-mixed",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 4467,
+        "actual_loads": 2991,
+        "cost_at_fixed_visit_price": 37283,
+        "descriptor_copies": 944,
+        "page_visits": 997,
+        "publication_cost": 18630,
+        "publications": 61,
+        "weighted_page_visits": 18653
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large-mixed",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 4467,
+        "actual_loads": 2991,
+        "cost_at_fixed_visit_price": 37283,
+        "descriptor_copies": 944,
+        "page_visits": 997,
+        "publication_cost": 18630,
+        "publications": 61,
+        "weighted_page_visits": 18653
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large-mixed",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 4467,
+        "actual_loads": 2991,
+        "cost_at_fixed_visit_price": 37283,
+        "descriptor_copies": 944,
+        "page_visits": 997,
+        "publication_cost": 18630,
+        "publications": 61,
+        "weighted_page_visits": 18653
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-mixed",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0733062808750882,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 4458,
+        "actual_loads": 2985,
+        "cost_at_fixed_visit_price": 38232,
+        "descriptor_copies": 995,
+        "page_visits": 995,
+        "publication_cost": 19644,
+        "publications": 64,
+        "weighted_page_visits": 18588
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large-mixed",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 4467,
+        "actual_loads": 2991,
+        "cost_at_fixed_visit_price": 37283,
+        "descriptor_copies": 944,
+        "page_visits": 997,
+        "publication_cost": 18630,
+        "publications": 61,
+        "weighted_page_visits": 18653
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large-recycle",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 4608,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 18379,
+        "descriptor_copies": 128,
+        "page_visits": 1024,
+        "publication_cost": 2067,
+        "publications": 8,
+        "weighted_page_visits": 16312
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large-recycle",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 4608,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 18379,
+        "descriptor_copies": 128,
+        "page_visits": 1024,
+        "publication_cost": 2067,
+        "publications": 8,
+        "weighted_page_visits": 16312
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-recycle",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.0,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 4608,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 20446,
+        "descriptor_copies": 256,
+        "page_visits": 1024,
+        "publication_cost": 4134,
+        "publications": 16,
+        "weighted_page_visits": 16312
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-recycle",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 8.0,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 4608,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 32848,
+        "descriptor_copies": 1024,
+        "page_visits": 1024,
+        "publication_cost": 16536,
+        "publications": 64,
+        "weighted_page_visits": 16312
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large-recycle",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 4608,
+        "actual_loads": 3072,
+        "cost_at_fixed_visit_price": 18379,
+        "descriptor_copies": 128,
+        "page_visits": 1024,
+        "publication_cost": 2067,
+        "publications": 8,
+        "weighted_page_visits": 16312
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-stable",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18432,
+        "actual_loads": 12288,
+        "cost_at_fixed_visit_price": 78613,
+        "descriptor_copies": 128,
+        "page_visits": 4096,
+        "publication_cost": 2389,
+        "publications": 2,
+        "weighted_page_visits": 76224
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "large-stable",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 10.510959939531368,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 6174,
+        "actual_loads": 4110,
+        "cost_at_fixed_visit_price": 49825,
+        "descriptor_copies": 1336,
+        "page_visits": 1370,
+        "publication_cost": 24821,
+        "publications": 63,
+        "weighted_page_visits": 25004
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-stable",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 6.405895691609977,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 14556,
+        "actual_loads": 9708,
+        "cost_at_fixed_visit_price": 75041,
+        "descriptor_copies": 809,
+        "page_visits": 3236,
+        "publication_cost": 15053,
+        "publications": 16,
+        "weighted_page_visits": 59988
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "large-stable",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 10.510959939531368,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 6054,
+        "actual_loads": 4032,
+        "cost_at_fixed_visit_price": 49890,
+        "descriptor_copies": 1344,
+        "page_visits": 1344,
+        "publication_cost": 25057,
+        "publications": 64,
+        "weighted_page_visits": 24833
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 2,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "large-stable",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18432,
+        "actual_loads": 12288,
+        "cost_at_fixed_visit_price": 78613,
+        "descriptor_copies": 128,
+        "page_visits": 4096,
+        "publication_cost": 2389,
+        "publications": 2,
+        "weighted_page_visits": 76224
+      },
+      "valid": 2,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-birth",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 4353,
+        "actual_loads": 2874,
+        "cost_at_fixed_visit_price": 27529,
+        "descriptor_copies": 506,
+        "page_visits": 958,
+        "publication_cost": 9937,
+        "publications": 40,
+        "weighted_page_visits": 17592
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "medium-birth",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.2918834547346514,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 3105,
+        "actual_loads": 2037,
+        "cost_at_fixed_visit_price": 23945,
+        "descriptor_copies": 593,
+        "page_visits": 679,
+        "publication_cost": 11893,
+        "publications": 58,
+        "weighted_page_visits": 12052
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-birth",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.145933014354067,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 4074,
+        "actual_loads": 2679,
+        "cost_at_fixed_visit_price": 26941,
+        "descriptor_copies": 534,
+        "page_visits": 893,
+        "publication_cost": 10584,
+        "publications": 44,
+        "weighted_page_visits": 16357
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-birth",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.3822966507177032,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 2895,
+        "actual_loads": 1902,
+        "cost_at_fixed_visit_price": 24556,
+        "descriptor_copies": 634,
+        "page_visits": 634,
+        "publication_cost": 12806,
+        "publications": 64,
+        "weighted_page_visits": 11750
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-birth",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.039021852237253,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 4296,
+        "actual_loads": 2832,
+        "cost_at_fixed_visit_price": 27112,
+        "descriptor_copies": 514,
+        "page_visits": 944,
+        "publication_cost": 10014,
+        "publications": 40,
+        "weighted_page_visits": 17098
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-empty",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 2022,
+        "actual_loads": 1335,
+        "cost_at_fixed_visit_price": 12790,
+        "descriptor_copies": 336,
+        "page_visits": 445,
+        "publication_cost": 6058,
+        "publications": 52,
+        "weighted_page_visits": 6732
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "medium-empty",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0875912408759123,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 1644,
+        "actual_loads": 1086,
+        "cost_at_fixed_visit_price": 11642,
+        "descriptor_copies": 336,
+        "page_visits": 362,
+        "publication_cost": 6191,
+        "publications": 61,
+        "weighted_page_visits": 5451
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-empty",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.1094890510948905,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 2001,
+        "actual_loads": 1320,
+        "cost_at_fixed_visit_price": 12867,
+        "descriptor_copies": 343,
+        "page_visits": 440,
+        "publication_cost": 6178,
+        "publications": 53,
+        "weighted_page_visits": 6689
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "medium-empty",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.2846715328467153,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 1596,
+        "actual_loads": 1053,
+        "cost_at_fixed_visit_price": 11822,
+        "descriptor_copies": 351,
+        "page_visits": 351,
+        "publication_cost": 6439,
+        "publications": 64,
+        "weighted_page_visits": 5383
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-empty",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 2028,
+        "actual_loads": 1338,
+        "cost_at_fixed_visit_price": 12791,
+        "descriptor_copies": 336,
+        "page_visits": 446,
+        "publication_cost": 6058,
+        "publications": 52,
+        "weighted_page_visits": 6733
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-expiry",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 4116,
+        "actual_loads": 2742,
+        "cost_at_fixed_visit_price": 21733,
+        "descriptor_copies": 491,
+        "page_visits": 914,
+        "publication_cost": 7473,
+        "publications": 40,
+        "weighted_page_visits": 14260
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "medium-expiry",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.361625821876868,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 3042,
+        "actual_loads": 2046,
+        "cost_at_fixed_visit_price": 18543,
+        "descriptor_copies": 579,
+        "page_visits": 682,
+        "publication_cost": 8691,
+        "publications": 56,
+        "weighted_page_visits": 9852
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-expiry",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.1852958756724448,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 3762,
+        "actual_loads": 2511,
+        "cost_at_fixed_visit_price": 20959,
+        "descriptor_copies": 523,
+        "page_visits": 837,
+        "publication_cost": 8067,
+        "publications": 44,
+        "weighted_page_visits": 12892
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-expiry",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.4506873879258817,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 2835,
+        "actual_loads": 1908,
+        "cost_at_fixed_visit_price": 19540,
+        "descriptor_copies": 636,
+        "page_visits": 636,
+        "publication_cost": 9882,
+        "publications": 64,
+        "weighted_page_visits": 9658
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-expiry",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0530913978494623,
+      "publication_above_rho0_optimum": 3,
+      "sums": {
+        "actual_bytes": 4194,
+        "actual_loads": 2793,
+        "cost_at_fixed_visit_price": 22658,
+        "descriptor_copies": 490,
+        "page_visits": 931,
+        "publication_cost": 7656,
+        "publications": 40,
+        "weighted_page_visits": 15002
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "medium-mixed",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 2427,
+        "actual_loads": 1593,
+        "cost_at_fixed_visit_price": 21914,
+        "descriptor_copies": 466,
+        "page_visits": 531,
+        "publication_cost": 10667,
+        "publications": 57,
+        "weighted_page_visits": 11247
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "medium-mixed",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.061056952283222,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 2403,
+        "actual_loads": 1581,
+        "cost_at_fixed_visit_price": 21885,
+        "descriptor_copies": 474,
+        "page_visits": 527,
+        "publication_cost": 10786,
+        "publications": 58,
+        "weighted_page_visits": 11099
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 3,
+      "group": [
+        "medium-mixed",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.1149307337095946,
+      "publication_above_rho0_optimum": 3,
+      "sums": {
+        "actual_bytes": 2403,
+        "actual_loads": 1581,
+        "cost_at_fixed_visit_price": 22597,
+        "descriptor_copies": 498,
+        "page_visits": 527,
+        "publication_cost": 11498,
+        "publications": 61,
+        "weighted_page_visits": 11099
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 3,
+      "group": [
+        "medium-mixed",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.1758269720101782,
+      "publication_above_rho0_optimum": 3,
+      "sums": {
+        "actual_bytes": 2391,
+        "actual_loads": 1575,
+        "cost_at_fixed_visit_price": 23250,
+        "descriptor_copies": 525,
+        "page_visits": 525,
+        "publication_cost": 12153,
+        "publications": 64,
+        "weighted_page_visits": 11097
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "medium-mixed",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 2427,
+        "actual_loads": 1593,
+        "cost_at_fixed_visit_price": 21914,
+        "descriptor_copies": 466,
+        "page_visits": 531,
+        "publication_cost": 10667,
+        "publications": 57,
+        "weighted_page_visits": 11247
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "medium-recycle",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 2304,
+        "actual_loads": 1536,
+        "cost_at_fixed_visit_price": 12756,
+        "descriptor_copies": 128,
+        "page_visits": 512,
+        "publication_cost": 2596,
+        "publications": 16,
+        "weighted_page_visits": 10160
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "medium-recycle",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 2304,
+        "actual_loads": 1536,
+        "cost_at_fixed_visit_price": 12756,
+        "descriptor_copies": 128,
+        "page_visits": 512,
+        "publication_cost": 2596,
+        "publications": 16,
+        "weighted_page_visits": 10160
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "medium-recycle",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 2304,
+        "actual_loads": 1536,
+        "cost_at_fixed_visit_price": 12756,
+        "descriptor_copies": 128,
+        "page_visits": 512,
+        "publication_cost": 2596,
+        "publications": 16,
+        "weighted_page_visits": 10160
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-recycle",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 4.0,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 2304,
+        "actual_loads": 1536,
+        "cost_at_fixed_visit_price": 20544,
+        "descriptor_copies": 512,
+        "page_visits": 512,
+        "publication_cost": 10384,
+        "publications": 64,
+        "weighted_page_visits": 10160
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "medium-recycle",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 2304,
+        "actual_loads": 1536,
+        "cost_at_fixed_visit_price": 12756,
+        "descriptor_copies": 128,
+        "page_visits": 512,
+        "publication_cost": 2596,
+        "publications": 16,
+        "weighted_page_visits": 10160
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-stable",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 9120,
+        "actual_loads": 6096,
+        "cost_at_fixed_visit_price": 34099,
+        "descriptor_copies": 127,
+        "page_visits": 2032,
+        "publication_cost": 2019,
+        "publications": 4,
+        "weighted_page_visits": 32080
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "medium-stable",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 5.625776397515528,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 3120,
+        "actual_loads": 2064,
+        "cost_at_fixed_visit_price": 19941,
+        "descriptor_copies": 624,
+        "page_visits": 688,
+        "publication_cost": 9709,
+        "publications": 60,
+        "weighted_page_visits": 10232
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-stable",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.459627329192547,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 7020,
+        "actual_loads": 4668,
+        "cost_at_fixed_visit_price": 30456,
+        "descriptor_copies": 389,
+        "page_visits": 1556,
+        "publication_cost": 6136,
+        "publications": 16,
+        "weighted_page_visits": 24320
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 2,
+      "group": [
+        "medium-stable",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 5.625776397515528,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 2895,
+        "actual_loads": 1920,
+        "cost_at_fixed_visit_price": 20026,
+        "descriptor_copies": 640,
+        "page_visits": 640,
+        "publication_cost": 10125,
+        "publications": 64,
+        "weighted_page_visits": 9901
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 4,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "medium-stable",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 9120,
+        "actual_loads": 6096,
+        "cost_at_fixed_visit_price": 34099,
+        "descriptor_copies": 127,
+        "page_visits": 2032,
+        "publication_cost": 2019,
+        "publications": 4,
+        "weighted_page_visits": 32080
+      },
+      "valid": 4,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 18,
+      "fixed_price_above_rho1_optimum": 16,
+      "group": [
+        "regular-birth",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 2628,
+        "actual_loads": 1746,
+        "cost_at_fixed_visit_price": 15816,
+        "descriptor_copies": 318,
+        "page_visits": 582,
+        "publication_cost": 6079,
+        "publications": 76,
+        "weighted_page_visits": 9737
+      },
+      "valid": 18,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 18,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "regular-birth",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.469090909090909,
+      "publication_above_rho0_optimum": 16,
+      "sums": {
+        "actual_bytes": 2091,
+        "actual_loads": 1371,
+        "cost_at_fixed_visit_price": 13716,
+        "descriptor_copies": 355,
+        "page_visits": 457,
+        "publication_cost": 6895,
+        "publications": 102,
+        "weighted_page_visits": 6821
+      },
+      "valid": 18,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 18,
+      "fixed_price_above_rho1_optimum": 16,
+      "group": [
+        "regular-birth",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.44,
+      "publication_above_rho0_optimum": 9,
+      "sums": {
+        "actual_bytes": 2490,
+        "actual_loads": 1644,
+        "cost_at_fixed_visit_price": 15785,
+        "descriptor_copies": 341,
+        "page_visits": 548,
+        "publication_cost": 6675,
+        "publications": 85,
+        "weighted_page_visits": 9110
+      },
+      "valid": 18,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 18,
+      "fixed_price_above_rho1_optimum": 15,
+      "group": [
+        "regular-birth",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.7927272727272727,
+      "publication_above_rho0_optimum": 18,
+      "sums": {
+        "actual_bytes": 1854,
+        "actual_loads": 1227,
+        "cost_at_fixed_visit_price": 14756,
+        "descriptor_copies": 409,
+        "page_visits": 409,
+        "publication_cost": 8278,
+        "publications": 126,
+        "weighted_page_visits": 6478
+      },
+      "valid": 18,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 18,
+      "fixed_price_above_rho1_optimum": 16,
+      "group": [
+        "regular-birth",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0823529411764705,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 2634,
+        "actual_loads": 1755,
+        "cost_at_fixed_visit_price": 15751,
+        "descriptor_copies": 319,
+        "page_visits": 585,
+        "publication_cost": 6098,
+        "publications": 76,
+        "weighted_page_visits": 9653
+      },
+      "valid": 18,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "regular-empty",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 1224,
+        "actual_loads": 816,
+        "cost_at_fixed_visit_price": 9457,
+        "descriptor_copies": 204,
+        "page_visits": 272,
+        "publication_cost": 4811,
+        "publications": 89,
+        "weighted_page_visits": 4646
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "regular-empty",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0881542699724518,
+      "publication_above_rho0_optimum": 7,
+      "sums": {
+        "actual_bytes": 1074,
+        "actual_loads": 717,
+        "cost_at_fixed_visit_price": 8871,
+        "descriptor_copies": 205,
+        "page_visits": 239,
+        "publication_cost": 4890,
+        "publications": 102,
+        "weighted_page_visits": 3981
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 7,
+      "group": [
+        "regular-empty",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.6515151515151516,
+      "publication_above_rho0_optimum": 3,
+      "sums": {
+        "actual_bytes": 1203,
+        "actual_loads": 804,
+        "cost_at_fixed_visit_price": 9492,
+        "descriptor_copies": 206,
+        "page_visits": 268,
+        "publication_cost": 4973,
+        "publications": 92,
+        "weighted_page_visits": 4519
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 9,
+      "group": [
+        "regular-empty",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.313131313131313,
+      "publication_above_rho0_optimum": 13,
+      "sums": {
+        "actual_bytes": 966,
+        "actual_loads": 651,
+        "cost_at_fixed_visit_price": 9376,
+        "descriptor_copies": 217,
+        "page_visits": 217,
+        "publication_cost": 5584,
+        "publications": 118,
+        "weighted_page_visits": 3792
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "regular-empty",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 1236,
+        "actual_loads": 825,
+        "cost_at_fixed_visit_price": 9511,
+        "descriptor_copies": 204,
+        "page_visits": 275,
+        "publication_cost": 4811,
+        "publications": 89,
+        "weighted_page_visits": 4700
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 13,
+      "group": [
+        "regular-expiry",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 2400,
+        "actual_loads": 1548,
+        "cost_at_fixed_visit_price": 13990,
+        "descriptor_copies": 297,
+        "page_visits": 516,
+        "publication_cost": 5322,
+        "publications": 66,
+        "weighted_page_visits": 8668
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "regular-expiry",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.3113207547169812,
+      "publication_above_rho0_optimum": 13,
+      "sums": {
+        "actual_bytes": 1806,
+        "actual_loads": 1152,
+        "cost_at_fixed_visit_price": 12004,
+        "descriptor_copies": 327,
+        "page_visits": 384,
+        "publication_cost": 5713,
+        "publications": 90,
+        "weighted_page_visits": 6291
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 14,
+      "group": [
+        "regular-expiry",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.3018867924528301,
+      "publication_above_rho0_optimum": 10,
+      "sums": {
+        "actual_bytes": 2340,
+        "actual_loads": 1509,
+        "cost_at_fixed_visit_price": 14021,
+        "descriptor_copies": 314,
+        "page_visits": 503,
+        "publication_cost": 5635,
+        "publications": 72,
+        "weighted_page_visits": 8386
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "regular-expiry",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.5714285714285714,
+      "publication_above_rho0_optimum": 16,
+      "sums": {
+        "actual_bytes": 1674,
+        "actual_loads": 1068,
+        "cost_at_fixed_visit_price": 12340,
+        "descriptor_copies": 356,
+        "page_visits": 356,
+        "publication_cost": 6310,
+        "publications": 103,
+        "weighted_page_visits": 6030
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 14,
+      "group": [
+        "regular-expiry",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0571428571428572,
+      "publication_above_rho0_optimum": 5,
+      "sums": {
+        "actual_bytes": 2454,
+        "actual_loads": 1584,
+        "cost_at_fixed_visit_price": 14041,
+        "descriptor_copies": 301,
+        "page_visits": 528,
+        "publication_cost": 5332,
+        "publications": 66,
+        "weighted_page_visits": 8709
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "regular-mixed",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 1608,
+        "actual_loads": 1041,
+        "cost_at_fixed_visit_price": 14621,
+        "descriptor_copies": 318,
+        "page_visits": 347,
+        "publication_cost": 7799,
+        "publications": 109,
+        "weighted_page_visits": 6822
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "regular-mixed",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.051490514905149,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 1596,
+        "actual_loads": 1035,
+        "cost_at_fixed_visit_price": 14572,
+        "descriptor_copies": 320,
+        "page_visits": 345,
+        "publication_cost": 7818,
+        "publications": 110,
+        "weighted_page_visits": 6754
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "regular-mixed",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.2708333333333333,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 1590,
+        "actual_loads": 1032,
+        "cost_at_fixed_visit_price": 14620,
+        "descriptor_copies": 322,
+        "page_visits": 344,
+        "publication_cost": 7870,
+        "publications": 111,
+        "weighted_page_visits": 6750
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 8,
+      "group": [
+        "regular-mixed",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.5208333333333333,
+      "publication_above_rho0_optimum": 8,
+      "sums": {
+        "actual_bytes": 1560,
+        "actual_loads": 1014,
+        "cost_at_fixed_visit_price": 14826,
+        "descriptor_copies": 338,
+        "page_visits": 338,
+        "publication_cost": 8217,
+        "publications": 120,
+        "weighted_page_visits": 6609
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "regular-mixed",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 1608,
+        "actual_loads": 1041,
+        "cost_at_fixed_visit_price": 14621,
+        "descriptor_copies": 318,
+        "page_visits": 347,
+        "publication_cost": 7799,
+        "publications": 109,
+        "weighted_page_visits": 6822
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "regular-recycle",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 1053,
+        "actual_loads": 768,
+        "cost_at_fixed_visit_price": 8132,
+        "descriptor_copies": 183,
+        "page_visits": 256,
+        "publication_cost": 3655,
+        "publications": 68,
+        "weighted_page_visits": 4477
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "regular-recycle",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 1053,
+        "actual_loads": 768,
+        "cost_at_fixed_visit_price": 8132,
+        "descriptor_copies": 183,
+        "page_visits": 256,
+        "publication_cost": 3655,
+        "publications": 68,
+        "weighted_page_visits": 4477
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 17,
+      "group": [
+        "regular-recycle",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.6336633663366336,
+      "publication_above_rho0_optimum": 17,
+      "sums": {
+        "actual_bytes": 1053,
+        "actual_loads": 768,
+        "cost_at_fixed_visit_price": 8763,
+        "descriptor_copies": 222,
+        "page_visits": 256,
+        "publication_cost": 4286,
+        "publications": 85,
+        "weighted_page_visits": 4477
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 17,
+      "group": [
+        "regular-recycle",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.900990099009901,
+      "publication_above_rho0_optimum": 17,
+      "sums": {
+        "actual_bytes": 1053,
+        "actual_loads": 768,
+        "cost_at_fixed_visit_price": 9269,
+        "descriptor_copies": 256,
+        "page_visits": 256,
+        "publication_cost": 4792,
+        "publications": 101,
+        "weighted_page_visits": 4477
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 17,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "regular-recycle",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 1053,
+        "actual_loads": 768,
+        "cost_at_fixed_visit_price": 8132,
+        "descriptor_copies": 183,
+        "page_visits": 256,
+        "publication_cost": 3655,
+        "publications": 68,
+        "weighted_page_visits": 4477
+      },
+      "valid": 17,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 18,
+      "fixed_price_above_rho1_optimum": 18,
+      "group": [
+        "regular-stable",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 4629,
+        "actual_loads": 3000,
+        "cost_at_fixed_visit_price": 20655,
+        "descriptor_copies": 164,
+        "page_visits": 1000,
+        "publication_cost": 2938,
+        "publications": 18,
+        "weighted_page_visits": 17717
+      },
+      "valid": 18,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 18,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "regular-stable",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.588235294117647,
+      "publication_above_rho0_optimum": 18,
+      "sums": {
+        "actual_bytes": 1944,
+        "actual_loads": 1284,
+        "cost_at_fixed_visit_price": 11874,
+        "descriptor_copies": 320,
+        "page_visits": 428,
+        "publication_cost": 5470,
+        "publications": 89,
+        "weighted_page_visits": 6404
+      },
+      "valid": 18,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 18,
+      "fixed_price_above_rho1_optimum": 18,
+      "group": [
+        "regular-stable",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.7647058823529411,
+      "publication_above_rho0_optimum": 18,
+      "sums": {
+        "actual_bytes": 3567,
+        "actual_loads": 2337,
+        "cost_at_fixed_visit_price": 17567,
+        "descriptor_copies": 231,
+        "page_visits": 779,
+        "publication_cost": 4069,
+        "publications": 36,
+        "weighted_page_visits": 13498
+      },
+      "valid": 18,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 18,
+      "fixed_price_above_rho1_optimum": 12,
+      "group": [
+        "regular-stable",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.1782178217821784,
+      "publication_above_rho0_optimum": 18,
+      "sums": {
+        "actual_bytes": 1599,
+        "actual_loads": 1056,
+        "cost_at_fixed_visit_price": 12371,
+        "descriptor_copies": 352,
+        "page_visits": 352,
+        "publication_cost": 6343,
+        "publications": 108,
+        "weighted_page_visits": 6028
+      },
+      "valid": 18,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 18,
+      "fixed_price_above_rho1_optimum": 18,
+      "group": [
+        "regular-stable",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 4629,
+        "actual_loads": 3000,
+        "cost_at_fixed_visit_price": 20655,
+        "descriptor_copies": 164,
+        "page_visits": 1000,
+        "publication_cost": 2938,
+        "publications": 18,
+        "weighted_page_visits": 17717
+      },
+      "valid": 18,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-alias-cycle",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 36,
+        "actual_loads": 24,
+        "cost_at_fixed_visit_price": 26,
+        "descriptor_copies": 2,
+        "page_visits": 8,
+        "publication_cost": 6,
+        "publications": 1,
+        "weighted_page_visits": 20
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-alias-cycle",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.3333333333333335,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 24,
+        "descriptor_copies": 4,
+        "page_visits": 4,
+        "publication_cost": 14,
+        "publications": 4,
+        "weighted_page_visits": 10
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-alias-cycle",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 36,
+        "actual_loads": 24,
+        "cost_at_fixed_visit_price": 26,
+        "descriptor_copies": 2,
+        "page_visits": 8,
+        "publication_cost": 6,
+        "publications": 1,
+        "weighted_page_visits": 20
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-alias-cycle",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.3333333333333335,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 24,
+        "descriptor_copies": 4,
+        "page_visits": 4,
+        "publication_cost": 14,
+        "publications": 4,
+        "weighted_page_visits": 10
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-alias-cycle",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 36,
+        "actual_loads": 24,
+        "cost_at_fixed_visit_price": 26,
+        "descriptor_copies": 2,
+        "page_visits": 8,
+        "publication_cost": 6,
+        "publications": 1,
+        "weighted_page_visits": 20
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-birth",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 204,
+        "actual_loads": 114,
+        "cost_at_fixed_visit_price": 1120,
+        "descriptor_copies": 15,
+        "page_visits": 38,
+        "publication_cost": 445,
+        "publications": 12,
+        "weighted_page_visits": 675
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-birth",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0151515151515151,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 189,
+        "actual_loads": 102,
+        "cost_at_fixed_visit_price": 928,
+        "descriptor_copies": 15,
+        "page_visits": 34,
+        "publication_cost": 446,
+        "publications": 13,
+        "weighted_page_visits": 482
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-birth",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 204,
+        "actual_loads": 114,
+        "cost_at_fixed_visit_price": 1120,
+        "descriptor_copies": 15,
+        "page_visits": 38,
+        "publication_cost": 445,
+        "publications": 12,
+        "weighted_page_visits": 675
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 7,
+      "group": [
+        "tiny-birth",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 4.0,
+      "publication_above_rho0_optimum": 7,
+      "sums": {
+        "actual_bytes": 156,
+        "actual_loads": 84,
+        "cost_at_fixed_visit_price": 1422,
+        "descriptor_copies": 28,
+        "page_visits": 28,
+        "publication_cost": 973,
+        "publications": 28,
+        "weighted_page_visits": 449
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-birth",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 204,
+        "actual_loads": 114,
+        "cost_at_fixed_visit_price": 1120,
+        "descriptor_copies": 15,
+        "page_visits": 38,
+        "publication_cost": 445,
+        "publications": 12,
+        "weighted_page_visits": 675
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-birth-boundary",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 27,
+        "actual_loads": 18,
+        "cost_at_fixed_visit_price": 5127,
+        "descriptor_copies": 4,
+        "page_visits": 6,
+        "publication_cost": 2052,
+        "publications": 2,
+        "weighted_page_visits": 3075
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-birth-boundary",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0004873294346979,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 4103,
+        "descriptor_copies": 4,
+        "page_visits": 4,
+        "publication_cost": 2053,
+        "publications": 3,
+        "weighted_page_visits": 2050
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-birth-boundary",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 27,
+        "actual_loads": 18,
+        "cost_at_fixed_visit_price": 5127,
+        "descriptor_copies": 4,
+        "page_visits": 6,
+        "publication_cost": 2052,
+        "publications": 2,
+        "weighted_page_visits": 3075
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-birth-boundary",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0004873294346979,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 4103,
+        "descriptor_copies": 4,
+        "page_visits": 4,
+        "publication_cost": 2053,
+        "publications": 3,
+        "weighted_page_visits": 2050
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-birth-boundary",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 27,
+        "actual_loads": 18,
+        "cost_at_fixed_visit_price": 5127,
+        "descriptor_copies": 4,
+        "page_visits": 6,
+        "publication_cost": 2052,
+        "publications": 2,
+        "weighted_page_visits": 3075
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-empty",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 129,
+        "actual_loads": 81,
+        "cost_at_fixed_visit_price": 891,
+        "descriptor_copies": 14,
+        "page_visits": 27,
+        "publication_cost": 505,
+        "publications": 19,
+        "weighted_page_visits": 386
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-empty",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.196319018404908,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 123,
+        "actual_loads": 78,
+        "cost_at_fixed_visit_price": 859,
+        "descriptor_copies": 14,
+        "page_visits": 26,
+        "publication_cost": 537,
+        "publications": 20,
+        "weighted_page_visits": 322
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 3,
+      "group": [
+        "tiny-empty",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.5714285714285714,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 126,
+        "actual_loads": 78,
+        "cost_at_fixed_visit_price": 970,
+        "descriptor_copies": 15,
+        "page_visits": 26,
+        "publication_cost": 585,
+        "publications": 21,
+        "weighted_page_visits": 385
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 7,
+      "group": [
+        "tiny-empty",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.462686567164179,
+      "publication_above_rho0_optimum": 7,
+      "sums": {
+        "actual_bytes": 90,
+        "actual_loads": 57,
+        "cost_at_fixed_visit_price": 1241,
+        "descriptor_copies": 19,
+        "page_visits": 19,
+        "publication_cost": 948,
+        "publications": 35,
+        "weighted_page_visits": 293
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-empty",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 129,
+        "actual_loads": 81,
+        "cost_at_fixed_visit_price": 891,
+        "descriptor_copies": 14,
+        "page_visits": 27,
+        "publication_cost": 505,
+        "publications": 19,
+        "weighted_page_visits": 386
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-empty-zero-setup",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 24,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 5,
+        "descriptor_copies": 1,
+        "page_visits": 4,
+        "publication_cost": 1,
+        "publications": 1,
+        "weighted_page_visits": 4
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-empty-zero-setup",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 9,
+        "cost_at_fixed_visit_price": 4,
+        "descriptor_copies": 1,
+        "page_visits": 3,
+        "publication_cost": 1,
+        "publications": 2,
+        "weighted_page_visits": 3
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-empty-zero-setup",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 24,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 5,
+        "descriptor_copies": 1,
+        "page_visits": 4,
+        "publication_cost": 1,
+        "publications": 1,
+        "weighted_page_visits": 4
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-empty-zero-setup",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.0,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 12,
+        "actual_loads": 6,
+        "cost_at_fixed_visit_price": 4,
+        "descriptor_copies": 2,
+        "page_visits": 2,
+        "publication_cost": 2,
+        "publications": 4,
+        "weighted_page_visits": 2
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-empty-zero-setup",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 24,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 5,
+        "descriptor_copies": 1,
+        "page_visits": 4,
+        "publication_cost": 1,
+        "publications": 1,
+        "weighted_page_visits": 4
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 5,
+      "group": [
+        "tiny-expiry",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 324,
+        "actual_loads": 201,
+        "cost_at_fixed_visit_price": 2802,
+        "descriptor_copies": 23,
+        "page_visits": 67,
+        "publication_cost": 753,
+        "publications": 14,
+        "weighted_page_visits": 2049
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-expiry",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.4086538461538463,
+      "publication_above_rho0_optimum": 2,
+      "sums": {
+        "actual_bytes": 195,
+        "actual_loads": 117,
+        "cost_at_fixed_visit_price": 2223,
+        "descriptor_copies": 25,
+        "page_visits": 39,
+        "publication_cost": 840,
+        "publications": 24,
+        "weighted_page_visits": 1383
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 6,
+      "group": [
+        "tiny-expiry",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.4361702127659575,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 312,
+        "actual_loads": 195,
+        "cost_at_fixed_visit_price": 3095,
+        "descriptor_copies": 28,
+        "page_visits": 65,
+        "publication_cost": 1018,
+        "publications": 19,
+        "weighted_page_visits": 2077
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 6,
+      "group": [
+        "tiny-expiry",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.265957446808511,
+      "publication_above_rho0_optimum": 7,
+      "sums": {
+        "actual_bytes": 174,
+        "actual_loads": 105,
+        "cost_at_fixed_visit_price": 2719,
+        "descriptor_copies": 35,
+        "page_visits": 35,
+        "publication_cost": 1412,
+        "publications": 35,
+        "weighted_page_visits": 1307
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 6,
+      "group": [
+        "tiny-expiry",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.6808510638297873,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 345,
+        "actual_loads": 213,
+        "cost_at_fixed_visit_price": 2916,
+        "descriptor_copies": 24,
+        "page_visits": 71,
+        "publication_cost": 817,
+        "publications": 14,
+        "weighted_page_visits": 2099
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-greedy-gap",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 12,
+        "actual_loads": 9,
+        "cost_at_fixed_visit_price": 3076,
+        "descriptor_copies": 2,
+        "page_visits": 3,
+        "publication_cost": 1027,
+        "publications": 2,
+        "weighted_page_visits": 2049
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-greedy-gap",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 12,
+        "actual_loads": 9,
+        "cost_at_fixed_visit_price": 3076,
+        "descriptor_copies": 2,
+        "page_visits": 3,
+        "publication_cost": 1027,
+        "publications": 2,
+        "weighted_page_visits": 2049
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-greedy-gap",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.997078870496592,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 21,
+        "actual_loads": 15,
+        "cost_at_fixed_visit_price": 5125,
+        "descriptor_copies": 3,
+        "page_visits": 5,
+        "publication_cost": 2051,
+        "publications": 2,
+        "weighted_page_visits": 3074
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-greedy-gap",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.9980525803310614,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 12,
+        "actual_loads": 9,
+        "cost_at_fixed_visit_price": 4101,
+        "descriptor_copies": 3,
+        "page_visits": 3,
+        "publication_cost": 2052,
+        "publications": 3,
+        "weighted_page_visits": 2049
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-greedy-gap",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.997078870496592,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 21,
+        "actual_loads": 15,
+        "cost_at_fixed_visit_price": 5125,
+        "descriptor_copies": 3,
+        "page_visits": 5,
+        "publication_cost": 2051,
+        "publications": 2,
+        "weighted_page_visits": 3074
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-mixed",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 78,
+        "actual_loads": 51,
+        "cost_at_fixed_visit_price": 467,
+        "descriptor_copies": 12,
+        "page_visits": 17,
+        "publication_cost": 358,
+        "publications": 16,
+        "weighted_page_visits": 109
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-mixed",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 78,
+        "actual_loads": 51,
+        "cost_at_fixed_visit_price": 467,
+        "descriptor_copies": 12,
+        "page_visits": 17,
+        "publication_cost": 358,
+        "publications": 16,
+        "weighted_page_visits": 109
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-mixed",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 78,
+        "actual_loads": 51,
+        "cost_at_fixed_visit_price": 467,
+        "descriptor_copies": 12,
+        "page_visits": 17,
+        "publication_cost": 358,
+        "publications": 16,
+        "weighted_page_visits": 109
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 4,
+      "group": [
+        "tiny-mixed",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.0,
+      "publication_above_rho0_optimum": 4,
+      "sums": {
+        "actual_bytes": 78,
+        "actual_loads": 51,
+        "cost_at_fixed_visit_price": 518,
+        "descriptor_copies": 17,
+        "page_visits": 17,
+        "publication_cost": 409,
+        "publications": 21,
+        "weighted_page_visits": 109
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-mixed",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 78,
+        "actual_loads": 51,
+        "cost_at_fixed_visit_price": 467,
+        "descriptor_copies": 12,
+        "page_visits": 17,
+        "publication_cost": 358,
+        "publications": 16,
+        "weighted_page_visits": 109
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-recycle",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 105,
+        "actual_loads": 63,
+        "cost_at_fixed_visit_price": 752,
+        "descriptor_copies": 21,
+        "page_visits": 21,
+        "publication_cost": 432,
+        "publications": 28,
+        "weighted_page_visits": 320
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-recycle",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 105,
+        "actual_loads": 63,
+        "cost_at_fixed_visit_price": 752,
+        "descriptor_copies": 21,
+        "page_visits": 21,
+        "publication_cost": 432,
+        "publications": 28,
+        "weighted_page_visits": 320
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-recycle",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 105,
+        "actual_loads": 63,
+        "cost_at_fixed_visit_price": 752,
+        "descriptor_copies": 21,
+        "page_visits": 21,
+        "publication_cost": 432,
+        "publications": 28,
+        "weighted_page_visits": 320
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-recycle",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 105,
+        "actual_loads": 63,
+        "cost_at_fixed_visit_price": 752,
+        "descriptor_copies": 21,
+        "page_visits": 21,
+        "publication_cost": 432,
+        "publications": 28,
+        "weighted_page_visits": 320
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-recycle",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 105,
+        "actual_loads": 63,
+        "cost_at_fixed_visit_price": 752,
+        "descriptor_copies": 21,
+        "page_visits": 21,
+        "publication_cost": 432,
+        "publications": 28,
+        "weighted_page_visits": 320
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-recycled-slot",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 14,
+        "descriptor_copies": 2,
+        "page_visits": 4,
+        "publication_cost": 6,
+        "publications": 2,
+        "weighted_page_visits": 8
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-recycled-slot",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 14,
+        "descriptor_copies": 2,
+        "page_visits": 4,
+        "publication_cost": 6,
+        "publications": 2,
+        "weighted_page_visits": 8
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-recycled-slot",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 14,
+        "descriptor_copies": 2,
+        "page_visits": 4,
+        "publication_cost": 6,
+        "publications": 2,
+        "weighted_page_visits": 8
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-recycled-slot",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.0,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 20,
+        "descriptor_copies": 4,
+        "page_visits": 4,
+        "publication_cost": 12,
+        "publications": 4,
+        "weighted_page_visits": 8
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-recycled-slot",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 12,
+        "cost_at_fixed_visit_price": 14,
+        "descriptor_copies": 2,
+        "page_visits": 4,
+        "publication_cost": 6,
+        "publications": 2,
+        "weighted_page_visits": 8
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 3,
+      "group": [
+        "tiny-stable",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 153,
+        "actual_loads": 90,
+        "cost_at_fixed_visit_price": 532,
+        "descriptor_copies": 10,
+        "page_visits": 30,
+        "publication_cost": 154,
+        "publications": 7,
+        "weighted_page_visits": 378
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-stable",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.6666666666666667,
+      "publication_above_rho0_optimum": 3,
+      "sums": {
+        "actual_bytes": 108,
+        "actual_loads": 63,
+        "cost_at_fixed_visit_price": 499,
+        "descriptor_copies": 12,
+        "page_visits": 21,
+        "publication_cost": 166,
+        "publications": 12,
+        "weighted_page_visits": 333
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 3,
+      "group": [
+        "tiny-stable",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 153,
+        "actual_loads": 90,
+        "cost_at_fixed_visit_price": 532,
+        "descriptor_copies": 10,
+        "page_visits": 30,
+        "publication_cost": 154,
+        "publications": 7,
+        "weighted_page_visits": 378
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 5,
+      "group": [
+        "tiny-stable",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.0,
+      "publication_above_rho0_optimum": 7,
+      "sums": {
+        "actual_bytes": 108,
+        "actual_loads": 63,
+        "cost_at_fixed_visit_price": 750,
+        "descriptor_copies": 21,
+        "page_visits": 21,
+        "publication_cost": 417,
+        "publications": 21,
+        "weighted_page_visits": 333
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 7,
+      "fixed_price_above_rho1_optimum": 3,
+      "group": [
+        "tiny-stable",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 153,
+        "actual_loads": 90,
+        "cost_at_fixed_visit_price": 532,
+        "descriptor_copies": 10,
+        "page_visits": 30,
+        "publication_cost": 154,
+        "publications": 7,
+        "weighted_page_visits": 378
+      },
+      "valid": 7,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-unused-expiry",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 9,
+        "cost_at_fixed_visit_price": 9,
+        "descriptor_copies": 1,
+        "page_visits": 3,
+        "publication_cost": 3,
+        "publications": 1,
+        "weighted_page_visits": 6
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-unused-expiry",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 9,
+        "cost_at_fixed_visit_price": 9,
+        "descriptor_copies": 1,
+        "page_visits": 3,
+        "publication_cost": 3,
+        "publications": 1,
+        "weighted_page_visits": 6
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-unused-expiry",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 9,
+        "cost_at_fixed_visit_price": 9,
+        "descriptor_copies": 1,
+        "page_visits": 3,
+        "publication_cost": 3,
+        "publications": 1,
+        "weighted_page_visits": 6
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "tiny-unused-expiry",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.0,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 9,
+        "cost_at_fixed_visit_price": 15,
+        "descriptor_copies": 3,
+        "page_visits": 3,
+        "publication_cost": 9,
+        "publications": 3,
+        "weighted_page_visits": 6
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "tiny-unused-expiry",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 18,
+        "actual_loads": 9,
+        "cost_at_fixed_visit_price": 9,
+        "descriptor_copies": 1,
+        "page_visits": 3,
+        "publication_cost": 3,
+        "publications": 1,
+        "weighted_page_visits": 6
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    }
+  ],
+  "full_certificate_agreement_cases": 207,
+  "interpretation": "Synthetic case frequencies are not serving prevalence. Publication and fixed-price objectives are reported separately; loads/bytes are counts, not speed.",
+  "native_control_cases": 7,
+  "native_policy_records": 35,
+  "original_nonzero_price_cases": [
+    "native-edge-maxcost"
+  ],
+  "performance_measurements_started": false,
+  "retained_cases": 200,
+  "retained_policy_records": 1000,
+  "separate_native_controls": [
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-address64",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 256,
+        "actual_loads": 128,
+        "cost_at_fixed_visit_price": 102,
+        "descriptor_copies": 1,
+        "page_visits": 1,
+        "publication_cost": 101,
+        "publications": 1,
+        "weighted_page_visits": 1
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-address64",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 256,
+        "actual_loads": 128,
+        "cost_at_fixed_visit_price": 102,
+        "descriptor_copies": 1,
+        "page_visits": 1,
+        "publication_cost": 101,
+        "publications": 1,
+        "weighted_page_visits": 1
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-address64",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 256,
+        "actual_loads": 128,
+        "cost_at_fixed_visit_price": 102,
+        "descriptor_copies": 1,
+        "page_visits": 1,
+        "publication_cost": 101,
+        "publications": 1,
+        "weighted_page_visits": 1
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-address64",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 256,
+        "actual_loads": 128,
+        "cost_at_fixed_visit_price": 102,
+        "descriptor_copies": 1,
+        "page_visits": 1,
+        "publication_cost": 101,
+        "publications": 1,
+        "weighted_page_visits": 1
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-address64",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 256,
+        "actual_loads": 128,
+        "cost_at_fixed_visit_price": 102,
+        "descriptor_copies": 1,
+        "page_visits": 1,
+        "publication_cost": 101,
+        "publications": 1,
+        "weighted_page_visits": 1
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-capzero",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 13,
+        "actual_loads": 7,
+        "cost_at_fixed_visit_price": 208,
+        "descriptor_copies": 3,
+        "page_visits": 5,
+        "publication_cost": 203,
+        "publications": 2,
+        "weighted_page_visits": 5
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-capzero",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 13,
+        "actual_loads": 7,
+        "cost_at_fixed_visit_price": 208,
+        "descriptor_copies": 3,
+        "page_visits": 5,
+        "publication_cost": 203,
+        "publications": 2,
+        "weighted_page_visits": 5
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-capzero",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 13,
+        "actual_loads": 7,
+        "cost_at_fixed_visit_price": 208,
+        "descriptor_copies": 3,
+        "page_visits": 5,
+        "publication_cost": 203,
+        "publications": 2,
+        "weighted_page_visits": 5
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "native-edge-capzero",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.4926108374384237,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 5,
+        "actual_loads": 3,
+        "cost_at_fixed_visit_price": 306,
+        "descriptor_copies": 3,
+        "page_visits": 3,
+        "publication_cost": 303,
+        "publications": 3,
+        "weighted_page_visits": 3
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-capzero",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 13,
+        "actual_loads": 7,
+        "cost_at_fixed_visit_price": 208,
+        "descriptor_copies": 3,
+        "page_visits": 5,
+        "publication_cost": 203,
+        "publications": 2,
+        "weighted_page_visits": 5
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-empty",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": null,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 0,
+        "actual_loads": 0,
+        "cost_at_fixed_visit_price": 0,
+        "descriptor_copies": 0,
+        "page_visits": 0,
+        "publication_cost": 0,
+        "publications": 1,
+        "weighted_page_visits": 0
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 1
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-empty",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": null,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 0,
+        "actual_loads": 0,
+        "cost_at_fixed_visit_price": 0,
+        "descriptor_copies": 0,
+        "page_visits": 0,
+        "publication_cost": 0,
+        "publications": 1,
+        "weighted_page_visits": 0
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 1
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-empty",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": null,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 0,
+        "actual_loads": 0,
+        "cost_at_fixed_visit_price": 0,
+        "descriptor_copies": 0,
+        "page_visits": 0,
+        "publication_cost": 0,
+        "publications": 1,
+        "weighted_page_visits": 0
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 1
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-empty",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": null,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 0,
+        "actual_loads": 0,
+        "cost_at_fixed_visit_price": 0,
+        "descriptor_copies": 0,
+        "page_visits": 0,
+        "publication_cost": 0,
+        "publications": 4,
+        "weighted_page_visits": 0
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 1
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-empty",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": null,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 0,
+        "actual_loads": 0,
+        "cost_at_fixed_visit_price": 0,
+        "descriptor_copies": 0,
+        "page_visits": 0,
+        "publication_cost": 0,
+        "publications": 1,
+        "weighted_page_visits": 0
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 1
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-maxcost",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 16384,
+        "actual_loads": 8192,
+        "cost_at_fixed_visit_price": 69206016,
+        "descriptor_copies": 1,
+        "page_visits": 64,
+        "publication_cost": 2097152,
+        "publications": 1,
+        "weighted_page_visits": 67108864
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-maxcost",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 16384,
+        "actual_loads": 8192,
+        "cost_at_fixed_visit_price": 69206016,
+        "descriptor_copies": 1,
+        "page_visits": 64,
+        "publication_cost": 2097152,
+        "publications": 1,
+        "weighted_page_visits": 67108864
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "native-edge-maxcost",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 16.0,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 16384,
+        "actual_loads": 8192,
+        "cost_at_fixed_visit_price": 100663296,
+        "descriptor_copies": 16,
+        "page_visits": 64,
+        "publication_cost": 33554432,
+        "publications": 16,
+        "weighted_page_visits": 67108864
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "native-edge-maxcost",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 64.0,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 16384,
+        "actual_loads": 8192,
+        "cost_at_fixed_visit_price": 201326592,
+        "descriptor_copies": 64,
+        "page_visits": 64,
+        "publication_cost": 134217728,
+        "publications": 64,
+        "weighted_page_visits": 67108864
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-edge-maxcost",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 16384,
+        "actual_loads": 8192,
+        "cost_at_fixed_visit_price": 69206016,
+        "descriptor_copies": 1,
+        "page_visits": 64,
+        "publication_cost": 2097152,
+        "publications": 1,
+        "weighted_page_visits": 67108864
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "native-wide-recycle",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 98304,
+        "actual_loads": 65536,
+        "cost_at_fixed_visit_price": 548,
+        "descriptor_copies": 32,
+        "page_visits": 512,
+        "publication_cost": 36,
+        "publications": 4,
+        "weighted_page_visits": 512
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-wide-recycle",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.5555555555555554,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 40960,
+        "actual_loads": 24576,
+        "cost_at_fixed_visit_price": 320,
+        "descriptor_copies": 96,
+        "page_visits": 192,
+        "publication_cost": 128,
+        "publications": 32,
+        "weighted_page_visits": 192
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "native-wide-recycle",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.6666666666666665,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 65536,
+        "actual_loads": 40960,
+        "cost_at_fixed_visit_price": 416,
+        "descriptor_copies": 80,
+        "page_visits": 320,
+        "publication_cost": 96,
+        "publications": 16,
+        "weighted_page_visits": 320
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-wide-recycle",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 5.333333333333333,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 24576,
+        "actual_loads": 16384,
+        "cost_at_fixed_visit_price": 320,
+        "descriptor_copies": 128,
+        "page_visits": 128,
+        "publication_cost": 192,
+        "publications": 64,
+        "weighted_page_visits": 128
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "native-wide-recycle",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 98304,
+        "actual_loads": 65536,
+        "cost_at_fixed_visit_price": 548,
+        "descriptor_copies": 32,
+        "page_visits": 512,
+        "publication_cost": 36,
+        "publications": 4,
+        "weighted_page_visits": 512
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-wide-repeat",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 196608,
+        "actual_loads": 131072,
+        "cost_at_fixed_visit_price": 1041,
+        "descriptor_copies": 16,
+        "page_visits": 1024,
+        "publication_cost": 17,
+        "publications": 1,
+        "weighted_page_visits": 1024
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-wide-repeat",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 196608,
+        "actual_loads": 131072,
+        "cost_at_fixed_visit_price": 1041,
+        "descriptor_copies": 16,
+        "page_visits": 1024,
+        "publication_cost": 17,
+        "publications": 1,
+        "weighted_page_visits": 1024
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "native-wide-repeat",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 16.0,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 196608,
+        "actual_loads": 131072,
+        "cost_at_fixed_visit_price": 1296,
+        "descriptor_copies": 256,
+        "page_visits": 1024,
+        "publication_cost": 272,
+        "publications": 16,
+        "weighted_page_visits": 1024
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "native-wide-repeat",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 64.0,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 196608,
+        "actual_loads": 131072,
+        "cost_at_fixed_visit_price": 2112,
+        "descriptor_copies": 1024,
+        "page_visits": 1024,
+        "publication_cost": 1088,
+        "publications": 64,
+        "weighted_page_visits": 1024
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-wide-repeat",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 196608,
+        "actual_loads": 131072,
+        "cost_at_fixed_visit_price": 1041,
+        "descriptor_copies": 16,
+        "page_visits": 1024,
+        "publication_cost": 17,
+        "publications": 1,
+        "weighted_page_visits": 1024
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "native-wide-rotate",
+        "exact-rho0-range-min"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 393216,
+        "actual_loads": 262144,
+        "cost_at_fixed_visit_price": 2081,
+        "descriptor_copies": 32,
+        "page_visits": 2048,
+        "publication_cost": 33,
+        "publications": 1,
+        "weighted_page_visits": 2048
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-wide-rotate",
+        "exact-rho1-incremental"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.878787878787879,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 12288,
+        "actual_loads": 8192,
+        "cost_at_fixed_visit_price": 192,
+        "descriptor_copies": 64,
+        "page_visits": 64,
+        "publication_cost": 128,
+        "publications": 64,
+        "weighted_page_visits": 64
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "native-wide-rotate",
+        "four-step"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 2.4242424242424243,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 49152,
+        "actual_loads": 32768,
+        "cost_at_fixed_visit_price": 336,
+        "descriptor_copies": 64,
+        "page_visits": 256,
+        "publication_cost": 80,
+        "publications": 16,
+        "weighted_page_visits": 256
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 0,
+      "group": [
+        "native-wide-rotate",
+        "fresh"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 3.878787878787879,
+      "publication_above_rho0_optimum": 1,
+      "sums": {
+        "actual_bytes": 12288,
+        "actual_loads": 8192,
+        "cost_at_fixed_visit_price": 192,
+        "descriptor_copies": 64,
+        "page_visits": 64,
+        "publication_cost": 128,
+        "publications": 64,
+        "weighted_page_visits": 64
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    },
+    {
+      "cases": 1,
+      "fixed_price_above_rho1_optimum": 1,
+      "group": [
+        "native-wide-rotate",
+        "longest-feasible"
+      ],
+      "invalid": 0,
+      "maximum_publication_ratio": 1.0,
+      "publication_above_rho0_optimum": 0,
+      "sums": {
+        "actual_bytes": 393216,
+        "actual_loads": 262144,
+        "cost_at_fixed_visit_price": 2081,
+        "descriptor_copies": 32,
+        "page_visits": 2048,
+        "publication_cost": 33,
+        "publications": 1,
+        "weighted_page_visits": 2048
+      },
+      "valid": 1,
+      "zero_publication_optimum_cases": 0
+    }
+  ],
+  "status": "SOURCE_SEPARATED_FUNCTIONAL_PASSED"
+}

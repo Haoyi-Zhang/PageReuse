@@ -1,0 +1,30 @@
+{
+  "mode": "Compile",
+  "slot_id": "",
+  "os": "Microsoft Windows 10.0.28000",
+  "architecture": "X64",
+  "dotnet": "10.0.11",
+  "powershell": "7.6.5",
+  "compiler": "0.15.2",
+  "compiler_flags": "c++ -std=c++17 -O2 -Wall -Wextra -Werror -target x86_64-windows-gnu -shared",
+  "processor": {
+    "Name": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "NumberOfCores": 12,
+    "NumberOfLogicalProcessors": 20
+  },
+  "affinity": 1,
+  "source_sha256": {
+    "summarize_native.py": "9CACFD8355BD512D575DD3C533F757A7C5F5C67ADBFE326524E0F8C78F28010B",
+    "bounded.ps1": "B7BA163383F66B7A62B7345B115BE02934203054B3DCE4E393FE2C4515E4412A",
+    "allocator.cpp": "79E8DFB467E89DE3B981D120C1FCB6526F12E844B5DAC4A3098C21034DD7F090",
+    "protocol.json": "6113C295B01FB9B2BEF8AB39FA62270B16C407B75CF3A2BC910CC4709BD2E51D",
+    "check_native.py": "603E15F8E292D8B61A99DB4C520EB5698D38A999C8622D3ADF56822A136AE70E",
+    "NativeBridge.cs": "4BE0D25F951EA57705DBCD359F9E596925D1AA087CAC12117D6B8BD900D9FD83",
+    "run.ps1": "827012068B6B954A4A5480DA20CA2F983C374B656F733F81880F977507774B85"
+  },
+  "library_sha256": "E328ACDE95CC69B33BAFF5D0A8EF7BFFB759954F11EA7BBD86ED423C737D6486",
+  "original_input_sha256": "8952ABB9910D783EA99CB1417041452F3B20603F74DE4ACF24F85F5DAE60E497",
+  "original_certificate_sha256": "36DD97AC836FD20CE740B9AC2FCCE9943BB592DB0A3FBC06AE351A7EC726014F",
+  "cpu_threads": 1,
+  "performance_measurements_started": false
+}

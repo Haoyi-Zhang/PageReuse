@@ -1,0 +1,65 @@
+{
+  "mode": "Functional",
+  "protocol": "matched-five-policy-functional-v1",
+  "performance_measurements_started": false,
+  "policies": [
+    "fresh",
+    "longest-feasible",
+    "four-step",
+    "exact-rho0-range-min",
+    "exact-rho1-incremental"
+  ],
+  "fixed_visit_price": 1,
+  "source_sha256": {
+    "tools/generate.py": "0BB5E80D4942A8643AD99D1EF08E03F80A86F1BE258032B87B86F1853D88A8FE",
+    "native/NativeBridge.cs": "6D976ED4C8C08EEAB420C388D11F21667650E4F32796B6F14D353F31C074CFBC",
+    "src/producer.py": "6290DD2FF1A7750A64E76A205C8A89E6BB803DDE87116D90F6099CC0D5CD3A76",
+    "native/check_policies.py": "65864F136DA55EED763E15E5F0957DF3599E265A6E9DA59E6A0FE527C4357BDC",
+    "native/allocator.cpp": "79E8DFB467E89DE3B981D120C1FCB6526F12E844B5DAC4A3098C21034DD7F090",
+    "native/policies.ps1": "947453D5BDDB1CA0A3BB5E5D8D54106BAFACFD3563E9EDAE5D34EDD5CE3CFF5B",
+    "src/checker.py": "A847F2678ACF5F83FBA8276757229ACB1A03CE7A031D5CFDB2B0FC70F962328C",
+    "native/NativePolicies.cs": "D45692DC58402376BF6F9745DBBC2AE1A1BA121504E1B6C864977A1542AD6EF5",
+    "native/NativePolicyTests.cs": "4A2125EE6CB3816AB4C586E16CA6C103340FC90740B26CEBAF7B7FBFEB817CDF"
+  },
+  "library_sha256": "E328ACDE95CC69B33BAFF5D0A8EF7BFFB759954F11EA7BBD86ED423C737D6486",
+  "managed_assembly_sha256": "540AC08D8087B4A31E3C020D171E24ADAB8E43C5277B8DDBBFBB9E4656F1F6BB",
+  "runtime_files_distributed": false,
+  "results_directory": "results/native-policy-comparison",
+  "result_location_kind": "artifact-stable",
+  "build_environment_sha256": "8350F8BF8FD798C861A1D514DCC4EB20AF80FAC62DBD33230392B9EC1FE0A44F",
+  "compiler": "0.15.2",
+  "compiler_flags": "c++ -std=c++17 -O2 -Wall -Wextra -Werror -target x86_64-windows-gnu -shared",
+  "input_sha256": "8952ABB9910D783EA99CB1417041452F3B20603F74DE4ACF24F85F5DAE60E497",
+  "saved_certificate_sha256": "36DD97AC836FD20CE740B9AC2FCCE9943BB592DB0A3FBC06AE351A7EC726014F",
+  "architecture": "X64",
+  "powershell": "7.6.5",
+  "dotnet": "10.0.11",
+  "affinity": 1,
+  "cpu_threads": 1,
+  "complete_path": "price/plan/check/mask/index/allocate/materialize/execute/project/guards/free; decoding and verification excluded",
+  "heuristic_checks": "safety-only, no optimizer; zero potentials only when serializing for Python safety schema",
+  "rho0_scope": "all 207 inputs explicitly repriced to 0; original prices retained in cases.jsonl.gz",
+  "rho1_scope": "all 207 inputs explicitly repriced to fixed 1; same payloads/lives/requirements/masks",
+  "wall_limit_seconds": 120,
+  "memory_limit_mib": 1024,
+  "record_sha256": {
+    "cases.jsonl.gz": "892AB6D998440E7CA1FD12890D657C1551ABFCE6F50DBC2C18010D289EB23DD7",
+    "planner-agreement.jsonl.gz": "5D4D201CAF41A1EB415D9984B5861A13BA9E57529CC1309492BA966D98CEC478",
+    "policies.jsonl.gz": "6A9D9F3ACE9902966A05BA12E885AA06CAE5410D63E7C4EB999942BC2F0828AF",
+    "functional-summary.json": "9D4FAE84CD18A1068060D97148A9D3667D678DFC01939B85F676F0F09CB699A2"
+  },
+  "record_decoded": {
+    "cases.jsonl.gz": {
+      "bytes": 1371975,
+      "sha256": "78CC47F4C9A77B11FBBF055E508115C7CE9DF399C584BD91A643C6C4EF7248E6"
+    },
+    "planner-agreement.jsonl.gz": {
+      "bytes": 1088235,
+      "sha256": "6674F8E4F984BB400310D4AFEBC192C53C3F8FA480BCDDD0C4ACB7260261AA71"
+    },
+    "policies.jsonl.gz": {
+      "bytes": 6625534,
+      "sha256": "6734D48A49E81E458F83913B256A6D3595A8D120FB83B29E1961F89928528958"
+    }
+  }
+}

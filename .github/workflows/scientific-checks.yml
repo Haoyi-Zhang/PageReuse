@@ -43,6 +43,9 @@ jobs:
             python -B tools/summarize.py --campaign "$OUT/campaign" --out "$OUT/tables"
             python -B tests/check_reproduction.py --campaign "$OUT/campaign" --tables "$OUT/tables"
             python -B native/test_saved_routing.py -v
+            python -B native/test_policy_records.py -v
+            python -B native/check_policies.py results/native-policy-comparison --verify-only
+            python -B native/check_policy_timing.py results/native-policy-comparison/timing --verify-only --require-current-sources
             mkdir "$OUT/retained-native"
             cp results/native-campaign/{environment.json,conformance.jsonl,samples.jsonl.gz,observations.jsonl.gz,summary.json} "$OUT/retained-native/"
             python -B native/check_saved.py "$OUT/retained-native" --measured-source-root results/native-campaign/measured-source
@@ -147,6 +150,44 @@ jobs:
             if (Test-Path -LiteralPath $stderr) { Get-Content -LiteralPath $stderr }
             $p.Dispose()
           }
+      - name: Require all five current policies and source-bound native outputs (no timing)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $work = Join-Path $env:RUNNER_TEMP 'p054-native'
+          $out = Join-Path $work 'policy-comparison'
+          $runtime = Join-Path $work 'policy-runtime'
+          $library = Join-Path $work 'build/p054_allocator.dll'
+          $build = Join-Path $work 'compile/environment.json'
+          ./native/policies.ps1 -Library $library -BuildEnvironment $build -WorkRoot $runtime -OutDir $out -WallSeconds 120 -MemoryMiB 1024
+          $checks = Get-Content -LiteralPath (Join-Path $out 'functional-summary.json') -Raw | ConvertFrom-Json
+          if ($checks.status -ne 'FUNCTIONAL_PASSED' -or $checks.native_policy_replays -ne 1035 -or $checks.targeted_controls -ne 134 -or $checks.performance_measurements_started) { throw 'Required five-policy functional coverage missing' }
+          $python = Join-Path $env:pythonLocation 'python.exe'
+          $script = Join-Path $PWD.Path 'native/check_policies.py'
+          $assembly = Join-Path $runtime 'policy_bridge.dll'
+          $stdout = Join-Path $work 'policy-audit.stdout.log'
+          $stderr = Join-Path $work 'policy-audit.stderr.log'
+          $arguments = @('-B', ('"' + $script + '"'), ('"' + $out + '"'), '--library', ('"' + $library + '"'), '--managed-assembly', ('"' + $assembly + '"'), '--build-environment', ('"' + $build + '"'))
+          $p = Start-Process -FilePath $python -ArgumentList $arguments -WindowStyle Hidden -PassThru -RedirectStandardOutput $stdout -RedirectStandardError $stderr
+          try {
+            $p.ProcessorAffinity = [IntPtr]1
+            $deadline = [DateTime]::UtcNow.AddSeconds(90)
+            while (-not $p.WaitForExit(250)) {
+              $p.Refresh()
+              if ($p.WorkingSet64 -gt 512MB -or [DateTime]::UtcNow -gt $deadline) {
+                $p.Kill($true)
+                throw 'Policy source/binary/value audit exceeded 90 seconds or 512 MiB; partial evidence retained'
+              }
+            }
+            $p.Refresh()
+            if ($p.ExitCode -ne 0) { throw "Required policy audit failed: $($p.ExitCode)" }
+          } finally {
+            if (-not $p.HasExited) { $p.Kill($true); [void]$p.WaitForExit(5000) }
+            if (Test-Path -LiteralPath $stdout) { Get-Content -LiteralPath $stdout }
+            if (Test-Path -LiteralPath $stderr) { Get-Content -LiteralPath $stderr }
+            $p.Dispose()
+          }
+          # NativePolicyTiming/time_policies Measure must never run on shared CI.
       - name: Retain correctness evidence; do not benchmark shared runners
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -155,5 +196,7 @@ jobs:
           path: |
             ${{ runner.temp }}/p054-native/conformance/
             ${{ runner.temp }}/p054-native/*.log
+            ${{ runner.temp }}/p054-native/policy-comparison/
+            ${{ runner.temp }}/p054-native/policy-runtime/*.log
           if-no-files-found: warn
           retention-days: 14
