@@ -162,7 +162,7 @@ The checker returns exit code 0 for acceptance and 2 for rejection. `--safety-on
 - `docs/calibration-matrix.md` / `.csv` — 13+5+7 full-paper calibration.
 - `docs/literature-scope.md` — inclusion rules and synthesis.
 - `docs/novelty-assessment.md` — adversarial novelty/significance decision.
-- `docs/venue-rules.md` — current format/policy record and retrieval limits.
+- `docs/venue-rules.md` — publisher instructions, policies and template resources.
 - `readme.txt` — short electronic-supplement description.
 
 The abstract safety conclusions require truthful bindings, initialization, lives,
