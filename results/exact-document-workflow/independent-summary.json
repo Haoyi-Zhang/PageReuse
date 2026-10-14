@@ -1,0 +1,12 @@
+{
+  "status": "EXACT_DOCUMENT_RECORDS_PASSED",
+  "retained_inputs": 200,
+  "separate_native_controls": 7,
+  "actual_native_executions": 621,
+  "unique_inputs": 207,
+  "planners": 3,
+  "serialized_input_bytes_acquired_across_all_calls": 4067544,
+  "certificate_bytes_consumed_across_all_calls": 912579,
+  "native_timing": false,
+  "scope": "Functional serialized-input/strict-certificate/native correspondence; byte counts are not latency or independent populations."
+}

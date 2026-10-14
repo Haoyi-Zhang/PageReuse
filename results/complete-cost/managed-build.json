@@ -1,0 +1,6 @@
+{
+  "process_cpu_seconds": 0.671875,
+  "wall_seconds": 0.630521,
+  "flags": "/optimize+",
+  "scope": "Add-Type compilation in already-running parent process; not PowerShell startup"
+}

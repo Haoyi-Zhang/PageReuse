@@ -1,0 +1,16 @@
+{
+  "project_id": "P054",
+  "mode": "Compile",
+  "compiler": "0.15.2",
+  "compiler_flags": "c++ -std=c++17 -O2 -Wall -Wextra -Werror -target x86_64-windows-gnu -shared",
+  "source_sha256": {
+    "allocator.cpp": "79E8DFB467E89DE3B981D120C1FCB6526F12E844B5DAC4A3098C21034DD7F090"
+  },
+  "library_sha256": "59B77417B231E26F7F48D437F6AC7DA31E8099E2A8EEAB841D291322F7AF6A6B",
+  "build_wall_seconds": 14.2175549,
+  "compiler_main_process_cpu_seconds": 11.90625,
+  "build_process_tree_cpu_seconds": null,
+  "exit_code": 0,
+  "scope": "Fresh private local/global Zig caches; direct compiler launch through exit; main-process CPU is NOT subprocess-tree CPU; no full build CPU claim",
+  "original_private_build_environment_sha256": "2e664673b711a262e7b1e46058fc7e9444e4576872e5cbd6efb65577375ebf0f"
+}

@@ -6,6 +6,8 @@ import statistics
 from pathlib import Path
 
 
+from evidence import require, same, loads
+
 def phases(row):
     seconds = 1000 / row["frequency"]
     n = row["repeats"]
@@ -25,29 +27,30 @@ def main():
     ap.add_argument("out", type=Path)
     args = ap.parse_args()
     out = args.out.resolve()
-    assert out.is_dir(), "existing reserved-slot evidence directory required"
+    require(out.is_dir(), "existing reserved-slot evidence directory required")
     protocol = json.loads((Path(__file__).parent / "protocol.json").read_text(encoding="utf-8"))
-    assert (out / "samples.jsonl").stat().st_size <= 128 * 1024**2
+    require((out / "samples.jsonl").stat().st_size <= 128 * 1024**2, 'scientific evidence gate')
     samples = {}
     with (out / "samples.jsonl").open(encoding="utf-8") as stream:
         for line in stream:
-            assert len(line) <= 4 * 1024**2
-            row = json.loads(line)
+            require(len(line) <= 4 * 1024**2, 'scientific evidence gate')
+            row = loads(line)
             key = row["id"], row["pair"], row["mode"]
-            assert key not in samples and row["correct"]
-            assert row["id"] in protocol["panel"] and row["mode"] in ("baseline", "certified")
-            assert row["repeats"] == protocol["trace_replays_per_block"]
-            assert 0 <= row["pair"] < protocol["pairs_per_case"]
-            assert row["native_execution_ns"] > 0 and row["frequency"] > 0
+            require(key not in samples and row["correct"] is True, 'unique successful record')
+            require(all(type(row[k]) is int and row[k] >= 0 for k in ('pair', 'repeats', 'frequency', 'setup_ticks', 'checking_ticks', 'allocation_ticks', 'adapter_ticks', 'execution_ticks', 'native_execution_ns', 'complete_from_decoded_trace_ticks')), 'integer timing/accounting fields')
+            require(row["id"] in protocol["panel"] and row["mode"] in ("baseline", "certified"), 'scientific evidence gate')
+            require(row["repeats"] == protocol["trace_replays_per_block"], 'scientific evidence gate')
+            require(0 <= row["pair"] < protocol["pairs_per_case"], 'scientific evidence gate')
+            require(row["native_execution_ns"] > 0 and row["frequency"] > 0, 'scientific evidence gate')
             samples[key] = row
-    assert len(samples) == len(protocol["panel"]) * protocol["pairs_per_case"] * 2
+    require(len(samples) == len(protocol["panel"]) * protocol["pairs_per_case"] * 2, 'scientific evidence gate')
     table = []
     details = []
     for case in protocol["panel"]:
         paired = []
         for pair in range(protocol["pairs_per_case"]):
             b, c = (samples[case, pair, mode] for mode in ("baseline", "certified"))
-            assert b["actual_values"] == c["actual_values"], (case, pair, "unequal native result")
+            require(same(b["actual_values"], c["actual_values"]), (case, pair, "unequal native result"))
             paired.append((phases(b), phases(c)))
         per_case = {"id": case, "pairs": len(paired), "all_actual_values_equal": True}
         for field in paired[0][0]:

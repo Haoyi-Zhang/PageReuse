@@ -308,3 +308,146 @@ This functional route does not call `Measure`, `ComparePlanners`, `Batch` or
 `nb_batch`. It provides no current timing, speedup, GPU or deployment result.
 Historical campaigns, their original measured sources, protocol and unfavorable
 results are unchanged. A separately authorized timing slot is still required.
+
+## Evidence admission and serialized-input workflow
+
+The current native auditors, historical arithmetic summarizers, ABI-size check
+and tiny oracle use explicit scientific gates that remain active under `-O`.
+`evidence.py` distinguishes integers from booleans/floats and rejects duplicate
+keys/nonfinite numbers in the repaired record readers. This does not certify
+every other driver under optimization or change archived measured sources.
+`check_saved.py` prints without rewriting retained data; its optional
+`--output-summary` creates a new file. `check_native.py --verify-only` compares
+its existing summary without rewriting it.
+
+```sh
+python -B native/test_evidence.py -v
+python -B -O native/test_evidence.py -v
+python -B -O native/test_saved_routing.py -v
+```
+
+`NativeWorkflow.cs` compares direct-union, incremental-backward and range-min
+exact planners under the same rho=0 objective and full optimality contract.
+Each arm independently acquires the same memory-resident UTF-8 bytes, decodes
+and admits the original graph, plans, serializes a full certificate, then
+decodes/strictly checks the consumed certificate, builds masks/indices,
+allocates/materializes, executes C++ loads, projects results, checks guards and
+frees the arena. No decoded trace, plan, mask, index or arena is shared across
+arms. Original input graphs are not reconstructed from normalized requirements.
+
+```powershell
+$env:PYTHONDONTWRITEBYTECODE='1'
+./native/workflow.ps1 -Library "$private/native-build/build/p054_allocator.dll" -BuildEnvironment "$private/native-build/compile/environment.json" -WorkRoot "$private/document-runtime" -OutDir "$private/document-records"
+python -B native/check_workflow.py "$private/document-records"
+python -B -O native/check_workflow.py "$private/document-records"
+```
+
+The worker is pinned to one logical CPU, with a default 120-second deadline
+and 1024 MiB working-set threshold polled every 250 ms, not an OS-enforced quota.
+Runtime files remain in the explicit private work root. The public
+`results/exact-document-workflow` retains all 207 inputs and 621 actual native
+rows, environment and source/input/binary/record bindings. Lossless gzip streams
+include their complete decoded identities. `check_workflow.py` accepts plain or
+gzip evidence and checks full certificates, native values/counts/sink and bytes
+against source-separated Python specifications, without executing native code.
+Normal/optimized audits are repeated checks, not additional native executions.
+
+Across all three arms, 4,067,544 input bytes are acquired and 912,579 certificate
+bytes consumed. These counts are serialized work, not latency, peak memory,
+independent workloads or deployment. This functional workflow invokes no
+performance clock or warmup. It is unchanged; the distinct, explicitly
+authorized complete-cost protocol below supplies local-file timings.
+
+## Same-contract complete costs
+
+`NativeCompleteCost.cs` and `complete_cost.ps1` measure four full paths on the
+same 207 frozen serialized rho=0 inputs, without changing bounds or guarantees:
+
+- `ordinary-exact`: incremental producer; epochs/frontiers/cost only on the
+  wire; consumer checks safety/cost and independently recomputes the scalar
+  optimum via backward bitmap unions. No transmitted potentials or redundant
+  optimal-plan construction is charged to this consumer.
+- `certified-incremental`: the same producer plus full potentials and strict
+  certificate checking.
+- `certified-range-min`: range-min producer with the identical strict consumer.
+- `certified-direct-union`: slower direct-union semantic reference, not the
+  closest ordinary baseline.
+
+Each of eight rounds rotates four positions, giving two full position cycles
+and 6,624 actual full calls (1,656 per arm). One instrumented warmup per input/arm
+adds 828 native executions, excluded from the statistics. Every call independently
+reads/closes the same UTF-8 file, decodes/admits, plans, serializes, writes/closes
+publication, reads/closes/parses/validates it, constructs masks/index, allocates,
+materializes, calls C++ `nb_run`, projects, checks guards, frees and deletes the
+publication file. Seven nested phase clocks are inside one enclosing invocation
+timer; complete totals are not sums of phase medians. Exact native vectors,
+counts and actual published UTF-8 are retained for every measured call.
+
+The public evidence is `results/complete-cost/`: `samples.jsonl.gz`, protocol,
+completion, environment and build/startup records; complete independent summaries;
+phase CSV, sorted case-ratio CSV and generated TeX table. Inputs are the unchanged
+`results/exact-document-workflow/inputs.jsonl.gz`, bound byte-for-byte by all 207
+hashes. `check_complete_cost.py` uses source-separated Python semantics to check
+every actual publication, optimum, vector, count, byte total, clock schema and
+fixed call/order schedule. Scientific gates do not use bare Python `assert`.
+
+```sh
+python -B native/check_complete_cost.py results/complete-cost
+python -B -O native/check_complete_cost.py results/complete-cost
+python -B native/test_complete_cost.py -v
+python -B -O native/test_complete_cost.py -v
+python -B native/summarize_complete_cost.py results/complete-cost /new/private/table-output
+```
+
+Actual measured sums (wall / process CPU seconds) are ordinary 2.943591 / 1.515625,
+certified incremental 3.023164 / 1.953125, range-min 2.880237 / 1.390625, and direct
+union 9.740259 / 5.156250. Certified arms are slower on 129, 173 and 197 of 207
+paired input medians respectively. All slowdowns and zeros remain. CPU uses
+Windows `GetProcessTimes` kernel+user totals, including runtime threads; 100-ns
+units are coarse accounting, not 100-ns resolution. Full CPU zeros number 1,561,
+1,538, 1,567 and 1,446 per 1,656 calls. Zero-denominator CPU ratios are null, never
+epsilon-adjusted. Phase wall/CPU clocks and exact-zero counts are in `phase-costs.csv`.
+No outlier filtering, fitted price, repeat-until-gain or forced GC is used.
+
+Fresh private Zig caches: native build/link 14.217555 wall seconds, compiler main
+process CPU 11.906250 seconds; full compiler subprocess-tree CPU is unavailable.
+Managed compile: 0.630521 wall / 0.671875 process CPU seconds. Worker launch through
+readiness (checks and native/managed load included): 1.267050 wall / 0.406250 CPU.
+Whole-worker envelope: 25.946230 observed wall / 12.906250 CPU, including warmups,
+validation and compression, not a per-call total. Do not add these different
+scopes or replace the enclosing clocks with phase sums.
+
+Reproduction requires existing Windows x64 PowerShell/Roslyn, the owned current
+allocator DLL and its matching real build manifest, plus private materialization
+of each `input_utf8` exactly as `<id>.json` and an `index.jsonl` in frozen order.
+`manifest.json` records `files` (207 filename/hash pairs), `frozen_inputs_sha256`,
+`index_sha256`, `input_count` and `input_bytes`. Materialization is reproducible
+without generating any new trace:
+
+```sh
+python -B native/prepare_complete_cost.py /private/serialized-inputs
+```
+
+It copies each frozen `input_utf8` losslessly and writes the complete index and
+manifest; it refuses an existing output or an in-artifact runtime directory.
+Use a fresh private WorkRoot/OutDir:
+
+```powershell
+./native/complete_cost.ps1 -Authority /private/authority.json -Inputs /private/serialized-inputs -Library /private/p054_allocator.dll -BuildEnvironment /private/native-build.json -WorkRoot /private/new-runtime -OutDir /private/new-measurement
+```
+
+The authority file must explicitly state `project_id="P054"`,
+`authority_kind="explicit-user-resume"`, `complete_cost_measurement_authorized=true`,
+the actual request and a run identity. This separate protocol rejects CI and
+does not invent or reuse a historical reserved SlotId. Existing reserved-slot
+drivers/gates are untouched. Source/input/native/managed hashes are checked;
+runtime files, authority text, compiler caches and process audit logs remain private.
+The bounded worker uses affinity 1, 180s and a 1024 MiB threshold polled every
+200ms, not an OS memory quota.
+
+Local-file read/write/close costs include OS API/cache behavior. No explicit
+durable flush or physical I/O measurement is made; RSS, disk/network bytes,
+GPU and serving costs are null/unavailable, not zero. No CPU timing ratio or
+deployment gain is guaranteed. Technical timer semantics are documented by
+[Microsoft GetProcessTimes](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocesstimes)
+and [Stopwatch](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.stopwatch).

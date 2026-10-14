@@ -10,6 +10,8 @@ import unittest
 from pathlib import Path
 
 
+from evidence import require, same, loads
+
 class Page(C.Structure):
     _fields_ = [(s, C.c_int32) for s in
                 ('slot', 'generation', 'content', 'group', 'first', 'last', 'base', 'length', 'width')]
@@ -142,7 +144,7 @@ def main():
     lib.nb_guards.restype = C.c_int
     lib.nb_destroy.argtypes = [C.c_void_p]
     lib.nb_destroy.restype = None
-    assert (C.sizeof(Page), C.sizeof(Epoch), C.sizeof(Descriptor), C.sizeof(Counts)) == (36, 16, 40, 40)
+    require((C.sizeof(Page), C.sizeof(Epoch), C.sizeof(Descriptor), C.sizeof(Counts)) == (36, 16, 40, 40), 'scientific evidence gate')
     Projection.library = lib
     unittest.main(argv=['projection-regressions'] + extra)
 

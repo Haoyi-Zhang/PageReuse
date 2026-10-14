@@ -1,0 +1,37 @@
+{
+  "protocol": "same-contract-complete-cost",
+  "inputs": 207,
+  "retained": 200,
+  "controls": 7,
+  "arms": [
+    "ordinary-exact",
+    "certified-incremental",
+    "certified-range-min",
+    "certified-direct-union"
+  ],
+  "rounds": 8,
+  "calls_per_arm_round": 1,
+  "measured_calls": 6624,
+  "warmup_calls": 828,
+  "order": "case in frozen order; arm[(round+position)%4], 8 rounds, two full position cycles; one untimed full call per arm per case",
+  "objective": "rho=0; global optimality and identical descriptor/lifetime/coverage/native contract",
+  "ordinary_consumer": "no transmitted potentials; parse plan, safety/cost check, independent backward-bitmap scalar optimum recomputation",
+  "certified_consumer": "full potentials; ParsePlan and all feasible-interval inequalities",
+  "phases": [
+    "acquisition",
+    "planning",
+    "serialization",
+    "publication",
+    "consumer",
+    "native",
+    "cleanup"
+  ],
+  "full_timer": "one actual invocation enclosing all seven phases and nested clock/accounting overhead; NOT sum of phase medians",
+  "acquisition": "File.ReadAllBytes, close, JSON decode and ParseTrace for every call; same prewritten local UTF-8 file, OS cache uncontrolled",
+  "publication": "File.WriteAllBytes with close; consumer File.ReadAllBytes with close; no explicit durable flush, network or serving",
+  "native": "fresh masks/index, C++ allocation, descriptor materialization, nb_run, mandatory projection, guards and free",
+  "excluded": "initial input-file preparation; build/startup/load; output/reference comparison; raw-record JSON/compression",
+  "clocks": "Stopwatch wall ticks; Win32 GetProcessTimes kernel+user process CPU in 100ns units, coarse quantization; includes background runtime threads",
+  "zero_policy": "retain exact zeros; ratio null when denominator zero; no epsilon, trimming, negative removal, resampling, forced GC or automatic repeats",
+  "limitations": "owned synthetic sequential CPU buffers; no physical disk, RSS, network, GPU, service deployment or latency guarantee"
+}

@@ -1,0 +1,23 @@
+{
+  "worker_launch_through_ready_wall_seconds": 1.2670503,
+  "worker_launch_through_ready_cpu_seconds": 0.40625,
+  "startup_scope": "worker entry, authority/source/input checks, assembly/native load; before consumer tests/warmups/calls",
+  "managed_build": {
+    "process_cpu_seconds": 0.671875,
+    "wall_seconds": 0.630521,
+    "flags": "/optimize+",
+    "scope": "Add-Type compilation in already-running parent process; not PowerShell startup"
+  },
+  "native_build_wall_seconds": 14.2175549,
+  "native_compiler_main_process_cpu_seconds": 11.90625,
+  "native_build_process_tree_cpu_seconds": null,
+  "whole_worker": {
+    "exit_code": 0,
+    "scope": "whole worker incl startup/load/preflight/warmup/measured calls/validation/compression; not a per-call cost; exit observed after bounded polling",
+    "launch_timestamp": 1935787359464,
+    "exit_observed_timestamp": 1936046821765,
+    "process_cpu_seconds": 12.90625,
+    "frequency": 10000000,
+    "launch_to_exit_observed_seconds": 25.9462301
+  }
+}

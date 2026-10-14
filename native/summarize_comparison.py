@@ -5,24 +5,26 @@ import statistics
 from pathlib import Path
 
 
+from evidence import require, same, loads
+
 def summarize(directory):
     directory = Path(directory)
     checks = json.loads((directory / 'checks.json').read_text(encoding='utf-8'))
-    assert checks['cases'] == 207 and checks['identical_certificates']
-    raw = [json.loads(s) for s in (directory / 'samples.jsonl').read_text(encoding='utf-8').splitlines()]
-    assert len(raw) == len(checks['panel']) * checks['pairs'] * 3 == 378
+    require(checks['cases'] == 207 and checks['identical_certificates'], 'scientific evidence gate')
+    raw = [loads(s) for s in (directory / 'samples.jsonl').read_text(encoding='utf-8').splitlines()]
+    require(len(raw) == len(checks['panel']) * checks['pairs'] * 3 == 378, 'scientific evidence gate')
     rows = {(r['id'], r['pair'], r['mode']): r for r in raw}
-    assert len(rows) == len(raw)
+    require(len(rows) == len(raw), 'scientific evidence gate')
     report = []
     for case in checks['panel']:
         pairs = []
         for pair in range(checks['pairs']):
             a = {mode: rows[case, pair, mode] for mode in ('fresh', 'direct-union', 'incremental')}
-            assert all(r['correct'] and r['frequency'] > 0 and r['planner_ticks'] > 0 and r['complete_ticks'] > 0
-                       and r['planner_repeats'] == 8 and r['complete_repeats'] == 4 for r in a.values())
-            assert a['fresh']['actual_values'] == a['direct-union']['actual_values'] == a['incremental']['actual_values']
+            require(all(r['correct'] is True and all(type(r[k]) is int for k in ('frequency','planner_ticks','complete_ticks','planner_repeats','complete_repeats','pair')) and r['frequency'] > 0 and r['planner_ticks'] > 0 and r['complete_ticks'] > 0
+                       and r['planner_repeats'] == 8 and r['complete_repeats'] == 4 for r in a.values()), 'scientific evidence gate')
+            require(same(a['fresh']['actual_values'], a['direct-union']['actual_values']) and same(a['fresh']['actual_values'], a['incremental']['actual_values']), 'matched native value types')
             for key in ('actual_loads', 'publications'):
-                assert a['direct-union'][key] == a['incremental'][key]
+                require(a['direct-union'][key] == a['incremental'][key], 'scientific evidence gate')
             pairs.append(a)
         def ratio(numerator, denominator, field):
             return statistics.median(p[numerator][field] / p[denominator][field] for p in pairs)

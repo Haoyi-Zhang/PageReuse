@@ -1,0 +1,6 @@
+{
+  "scope": "worker entry, authority/source/input checks, assembly/native load; before consumer tests/warmups/calls",
+  "frequency": 10000000,
+  "timestamp": 1935800029967,
+  "process_cpu_seconds": 0.40625
+}

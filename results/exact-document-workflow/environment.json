@@ -1,0 +1,61 @@
+{
+  "protocol": "exact-document-functional",
+  "performance_measurements_started": false,
+  "source_sha256": {
+    "native/NativePolicyTests.cs": "4A2125EE6CB3816AB4C586E16CA6C103340FC90740B26CEBAF7B7FBFEB817CDF",
+    "native/NativePolicies.cs": "D45692DC58402376BF6F9745DBBC2AE1A1BA121504E1B6C864977A1542AD6EF5",
+    "native/NativeWorkflow.cs": "856B5C90E4E8DDE6A1C8CFEF97513329B8259879138BBF5D88C8EEF6458EB4EF",
+    "native/workflow.ps1": "35B1926469C96CFB706DD54F4B0027177D576DBFFF5DAA3DF841843FB2984DE0",
+    "native/NativeBridge.cs": "6D976ED4C8C08EEAB420C388D11F21667650E4F32796B6F14D353F31C074CFBC",
+    "src/producer.py": "6290DD2FF1A7750A64E76A205C8A89E6BB803DDE87116D90F6099CC0D5CD3A76",
+    "native/allocator.cpp": "79E8DFB467E89DE3B981D120C1FCB6526F12E844B5DAC4A3098C21034DD7F090",
+    "src/checker.py": "A847F2678ACF5F83FBA8276757229ACB1A03CE7A031D5CFDB2B0FC70F962328C"
+  },
+  "record_sha256": {
+    "inputs.jsonl.gz": "9F73194FAF4FF6685C8F55C621C09A4F31B599F13873D279AB95D496053231F1",
+    "executions.jsonl.gz": "CB8EC85CD4BBC0EB3B7EBFB5F81D367A63C4AF47147CAC6EC7851925DD4276B2",
+    "summary.json": "14CCD948DD673F3809C5F44917D8CE34C4BD19DAE3177675865957BA9C8AAA5D"
+  },
+  "library_sha256": "20527D5B1706F42E5C7409DAA269DDF7F91B88D08F08384DC9AE7EB9FD74FC19",
+  "managed_assembly_sha256": "492AB0FA36D238C0EAA2DB2B29F1B9F6ED658F6BB422CF115FBD2A7668B66CCC",
+  "input_sha256": "8952ABB9910D783EA99CB1417041452F3B20603F74DE4ACF24F85F5DAE60E497",
+  "build_environment_sha256": "520395844D218A57A78A00A0CD440D237157E5A6AF8DC9AE43F14E94CC9BD3C4",
+  "os": "Microsoft Windows 10.0.28000",
+  "architecture": "X64",
+  "cpu": {
+    "Name": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "NumberOfCores": 12,
+    "NumberOfLogicalProcessors": 20
+  },
+  "powershell": "7.6.5",
+  "dotnet": "10.0.11",
+  "affinity": 1,
+  "wall_limit_seconds": 120,
+  "working_set_threshold_mib": 1024,
+  "monitor": "250 ms polling; threshold, not OS-enforced memory quota",
+  "compiler": "0.15.2",
+  "compiler_flags": "c++ -std=c++17 -O2 -Wall -Wextra -Werror -target x86_64-windows-gnu -shared",
+  "managed_compiler_flags": "/optimize+",
+  "native_policy_tests_compiled_not_invoked_sha256": "4A2125EE6CB3816AB4C586E16CA6C103340FC90740B26CEBAF7B7FBFEB817CDF",
+  "record_decoded": {
+    "inputs.jsonl.gz": {
+      "bytes": 3530919,
+      "sha256": "4F96F23096D92DBDF8FE281FF04C3882C465CBE5B84ECE3606F1FB51956630CC"
+    },
+    "executions.jsonl.gz": {
+      "bytes": 3635286,
+      "sha256": "B7878AD8DBE35115354BA423741F29F7B51D43DFE93115457BED155FE1F820EC"
+    }
+  },
+  "publication": {
+    "operation": "lossless-gzip-only",
+    "original_environment_sha256": "3D646D748EBD3D2C9F05080F9C40855EAE807717940FC8567DABEAD678AD3C64",
+    "original_record_sha256": {
+      "inputs.jsonl": "4F96F23096D92DBDF8FE281FF04C3882C465CBE5B84ECE3606F1FB51956630CC",
+      "executions.jsonl": "B7878AD8DBE35115354BA423741F29F7B51D43DFE93115457BED155FE1F820EC",
+      "summary.json": "14CCD948DD673F3809C5F44917D8CE34C4BD19DAE3177675865957BA9C8AAA5D"
+    },
+    "no_rows_removed": true,
+    "runtime_files_distributed": false
+  }
+}

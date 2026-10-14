@@ -49,6 +49,17 @@ The project-specific contribution that survives is narrower: for complete sequen
 
 No inspected work was found to state precisely the same combination of serial page-incarnation lives, canonical constant-list epochs, descriptor-publication cost, shortest-path optimality evidence, and the tight longest-reuse bound. That observation supports only a **composition-specific technical note**, not a “first,” “general,” “practical,” or architecture-level novelty claim.
 
-The intended TACO significance gate resolves negatively. The artifact has no authoritative runtime snapshot protocol, concurrent reclamation semantics, refinement from actual kernel loads/masks to declared requirements, native implementation, public serving trace, model-quality study, or measured runtime overhead. Comparable same-venue and adjacent systems do have an executable mechanism and workload connection. Consequently, this project is closed as a reproducible formal boundary study and is **not represented as a submission-ready TACO systems article**.
+The historical TACO significance gate resolved negatively. At that closeout,
+the artifact lacked native implementation and measured overhead. Subsequent
+CPU-buffer work supplies a sequential implementation, written refinement,
+native load observations and overhead measurements. It still supplies no
+authoritative external snapshot protocol, concurrent reclamation semantics,
+GPU/attention refinement, public serving trace or model-quality study. The
+current exact arms are slower than fresh on all fourteen case medians. These
+additions do not establish a submission-ready TACO systems article.
 
-This is a completed research decision, not an unfinished literature task. Adding the missing runtime and workload layer would change the scientific object and require a new research phase, evidence budget, and evaluation plan.
+The 25-paper calibration above is a historical reading record, not a claim that
+every full text has been reread for each code revision. The serialized
+same-guarantee comparison in `results/exact-document-workflow` supports
+document-to-native correspondence; its byte counts do not settle current
+complete-cost performance or significance.

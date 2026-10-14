@@ -1,9 +1,13 @@
 """Tiny exhaustive oracle: bit-vector page selections and cut masks, not dynamic programming."""
 from __future__ import annotations
 
+def require(condition, reason='tiny oracle gate'):
+    if not condition:
+        raise AssertionError(reason)
+
 
 def analyze(trace):
-    n=len(trace['steps']);P=len(trace['pages']);assert n<=5 and P<=4
+    n=len(trace['steps']);P=len(trace['pages']);require(1<=n<=5 and 1<=P<=4, 'tiny oracle bounds')
     required=[]
     for st in trace['steps']:
         # Boolean transitive closure, deliberately unlike both executable graph traversals.
@@ -17,7 +21,7 @@ def analyze(trace):
                 for h,l,lo,hi in node['atoms']:
                     if lo<hi:
                         candidates=[b[2] for b in st['bindings'] if b[0]==h and b[1]==l]
-                        assert len(candidates)==1;bits|=1<<candidates[0]
+                        require(len(candidates)==1, 'unique oracle binding');bits|=1<<candidates[0]
         required.append(bits)
     cost={};choices=0
     for s in range(n):
@@ -33,7 +37,7 @@ def analyze(trace):
                 valid.append((v,selected))
             if valid:
                 best=min(v for v,m in valid);minimizers=[m for v,m in valid if v==best]
-                assert minimizers==[u],('nonunique minimum',s,t,minimizers,u)
+                require(minimizers==[u],('nonunique minimum',s,t,minimizers,u))
                 cost[s,t]=best
     values=[]
     for cut in range(1<<(n-1)):

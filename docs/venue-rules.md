@@ -1,5 +1,45 @@
 # TACO and template rule check
 
+## Current scope annotation (2026-10-14)
+
+The material below is the historical guide/build record, not a fresh policy or
+submission certificate. Direct retrieval of the official TACO author guidelines
+and ACM authorship page returned HTTP 403 in this review, including the
+complete-cost followup. Current TACO full rules could not be checked; rules
+from other ACM conferences are not substituted. The indexed primary ACM
+authorship text (updated May 14, 2026) was available: research-lifecycle AI uses
+must be described in methods. The visible substantive research disclosure is
+retained; this is not a successful direct policy-page retrieval or human approval.
+The target remains TACO and no submission has been made.
+
+The current source uses the unchanged `manuscript,screen,review,anonymous`
+options, not the older `acmsmall` options recorded below. Its isolated rebuilt
+PDF has 26 pages: 23 content and three reference pages, nine body sections and
+60 cited references. All pages were rendered and visually reviewed; no undefined
+references/citations or overfull boxes were found. This page count is not
+claimed to meet the historical 20-page initial-submission limit. Template,
+fonts, margins, author metadata and legal notices are unchanged. A visible
+generative-AI disclosure describes substantive assistance without claiming
+independent human verification.
+
+The current five-policy timing data have 3,080 samples and negative complete-path
+medians for both exact arms on all fourteen cases. The unchanged same-contract
+serialized-input workflow has 621 native functional executions with no clocks.
+A separate complete-cost experiment now measures 6,624 local-file full calls
+on those same 207 inputs with the same rho=0 optimality guarantee; 828 warmups
+remain separate. It includes acquisition/publication/consumer/native work,
+reports startup/build separately, and retains every slowdown and coarse CPU
+zero. Range-min is slower than ordinary exact recomputation on 173 input
+medians despite a lower full-wall sum. See `results/complete-cost/`. These facts
+supersede any reading of the older 308/756 counts below as current-source timings
+or a completed scientific/venue acceptance gate. The class still warns that the
+inherited `printacmref=false` omits ACM reference-format material; no template
+option is changed without authority. The 23 content pages do not meet the
+historically recorded initial 20-page limit, whose current wording remains
+unverified. No submission or independent acceptance is claimed.
+
+## Historical record
+
 **Guide record:** 2026-09-20. **Current build and evidence update:** 2026-10-07. The latest author-guide retrieval was unavailable; this note does not certify a new full policy read or authorize submission.
 
 ## Current first-party findings

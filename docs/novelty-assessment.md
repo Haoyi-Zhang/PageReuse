@@ -55,7 +55,7 @@ The 13+5+7 full-paper calibration shows a consistent bar. TACO architecture/code
 
 The original packet supplied none of those deployment connections. The added
 CPU bridge now realizes its own declared sequential buffer and measures actual
-allocation, preparation, checking and masked loads. All 308 current-producer
+allocation, preparation, checking and masked loads. All 308 historical pre-index
 samples are retained, and every case's complete-path median is slower under
 certification by factors 1.037--1.245. Incremental backward unions substantially
 reduce planning cost relative to direct union reconstruction, with identical
@@ -66,9 +66,14 @@ object, not the absence of representative serving workloads or GPU/attention
 integration. The certificate itself still cannot authenticate an external
 selector, allocator or reclamation protocol.
 
-## Final decision
+## Historical significance assessment
 
-The exact composition is sufficiently coherent for a formal technical report and reproducible artifact. It is not sufficiently original or practically connected for the intended TACO Original Research Article claim. The final paper therefore states the negative significance judgment explicitly instead of hiding it in a status file.
+The historical assessment found a coherent composition-specific formal report
+but insufficient originality and practical connection for the intended TACO
+Original Research Article claim. Later CPU-buffer correspondence and overhead
+evidence narrow the implementation gap; they do not independently establish
+venue-level novelty or practical significance. The manuscript states its actual
+sequential contract and measured negative results rather than claiming acceptance.
 
 The historical closeout remains recorded separately:
 

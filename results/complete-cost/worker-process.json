@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "scope": "whole worker incl startup/load/preflight/warmup/measured calls/validation/compression; not a per-call cost; exit observed after bounded polling",
+  "launch_timestamp": 1935787359464,
+  "exit_observed_timestamp": 1936046821765,
+  "process_cpu_seconds": 12.90625,
+  "frequency": 10000000,
+  "launch_to_exit_observed_seconds": 25.9462301
+}

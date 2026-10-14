@@ -4,6 +4,26 @@ A standalone artifact for generation-aware page-list reuse on complete finite se
 
 This is **not** LServe, a GPU memory checker, a concurrent page-table protocol, an online selector or an attention-quality guarantee. The CPU bridge realizes the small sequential lane-array contract, not a production KV cache. The historical venue-significance assessment remains negative; the native addition supplies measured CPU evidence without establishing TACO readiness. See `docs/novelty-assessment.md` and `docs/literature-scope.md`.
 
+`results/exact-document-workflow/` additionally retains a same-objective,
+same-optimality-contract comparison through input decoding, certificate
+serialization/consumption and actual C++ execution. All three exact planners
+agree on 207 existing inputs (621 executions); this supplies functional
+correspondence and byte-work counts, not new timing, deployment or independent
+workload evidence. The native auditors and tiny-oracle gates remain active
+under ordinary and optimized Python. Reproduction details are in `native/README.md`.
+
+`results/complete-cost/` separately measures all 207 identical serialized
+rho=0 inputs under a common optimality contract. Ordinary incremental exact
+publishes no potentials and the consumer independently recomputes the optimum;
+three certified exact arms publish and check potentials. Every full call
+includes local-file input acquisition, planning, publication/read/consumer
+replay and actual C++ allocation/execution/free. All 6,624 raw calls are retained,
+with 828 separate warmups. Range-min totals 2.880237 wall seconds versus ordinary
+exact's 2.943591, yet is slower on 173/207 input medians. Build/startup, nested
+wall/CPU phases, coarse CPU zeros and all exclusions are recorded separately.
+This is measured synthetic local-file CPU work, not physical disk, deployment
+or a speedup guarantee; the older evidence above is unchanged.
+
 ## Native CPU evidence
 
 The native adapter passes 207 positive cases, matches all 200 retained optima,

@@ -15,6 +15,8 @@ from pathlib import Path
 import check_native
 import summarize_native
 
+from evidence import require, same, loads
+
 ROOT = Path(__file__).resolve().parents[1]
 MEASURED_SOURCE_NAMES = frozenset(("allocator.cpp", "NativeBridge.cs", "bounded.ps1",
                                   "run.ps1", "check_native.py", "summarize_native.py",
@@ -39,18 +41,18 @@ def rows(path):
     opener = gzip.open if path.suffix == ".gz" else Path.open
     with opener(path, "rt", encoding="utf-8") as stream:
         for line in stream:
-            assert len(line) <= 4 * 1024**2
-            yield json.loads(line)
+            require(len(line) <= 4 * 1024**2, 'scientific evidence gate')
+            yield loads(line)
 
 
 def measured_protocol(env, source_root):
     """Validate all original bindings before reading that source's protocol."""
     hashes = env["source_sha256"]
-    assert isinstance(hashes, dict) and set(hashes) == MEASURED_SOURCE_NAMES, "seven measured sources required"
+    require(isinstance(hashes, dict) and set(hashes) == MEASURED_SOURCE_NAMES, "seven measured sources required")
     source_root = source_root.resolve(strict=True)
-    assert source_root.is_dir(), "measured source directory required"
+    require(source_root.is_dir(), "measured source directory required")
     for name in sorted(MEASURED_SOURCE_NAMES):
-        assert file_digest(source_root / name) == hashes[name], (name, "measured source binding")
+        require(file_digest(source_root / name) == hashes[name], (name, "measured source binding"))
     return json.loads((source_root / "protocol.json").read_text(encoding="utf-8"))
 
 
@@ -59,18 +61,19 @@ def main():
     ap.add_argument("campaign", type=Path, nargs="?", default=ROOT / "results/native-campaign")
     ap.add_argument("--measured-source-root", type=Path, default=ROOT / "native",
                     help="directory containing all seven recorded native files; default: artifact/native")
+    ap.add_argument('--output-summary', type=Path, help='Optional new summary file; never overwrite retained evidence.')
     args = ap.parse_args()
     out = args.campaign.resolve()
     env = json.loads((out / "environment.json").read_text(encoding="utf-8"))
     protocol = measured_protocol(env, args.measured_source_root)
-    assert file_digest(ROOT / "inputs/traces.jsonl") == env["original_input_sha256"]
-    assert file_digest(ROOT / "results/campaign/certificates.jsonl") == env["original_certificate_sha256"]
+    require(file_digest(ROOT / "inputs/traces.jsonl") == env["original_input_sha256"], 'scientific evidence gate')
+    require(file_digest(ROOT / "results/campaign/certificates.jsonl") == env["original_certificate_sha256"], 'scientific evidence gate')
     for name, info in env["compressed_records"].items():
         path = out / name
-        assert file_digest(path) == info["gzip_sha256"] and path.stat().st_size == info["gzip_bytes"]
+        require(file_digest(path) == info["gzip_sha256"] and path.stat().st_size == info["gzip_bytes"], 'scientific evidence gate')
         with gzip.open(path, "rb") as stream:
             decoded, size = digest(stream)
-        assert decoded == info["decoded_sha256"] and size == info["raw_bytes"], (name, "lossless full record")
+        require(decoded == info["decoded_sha256"] and size == info["raw_bytes"], (name, "lossless full record"))
     traces = {r["id"]: r["trace"] for r in rows(ROOT / "inputs/traces.jsonl")}
     expected_values, counts = {}, {}
     n = 0
@@ -79,49 +82,49 @@ def main():
         if record["trace"] is not None:
             traces[case] = record["trace"]
         verdict = check_native.checker.check(traces[case], record["certificate"])
-        assert verdict["accepted"], (case, verdict)
+        require(verdict["accepted"], (case, verdict))
         expected = check_native.required_values(traces[case])
-        assert record["expected"] == expected and record["passed"]
+        require(same(record["expected"], expected) and record["passed"] is True, 'mandatory reference')
         expected_values[case] = expected
         for actual in record["actual"]:
-            assert actual["values"] == expected
+            require(same(actual["values"], expected), 'actual mandatory values/types')
             counts[case, actual["mode"]] = actual
         n += 1
-    assert n == 207
+    require(n == 207, 'scientific evidence gate')
     order = [(case, pair, mode) for case in protocol["panel"] for pair in range(protocol["pairs_per_case"])
              for mode in (("baseline", "certified") if pair % 2 == 0 else ("certified", "baseline"))]
     samples = {}
     for index, record in enumerate(rows(out / "samples.jsonl.gz")):
         key = record["id"], record["pair"], record["mode"]
-        assert index < len(order) and key == order[index] and key not in samples
-        assert record["correct"] and record["repeats"] == protocol["trace_replays_per_block"]
-        assert record["actual_values"] == expected_values[key[0]], (key, "actual native values")
+        require(index < len(order) and key == order[index] and key not in samples, 'scientific evidence gate')
+        require(record["correct"] is True and same(record["repeats"], protocol["trace_replays_per_block"]), 'correct native replay count')
+        require(same(record["actual_values"], expected_values[key[0]]), (key, "actual native values"))
         previous = counts[key[0], key[2]]
         for actual, observed in (("actual_loads", "loads"), ("actual_bytes", "bytes"),
                                  ("publications", "publications"), ("descriptor_copies", "descriptor_copies"), ("sink", "sink")):
-            assert record[actual] == previous[observed], (key, actual)
-        assert record["native_execution_ns"] > 0 and record["frequency"] > 0
+            require(same(record[actual], previous[observed]), (key, actual))
+        require(all(type(record[k]) is int and record[k] > 0 for k in ('native_execution_ns', 'frequency')), 'positive integer clocks')
         samples[key] = record
-    assert len(samples) == len(order) == 308
+    require(len(samples) == len(order) == 308, 'scientific evidence gate')
     summary = json.loads((out / "summary.json").read_text(encoding="utf-8"))
-    assert summary["raw_samples"] == 308 and summary["actual_outputs_equal"] and summary["no_samples_discarded"]
+    require(summary["raw_samples"] == 308 and summary["actual_outputs_equal"] and summary["no_samples_discarded"], 'scientific evidence gate')
     native_slower = complete_slower = 0
     for case in summary["cases"]:
         name = case["id"]
         paired = []
         for pair in range(11):
             b, c = (samples[name, pair, mode] for mode in ("baseline", "certified"))
-            assert b["actual_values"] == c["actual_values"]
+            require(b["actual_values"] == c["actual_values"], 'scientific evidence gate')
             paired.append((summarize_native.phases(b), summarize_native.phases(c)))
         for field in paired[0][0]:
             ratios = [c[field] / b[field] if b[field] > 0 else None for b, c in paired]
-            assert case[field]["paired_ratios"] == ratios
+            require(case[field]["paired_ratios"] == ratios, 'scientific evidence gate')
             finite = [r for r in ratios if r is not None]
-            assert math.isclose(case[field]["baseline_median_ms"], statistics.median(b[field] for b, c in paired))
-            assert math.isclose(case[field]["certified_median_ms"], statistics.median(c[field] for b, c in paired))
+            require(math.isclose(case[field]["baseline_median_ms"], statistics.median(b[field] for b, c in paired)), 'scientific evidence gate')
+            require(math.isclose(case[field]["certified_median_ms"], statistics.median(c[field] for b, c in paired)), 'scientific evidence gate')
             if finite:
-                assert math.isclose(case[field]["paired_ratio_median"], statistics.median(finite))
-            assert case[field]["certified_slower_pairs"] == sum(c[field] > b[field] for b, c in paired)
+                require(math.isclose(case[field]["paired_ratio_median"], statistics.median(finite)), 'scientific evidence gate')
+            require(case[field]["certified_slower_pairs"] == sum(c[field] > b[field] for b, c in paired), 'scientific evidence gate')
         native_slower += case["native_execution_ms"]["certified_slower_pairs"]
         complete_slower += case["complete_from_decoded_trace_ms"]["certified_slower_pairs"]
     result = {"status": "PUBLISHED_NATIVE_EVIDENCE_PASSED", "source_bindings": len(env["source_sha256"]),
@@ -129,7 +132,9 @@ def main():
               "actual_values_and_counts_equal": True, "paired_order_verified": True,
               "native_execution_slower_pairs": native_slower, "complete_path_slower_pairs": complete_slower,
               "no_compilation_execution_or_timing": True}
-    (out / "checker-summary.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    if args.output_summary is not None:
+        with args.output_summary.open('x', encoding='utf-8') as target:
+            target.write(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result))
 
 
