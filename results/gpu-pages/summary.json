@@ -1,5 +1,5 @@
 {
-  "observed_utc": "2026-10-14T20:30:13.101945+00:00",
+  "observed_utc": "2026-10-14T20:36:39.155475+00:00",
   "environment": {
     "os": "Windows-11-10.0.28000-SP0",
     "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
@@ -17,7 +17,8 @@
   "source_sha256": {
     "native/page_loads.ptx": "12d49126431331d0c4e9b35e434ac4e0c4ffa1a6ea639269aad172de1b9d0f96",
     "native/cuda_page_driver.py": "da4a447349638ed8f4d257d4c0865a3f2d39dff0cbb614141e56f6172dcfdf6b",
-    "native/gpu_pages.py": "72c28249bf2ce317a1d4f7339ad5b3905ee8e4e3bb94cd5ea8ffb6b20d2944a0",
+    "native/gpu_pages.py": "a764228f6d3d1221d5e7a9b0de77fd3212db45e7a4b7ba92c6cfa394d2e6be64",
+    "native/evidence.py": "f1ead19ad4aa70c904143dd2eee5239bf02753c0e6038bd892565b6016533c23",
     "src/checker.py": "a847f2678acf5f83fba8276757229acb1a03ce7a031d5cfdb2b0fc70f962328c",
     "src/producer.py": "6290dd2ff1a7750a64e76a205c8a89e6bb803dde87116d90f6099cc0d5cd3a76",
     "results/exact-document-workflow/inputs.jsonl.gz": "9f73194faf4ff6685c8f55c621c09a4f31b599f13873d279ab95d496053231f1"
@@ -32,7 +33,8 @@
     "boundary_transitions": 11906,
     "loaded_lanes": 811896,
     "loaded_bytes": 1226143,
-    "zero_cap_consultations": 1
+    "zero_cap_consultations": 1,
+    "zero_cap_generation_controls": 1
   },
-  "record_sha256": "a2c8e45eef09bde92e3c8af79f03f548ee32dc6042f987f667ab6830de7dca20"
+  "record_sha256": "67f7e4e122557122af3a07d31c6a257c7563e82dd36ec70fee7e54815f5f2f15"
 }

@@ -19,7 +19,7 @@ import producer
 
 INPUT = 'results/exact-document-workflow/inputs.jsonl.gz'
 SOURCES = ('native/page_loads.ptx', 'native/cuda_page_driver.py', 'native/gpu_pages.py',
-           'src/checker.py', 'src/producer.py', INPUT)
+           'native/evidence.py', 'src/checker.py', 'src/producer.py', INPUT)
 MAX_BYTES = 128 * 1024**2
 
 
@@ -102,6 +102,13 @@ def shape(trace, cert, t):
     return ep, descriptors, values
 
 
+def control_target(values, B):
+    if not values:
+        return None
+    return next((j for j in range(len(values)//B)
+                 if values[j*B:(j+1)*B] == [SENTINEL]*B), 0)
+
+
 def execute(device, item, arm):
     trace, cert = item['trace'], plan(item['trace'], arm)
     pages, B = trace['pages'], trace['page_size']
@@ -141,17 +148,21 @@ def execute(device, item, arm):
         require(mandatory == [payload(pages[p],i) for p,i in projected(trace,t)], 'mandatory projection')
         # An owned metadata-only negative control; allocated pointers never change.
         rejected = []
+        target = control_target(expected,B)
         if descriptors:
-            slot = descriptors[0][1]
+            slot = descriptors[target][1]
             changed = [row[:] for row in resident]
             changed[slot][1] = 0  # every admitted generation is positive
             device.upload(1, struct.pack('<1024I', *(x for row in changed for x in row)))
             rejected = device.query(descriptors,B,st['frontier'],arena_bytes)
-            require(rejected[:B] == [0xffffffff]*B and rejected[B:] == expected[B:], 'device generation gate including zero cap')
+            expected_control = expected[:]
+            expected_control[target*B:(target+1)*B] = [0xffffffff]*B
+            require(rejected == expected_control, 'device generation gate including zero cap')
             require(device.read(0,arena_bytes+64) == bytes(arena), 'negative-control arena and guards unchanged')
             device.upload(1, struct.pack('<1024I', *(x for row in resident for x in row)))
             negative += 1
-        steps.append(dict(step=t, values=actual, mandatory=mandatory, generation_control=rejected))
+        steps.append(dict(step=t, values=actual, mandatory=mandatory, generation_control=rejected,
+                          generation_control_index=target))
     return dict(id=item['id'], arm=arm, certificate=cert, steps=steps,
                 transitions=transitions, generation_controls=negative)
 
@@ -166,7 +177,7 @@ def audit(directory):
     require(digest(directory/'executions.jsonl.gz') == saved['record_sha256'], 'retained record correspondence')
     expected_inputs = {r['id']:r for r in inputs()}
     seen, values, mandatory, steps, controls, transitions = set(), 0, 0, 0, 0, 0
-    loaded_lanes, loaded_bytes, zero_caps = 0, 0, 0
+    loaded_lanes, loaded_bytes, zero_caps, zero_controls = 0, 0, 0, 0
     for r in bounded_rows(directory/'executions.jsonl.gz'):
         require(type(r) is dict and set(r) == {'id','arm','certificate','steps','transitions','generation_controls'}, 'execution schema')
         key = r['id'],r['arm']
@@ -177,12 +188,17 @@ def audit(directory):
         require(same(r['certificate'],cert) and type(r['steps']) is list and len(r['steps']) == len(trace['steps']), 'complete current plan and steps')
         nctrl = 0
         for t,row in enumerate(r['steps']):
-            require(type(row) is dict and set(row) == {'step','values','mandatory','generation_control'} and type(row['step']) is int and row['step'] == t, 'step schema')
+            require(type(row) is dict and set(row) == {'step','values','mandatory','generation_control','generation_control_index'} and type(row['step']) is int and row['step'] == t, 'step schema')
             _,ds,expected = shape(trace,cert,t)
             require(same(row['values'],expected), 'complete device result cells')
             require(same(row['mandatory'],[payload(trace['pages'][p],i) for p,i in projected(trace,t)]), 'complete mandatory results')
             B = trace['page_size']
-            rejected = [0xffffffff]*B + expected[B:] if ds else []
+            target = control_target(expected,B)
+            require(same(row['generation_control_index'],target), 'explicit controlled descriptor index')
+            rejected = expected[:]
+            if target is not None:
+                zero_controls += expected[target*B:(target+1)*B] == [SENTINEL]*B
+                rejected[target*B:(target+1)*B] = [0xffffffff]*B
             require(same(row['generation_control'],rejected), 'complete owned device generation controls')
             for j,d in enumerate(ds):
                 n = sum(v != SENTINEL for v in expected[j*B:(j+1)*B])
@@ -195,7 +211,8 @@ def audit(directory):
     require(seen == {(id_,arm) for id_ in expected_inputs for arm in ('fresh','exact')}, '414 complete device replays')
     counts = dict(inputs=207,replays=414,queries=steps,output_cells=values,
                   mandatory_values=mandatory,generation_controls=controls,boundary_transitions=transitions,
-                  loaded_lanes=loaded_lanes,loaded_bytes=loaded_bytes,zero_cap_consultations=zero_caps)
+                  loaded_lanes=loaded_lanes,loaded_bytes=loaded_bytes,zero_cap_consultations=zero_caps,
+                  zero_cap_generation_controls=zero_controls)
     require(same(saved['counts'],counts), 'recomputed summary counts')
     return counts
 
@@ -222,12 +239,16 @@ def run(directory):
                   mandatory_values=sum(len(s['mandatory']) for r in records for s in r['steps']),
                   generation_controls=sum(r['generation_controls'] for r in records),
                   boundary_transitions=sum(r['transitions'] for r in records),
-                  loaded_lanes=0,loaded_bytes=0,zero_cap_consultations=0)
+                  loaded_lanes=0,loaded_bytes=0,zero_cap_consultations=0,
+                  zero_cap_generation_controls=0)
     by_id = {item['id']:item['trace'] for item in items}
     for r in records:
         trace = by_id[r['id']]; B = trace['page_size']
         for t,s in enumerate(r['steps']):
             _,ds,_ = shape(trace,r['certificate'],t)
+            target = s['generation_control_index']
+            if target is not None:
+                counts['zero_cap_generation_controls'] += s['values'][target*B:(target+1)*B] == [SENTINEL]*B
             for j,d in enumerate(ds):
                 n = sum(v != SENTINEL for v in s['values'][j*B:(j+1)*B])
                 counts['loaded_lanes'] += n; counts['loaded_bytes'] += n*d[3]

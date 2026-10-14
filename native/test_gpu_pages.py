@@ -14,6 +14,7 @@ class DeviceEvidence(unittest.TestCase):
         counts = study.audit(study.ROOT/'results/gpu-pages')
         self.assertEqual((counts['inputs'],counts['replays'],counts['queries']),(207,414,4354))
         self.assertGreater(counts['zero_cap_consultations'],0)
+        self.assertEqual(counts['zero_cap_generation_controls'],1)
 
     def test_payload_is_little_endian_bit_pattern(self):
         p = dict(content=2147483647,generation=2147483647,kv_group=31,format='fp16')
@@ -30,6 +31,15 @@ class DeviceEvidence(unittest.TestCase):
             B = item['trace']['page_size']
             found |= any(values[j*B:(j+1)*B] == [study.SENTINEL]*B for j in range(len(ds)))
         self.assertTrue(found)
+
+    def test_generation_control_targets_actual_zero_cap_descriptor(self):
+        row = next(r for r in study.bounded_rows(study.ROOT/'results/gpu-pages/executions.jsonl.gz')
+                   if r['id'] == 'native-edge-capzero' and r['arm'] == 'exact')
+        step = row['steps'][2]
+        self.assertEqual(step['generation_control_index'],1)
+        self.assertEqual(step['values'][4:8],[study.SENTINEL]*4)
+        self.assertEqual(step['generation_control'][4:8],[0xffffffff]*4)
+        self.assertEqual(step['generation_control'][:4],step['values'][:4])
 
     def test_admission_rejects_bad_types_and_extents_before_driver(self):
         device = object.__new__(PageDevice)

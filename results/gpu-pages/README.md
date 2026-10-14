@@ -17,7 +17,8 @@ its own immutable payloads and residency.
 
 Each step retains every B-sized output cell, including masked sentinels, the
 mandatory-atom projection, and the complete owned negative-control output. The
-control changes one resident generation to zero; allocated addresses never change.
+control changes one resident generation to zero, targeting a zero-cap descriptor
+when one is present; the selected index is retained and allocated addresses never change.
 That descriptor must be rejected before payload loads, including at zero cap.
 The portable consumer checks all stored cells, counts, source and frozen-input
 bindings in ordinary and optimized Python.
