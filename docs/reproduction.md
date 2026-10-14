@@ -81,4 +81,11 @@ The saved-data summarizer reads every retained row. `coverage.csv` supports the 
 
 The 632 main campaign inputs comprise 200 positive parents, 400 constructed mutants, and 32 visit-price variants. Ablation and contract variants are diagnostics, not public workloads. Public-runtime-trace count is zero. The normalized and typed pilots are separate controls and are not added to the 200 positive-case corpus.
 
-Mathematical arguments require reading the definitions and proofs; reproducing a command does not independently prove them. The tiny oracle assumes a well-formed input and enumerates all page subsets and cut masks only within its tiny bounds. The strict parser, declared abstract semantics, and correctness of the checker implementation remain trusted components. No native-kernel experiment, public serving workload, model-quality result, or independent-team assessment is present.
+Mathematical arguments require reading the definitions and proofs. The tiny
+oracle assumes a well-formed input and enumerates all page subsets and cut masks
+within its tiny bounds. The strict parser, declared abstract semantics and
+checker implementation remain trusted. Native CPU measurements and the separate
+device conformance records are described in `native/README.md` and
+`results/gpu-pages/README.md`. They use synthetic immutable lane arrays; public
+serving workloads, numerical model-quality results and independent-team review
+are outside these runs.

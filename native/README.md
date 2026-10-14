@@ -7,6 +7,16 @@ programming, a separate bitmap/potential checker and the C ABI. Python is used
 only to independently check recorded results, never as the native executor.
 All new code uses the artifact's existing MIT license.
 
+## Sequential device consumer
+
+`cuda_page_driver.py`, `page_loads.ptx` and `gpu_pages.py` provide a separate CUDA
+byte consumer of the same admitted immutable traces. Its persistent arena, birth
+transfers, resident generation gates and completed-before-next-query execution
+replay fresh/exact plans on all 207 frozen inputs. The CPU measurements below are
+unchanged. Complete device outputs and portable regressions are documented in
+`results/gpu-pages/README.md`; they report conformance, not latency, bandwidth or
+numerical-attention performance.
+
 This is a synthetic CPU realization of Sections 2.3--2.4 and Theorem 1, not a
 GPU kernel, serving application, numerical attention implementation or online
 selector. The direct-DP setup measurements are not timings of the existing

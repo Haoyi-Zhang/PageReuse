@@ -1,0 +1,55 @@
+// MIT-licensed sequential lane-array consumer, not numerical attention.
+.version 6.0
+.target sm_61
+.address_size 64
+.visible .entry page_loads(
+ .param .u64 arena, .param .u64 resident, .param .u64 descriptors,
+ .param .u64 output, .param .u32 count, .param .u32 page_size,
+ .param .u32 frontier, .param .u32 arena_bytes)
+{
+ .reg .pred %p<12>;
+ .reg .b32 %r<32>;
+ .reg .b64 %a<16>;
+ ld.param.u64 %a0, [arena]; ld.param.u64 %a1, [resident];
+ ld.param.u64 %a2, [descriptors]; ld.param.u64 %a3, [output];
+ ld.param.u32 %r0, [count]; ld.param.u32 %r1, [page_size];
+ ld.param.u32 %r2, [frontier]; ld.param.u32 %r3, [arena_bytes];
+ mov.u32 %r4, %ctaid.x; mov.u32 %r5, %ntid.x; mov.u32 %r6, %tid.x;
+ mad.lo.u32 %r7, %r4, %r5, %r6;
+ mul.lo.u32 %r8, %r0, %r1;
+ setp.ge.u32 %p0, %r7, %r8; @%p0 bra DONE;
+ div.u32 %r9, %r7, %r1; rem.u32 %r10, %r7, %r1;
+ mul.wide.u32 %a4, %r9, 24; add.u64 %a4, %a2, %a4;
+ ld.global.u32 %r11, [%a4]; ld.global.u32 %r12, [%a4+4];
+ ld.global.u32 %r13, [%a4+8]; ld.global.u32 %r14, [%a4+12];
+ ld.global.u32 %r15, [%a4+16]; ld.global.u32 %r16, [%a4+20];
+ mul.wide.u32 %a5, %r12, 16; add.u64 %a5, %a1, %a5;
+ ld.global.u32 %r17, [%a5]; ld.global.u32 %r18, [%a5+4];
+ ld.global.u32 %r19, [%a5+8]; ld.global.u32 %r20, [%a5+12];
+ setp.ne.u32 %p1, %r11, %r17; @%p1 bra INVALID;
+ setp.ne.u32 %p1, %r13, %r18; @%p1 bra INVALID;
+ setp.ne.u32 %p1, %r14, %r19; @%p1 bra INVALID;
+ setp.ne.u32 %p1, %r15, %r20; @%p1 bra INVALID;
+ shl.b32 %r21, %r1, 1; mul.lo.u32 %r21, %r12, %r21;
+ mul.lo.u32 %r22, %r15, %r14; add.u32 %r22, %r21, %r22;
+ setp.gt.u32 %p1, %r22, %r3; @%p1 bra INVALID;
+ cvt.u64.u32 %a6, %r2; cvt.u64.u32 %a7, %r16;
+ sub.s64 %a6, %a6, %a7; add.s64 %a6, %a6, 1;
+ max.s64 %a6, %a6, 0; cvt.u64.u32 %a7, %r15;
+ min.s64 %a6, %a6, %a7; cvt.u32.u64 %r23, %a6;
+ setp.ge.u32 %p1, %r10, %r23; @%p1 bra DONE;
+ mad.lo.u32 %r24, %r10, %r14, %r21;
+ cvt.u64.u32 %a8, %r24; add.u64 %a8, %a0, %a8;
+ ld.volatile.global.u8 %r25, [%a8];
+ setp.eq.u32 %p2, %r14, 2;
+ @%p2 ld.volatile.global.u8 %r26, [%a8+1];
+ @%p2 shl.b32 %r26, %r26, 8; @%p2 or.b32 %r25, %r25, %r26;
+ bra STORE;
+INVALID:
+ mov.u32 %r25, 0xffffffff;
+STORE:
+ mul.wide.u32 %a9, %r7, 4; add.u64 %a9, %a3, %a9;
+ st.global.u32 [%a9], %r25;
+DONE:
+ ret;
+}

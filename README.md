@@ -2,7 +2,20 @@
 
 A standalone artifact for generation-aware page-list reuse on complete finite sequential traces. The standard-library Python core retains the frozen synthetic inputs, source-separated producer/checker, written proofs, tiny oracles and historical results. A C++ CPU buffer adapter with a C#/.NET harness adds real slot allocation and masked byte loads, conformance records and a separately declared paired overhead campaign for *Generation-Aware Certificates for Page-List Reuse*.
 
-This is **not** LServe, a GPU memory checker, a concurrent page-table protocol, an online selector or an attention-quality guarantee. The CPU bridge realizes the small sequential lane-array contract, not a production KV cache. The historical venue-significance assessment remains negative; the native addition supplies measured CPU evidence without establishing TACO readiness. See `docs/novelty-assessment.md` and `docs/literature-scope.md`.
+The execution contract is a complete finite sequential lane-array trace with
+immutable initialized incarnations. The CPU bridge measures publication, visit
+and checking costs. A separate CUDA consumer now checks actual device byte
+execution on all 207 frozen inputs with fresh and exact plans (414 replays).
+Numerical attention, concurrent reclamation, online selection and representative
+production serving require different semantics and workloads. See
+`docs/novelty-assessment.md` and `docs/literature-scope.md` for research positioning.
+
+`results/gpu-pages/` retains all 872,200 device output cells, 392,620 mandatory
+values and 4,154 complete owned resident-generation controls. All 811,896 selected
+lane loads agree with the byte oracle across 4,354 queries. This is device
+conformance, with no performance measurements. The portable check is
+`python -B native/gpu_pages.py check results/gpu-pages`; reproduction boundaries
+are documented in that directory's README.
 
 `results/exact-document-workflow/` additionally retains a same-objective,
 same-optimality-contract comparison through input decoding, certificate

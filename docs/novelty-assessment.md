@@ -4,7 +4,7 @@
 
 The candidate was that sparse-attention page selections could carry compact, independently replayable evidence proving both declared dependency coverage and minimum weighted descriptor-publication cost across reusable page-list epochs.
 
-The final bounded object is a complete sequential trace with:
+The input object is a complete sequential trace with:
 
 - mandatory conjunctive logical dependencies;
 - fixed logical-to-physical bindings at each step;
@@ -61,10 +61,14 @@ certification by factors 1.037--1.245. Incremental backward unions substantially
 reduce planning cost relative to direct union reconstruction, with identical
 certificates and two complete matched repetitions retained. This supplies an
 additional concrete algorithm-engineering result, not a serving speedup.
-This repairs the trace-to-native/overhead gap for the synthetic lane-array
-object, not the absence of representative serving workloads or GPU/attention
-integration. The certificate itself still cannot authenticate an external
-selector, allocator or reclamation protocol.
+This connects synthetic traces to native CPU loads and measured overhead.
+A separate CUDA consumer additionally replays fresh/exact plans on all 207
+frozen inputs: 414 executions, 4,354 queries, 811,896 actual lane loads and
+392,620 mandatory values match the byte oracle. Full device outputs and 4,154
+resident-generation controls are retained in `results/gpu-pages/`. This is
+functional device correspondence, with no GPU timing study. Representative
+serving workloads, numerical attention and external allocator authentication
+remain separate research obligations.
 
 ## Historical significance assessment
 
@@ -84,5 +88,6 @@ The historical closeout remains recorded separately:
 - the subsequent authorized synthetic CPU campaign is recorded separately in `results/native-campaign/`, not backfilled into that ledger.
 
 The limited CPU refinement and overhead evidence do not overturn the historical
-venue-significance decision. Concurrent/device execution and representative
+venue-significance decision. The sequential device consumer narrows the byte
+execution gap; concurrent reclamation, numerical attention and representative
 serving evaluation remain distinct research obligations.

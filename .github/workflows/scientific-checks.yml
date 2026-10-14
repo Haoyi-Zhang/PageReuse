@@ -44,6 +44,8 @@ jobs:
             python -B tests/check_reproduction.py --campaign "$OUT/campaign" --tables "$OUT/tables"
             python -B native/test_saved_routing.py -v
             python -B native/test_policy_records.py -v
+            python -B native/test_gpu_pages.py -v
+            python -B -O native/test_gpu_pages.py -v
             python -B native/check_policies.py results/native-policy-comparison --verify-only
             python -B native/check_policy_timing.py results/native-policy-comparison/timing --verify-only --require-current-sources
             mkdir "$OUT/retained-native"
