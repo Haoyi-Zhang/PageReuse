@@ -150,10 +150,14 @@ The `scientific-checks.yml` workflow is configured for the flat artifact reposit
 Extract an existing trace without regenerating data:
 
 ```sh
-python -c 'import json; from pathlib import Path; r=json.loads(Path("inputs/traces.jsonl").read_text().splitlines()[2]); Path("trace.json").write_text(json.dumps(r["trace"]))'
-python src/producer.py trace.json certificate.json
-python src/checker.py trace.json certificate.json
+python -B -c 'import json; from pathlib import Path; out=Path("../pagereuse-smoke"); out.mkdir(exist_ok=False); r=json.loads(Path("inputs/traces.jsonl").read_text().splitlines()[2]); (out/"trace.json").write_text(json.dumps(r["trace"]), encoding="utf-8")'
+python -B src/producer.py ../pagereuse-smoke/trace.json ../pagereuse-smoke/certificate.json
+python -B src/checker.py ../pagereuse-smoke/trace.json ../pagereuse-smoke/certificate.json
 ```
+
+Use a new writable directory outside the checkout. Replace
+`../pagereuse-smoke` consistently if needed; extraction refuses to reuse an
+existing directory so previous smoke outputs are preserved.
 
 The checker returns exit code 0 for acceptance and 2 for rejection. `--safety-only` omits minimum-cost certification. The checker imports no producer code, but both programs were developed in the same development process; this is source separation, not independent-team verification. Both CLI readers are bounded to the documented input size, and the producer remains untrusted by the checker.
 
@@ -176,7 +180,6 @@ The checker returns exit code 0 for acceptance and 2 for rejection. `--safety-on
 - `docs/literature-scope.md` — inclusion rules and synthesis.
 - `docs/novelty-assessment.md` — adversarial novelty/significance decision.
 - `docs/venue-rules.md` — publisher instructions, policies and template resources.
-- `readme.txt` — short electronic-supplement description.
 
 The abstract safety conclusions require truthful bindings, initialization, lives,
 masks and sequential loads. The CPU adapter supplies a written refinement for
