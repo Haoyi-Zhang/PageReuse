@@ -188,4 +188,4 @@ authenticate an external allocator. Weighted descriptor publication remains a
 different objective from the separately measured CPU runtime; fixed-format
 numerical range bounds are not attention-approximation guarantees.
 
-AI assistance was substantive in research design, proofs, code, synthetic data, execution, analysis, validation, writing and self-audit. No independent external review, machine-checked proof or production applicability is claimed. Original code and synthetic data use the included MIT license. No third-party paper PDF or serving-runtime implementation is redistributed.
+No independent external review, machine-checked proof or production applicability is claimed. Original code and synthetic data use the included MIT license. No third-party paper PDF or serving-runtime implementation is redistributed.
