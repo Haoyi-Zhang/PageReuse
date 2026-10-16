@@ -32,6 +32,7 @@ def digest(path):
 
 
 def check_source_binding(name, expected):
+    require(name in SOURCES, f'current source mismatch: {name}')
     if digest(ROOT / name) == expected:
         return
     require(name == 'native/check_policies.py', f'current source mismatch: {name}')
