@@ -70,6 +70,46 @@ def expected_events(trace, certificate, mode):
                     yield {"kind": "load", "step": t, "page": p, "slot": meta["slot"], "generation": meta["generation"], "lane": i, "width": width, "offset": meta["slot"] * 2 * trace["page_size"] + i * width, "value": value(meta, i), "start": epoch["start"], "end": epoch["end"]}
 
 
+def observation_groups(trace_ids, protocol):
+    panel = protocol['panel']
+    edge = {'native-edge-capzero', 'native-edge-empty',
+            'native-edge-address64', 'native-edge-maxcost'}
+    require(type(panel) is list and len(panel) == len(set(panel)), 'unique observation panel')
+    selected = set(panel) | edge
+    require(selected <= set(trace_ids), 'missing declared observation case')
+    return {(case, mode) for case in selected for mode in ('baseline', 'certified')}
+
+
+def audit_observations(rows, traces, certs, expected_groups):
+    group = iterator = base_address = None
+    obligations = 0
+    seen = set()
+    for row in rows:
+        key = row['id'], row['mode']
+        require(key in expected_groups, (key, 'unexpected observation group'))
+        if key != group:
+            if iterator is not None:
+                require(next(iterator, None) is None, (group, 'missing events'))
+            require(key not in seen, (key, 'duplicate observation group'))
+            seen.add(key)
+            group = key
+            iterator = iter(expected_events(traces[key[0]], certs[key[0]], key[1]))
+            base_address = None
+        expected = next(iterator, None)
+        require(expected is not None, (key, 'extra event'))
+        ev = row['ev']
+        require(all(same(ev[k], v) for k, v in expected.items()), (key, expected, ev))
+        if ev['kind'] in ('activate', 'load'):
+            base = int(ev['address'], 16) - ev['offset']
+            require(base > 0, 'physical arena base')
+            if base_address is None: base_address = base
+            require(base_address == base, (key, 'physical arena mapping'))
+        obligations += 1
+    require(iterator is not None and next(iterator, None) is None, 'missing terminal observation events')
+    require(seen == expected_groups, ('observation coverage', expected_groups-seen))
+    return {'native_observation_groups': len(seen), 'native_event_obligations': obligations}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("out", type=Path)
@@ -110,33 +150,11 @@ def main():
             require(same((actual["loads"], actual["bytes"], actual["publications"], actual["descriptor_copies"], actual["sink"]), (loads, byte_count, count, copied, sink)), 'native integer counts/sink')
         cases += 1
     require(cases == 207, 'scientific evidence gate')
-    group = None
-    iterator = None
-    base_address = None
-    obligations = groups = 0
-    for row in records(out / "observations.jsonl"):
-        key = row["id"], row["mode"]
-        if key != group:
-            if iterator is not None:
-                require(next(iterator, None) is None, (group, "missing events"))
-            group = key
-            iterator = iter(expected_events(traces[key[0]], certs[key[0]], key[1]))
-            base_address = None
-            groups += 1
-        expected = next(iterator, None)
-        require(expected is not None, (key, "extra event"))
-        ev = row["ev"]
-        require(all(same(ev[k], v) for k, v in expected.items()), (key, expected, ev))
-        if ev["kind"] in ("activate", "load"):
-            base = int(ev["address"], 16) - ev["offset"]
-            require(base > 0, 'scientific evidence gate')
-            if base_address is None:
-                base_address = base
-            require(base_address == base, (key, "physical arena mapping"))
-        obligations += 1
-    require(next(iterator, None) is None and groups == 36, 'scientific evidence gate')
+    protocol = strict_loads((Path(__file__).with_name('protocol.json')).read_text(encoding='utf-8'))
+    observations = audit_observations(records(out/'observations.jsonl'), traces, certs,
+                                      observation_groups(traces, protocol))
     summary = {"status": "INDEPENDENT_CHECKS_PASSED", "cases": cases, "original_checker_acceptances": cases,
-               "native_observation_groups": groups, "native_event_obligations": obligations,
+               **observations,
                "actual_values_equal": True, "performance_measurements_started": False}
     target=out / 'independent-summary.json'
     if args.verify_only:

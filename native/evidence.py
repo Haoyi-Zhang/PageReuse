@@ -4,6 +4,7 @@ These are data checks, not assertions about a trusted internal invariant.
 Historical measured sources and records are not rewritten by this module.
 """
 import json
+import math
 
 
 def require(condition, reason='evidence check failed'):
@@ -33,4 +34,9 @@ def object_fields(pairs):
 def loads(text):
     def nonfinite(value):
         raise AssertionError(('nonfinite evidence number', value))
-    return json.loads(text, object_pairs_hook=object_fields, parse_constant=nonfinite)
+    def finite_float(value):
+        number = float(value)
+        require(math.isfinite(number), ('nonfinite evidence number', value))
+        return number
+    return json.loads(text, object_pairs_hook=object_fields,
+                      parse_constant=nonfinite, parse_float=finite_float)

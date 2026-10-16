@@ -61,6 +61,17 @@ def read_json(path):
     return json.loads(content(path).decode('utf-8-sig'))
 
 
+def verify_summary(saved, current):
+    recorded = saved.get('verifier_sha256')
+    if recorded != current['verifier_sha256']:
+        frozen = read_json(ROOT / 'data/measured_timing_checker.json')
+        need(set(frozen) == {'path', 'source'} and frozen['path'] == 'native/check_policy_timing.py'
+             and type(frozen['source']) is str, 'measured timing auditor context')
+        need(hashlib.sha256(frozen['source'].encode('utf-8')).hexdigest().upper() == recorded,
+             'measured timing auditor binding')
+    return saved == {**current, 'verifier_sha256': recorded}
+
+
 def module(path, name):
     # These are the hash-verified, previously reviewed pure Python specifications;
     # no snapshot shell/native program is executed.
@@ -99,7 +110,12 @@ def verify(directory, require_current=False, library=None, assembly=None):
     for name, h in source['source_sha256'].items():
         need(digest(safe_file(source_root, name)) == h, f'measured source snapshot: {name}')
         if require_current:
-            need(digest(ROOT / name) == h, f'current source differs from timing: {name}')
+            if name == 'native/check_policies.py':
+                # This offline auditor is not executed inside a timed call.
+                # Check its original bytes and the current reader separately.
+                module(ROOT / name, 'current_policy_auditor').check_source_binding(name, h)
+            else:
+                need(digest(ROOT / name) == h, f'current source differs from timing: {name}')
     for name, identity in inputs['files'].items():
         path = safe_file(input_root, name)
         need(digest(path) == identity['sha256'] and decoded(path) == identity['decoded'], f'input snapshot: {name}')
@@ -321,7 +337,8 @@ def main():
         for name, data in tables.items():
             (directory/name).write_bytes(data)
     if args.verify_only:
-        need(read_json(target) == summary and content(pair_file) == text, 'saved summaries/paired ratios differ from fixed-round recomputation')
+        need(verify_summary(read_json(target), summary) and content(pair_file) == text,
+             'saved summaries/paired ratios differ from fixed-round recomputation')
         for name, data in tables.items():
             need((directory/name).read_bytes() == data, f'paper table differs from raw recomputation: {name}')
     print(json.dumps(dict(status=summary['status'], raw_samples=3080, functional_rows_rechecked=1035,

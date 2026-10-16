@@ -75,13 +75,14 @@ def main():
             decoded, size = digest(stream)
         require(decoded == info["decoded_sha256"] and size == info["raw_bytes"], (name, "lossless full record"))
     traces = {r["id"]: r["trace"] for r in rows(ROOT / "inputs/traces.jsonl")}
-    expected_values, counts = {}, {}
+    expected_values, counts, certificates = {}, {}, {}
     n = 0
     for record in rows(out / "conformance.jsonl"):
         case = record["id"]
         if record["trace"] is not None:
             traces[case] = record["trace"]
         verdict = check_native.checker.check(traces[case], record["certificate"])
+        certificates[case] = record['certificate']
         require(verdict["accepted"], (case, verdict))
         expected = check_native.required_values(traces[case])
         require(same(record["expected"], expected) and record["passed"] is True, 'mandatory reference')
@@ -91,6 +92,8 @@ def main():
             counts[case, actual["mode"]] = actual
         n += 1
     require(n == 207, 'scientific evidence gate')
+    observation_audit = check_native.audit_observations(rows(out/'observations.jsonl.gz'),
+        traces, certificates, check_native.observation_groups(traces, protocol))
     order = [(case, pair, mode) for case in protocol["panel"] for pair in range(protocol["pairs_per_case"])
              for mode in (("baseline", "certified") if pair % 2 == 0 else ("certified", "baseline"))]
     samples = {}
@@ -131,7 +134,7 @@ def main():
               "gzip_full_records_lossless": True, "original_checker_acceptances": n, "samples": len(samples), "pairs": 154,
               "actual_values_and_counts_equal": True, "paired_order_verified": True,
               "native_execution_slower_pairs": native_slower, "complete_path_slower_pairs": complete_slower,
-              "no_compilation_execution_or_timing": True}
+              "no_compilation_execution_or_timing": True, **observation_audit}
     if args.output_summary is not None:
         with args.output_summary.open('x', encoding='utf-8') as target:
             target.write(json.dumps(result, indent=2) + '\n')

@@ -39,6 +39,13 @@ or a speedup guarantee; the older evidence above is unchanged.
 
 ## Native CPU evidence
 
+The two structural manuscript diagrams are direct Python vector outputs in
+`figures/`. Install `figures/requirements-schematics.txt`, run
+`python -B figures/draw_schematics.py`, and use `--check` to verify freshness.
+The offline policy auditor retains the original measured auditor bytes while
+checking current record semantics; the allocator, harness and planning source
+bindings remain exact. No retained clocks are relabeled as new measurements.
+
 The native adapter passes 207 positive cases, matches all 200 retained optima,
 rejects the 400 retained checker controls, and passes explicit empty/null-list,
 zero-cap, address/integer and resident-metadata checks. A source-separated audit

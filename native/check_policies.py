@@ -11,6 +11,7 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+from evidence import same, loads as strict_loads
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICIES = ('fresh', 'longest-feasible', 'four-step',
@@ -28,6 +29,18 @@ def require(ok, reason):
 def digest(path):
     with path.open('rb') as f:
         return hashlib.file_digest(f, 'sha256').hexdigest().upper()
+
+
+def check_source_binding(name, expected):
+    if digest(ROOT / name) == expected:
+        return
+    require(name == 'native/check_policies.py', f'current source mismatch: {name}')
+    frozen = strict_loads((ROOT / 'data/measured_policy_checker.json').read_text(encoding='utf-8'))
+    require(type(frozen) is dict and set(frozen) == {'path', 'source'}
+            and frozen['path'] == name and type(frozen['source']) is str,
+            'measured policy checker context')
+    require(hashlib.sha256(frozen['source'].encode('utf-8')).hexdigest().upper() == expected,
+            'measured policy checker binding')
 
 
 def module(name):
@@ -66,7 +79,7 @@ def read_rows(path, byte_cap=RECORD_BYTE_CAP):
         while line := f.readline(byte_cap-total+1):
             total += len(line)
             require(total <= byte_cap, f'decompressed record bound: {path.name}')
-            yield json.loads(line.decode('utf-8-sig'))
+            yield strict_loads(line.decode('utf-8-sig'))
 
 
 def at_price(trace, price):
@@ -142,13 +155,13 @@ def aggregate(rows, label):
 
 def audit(directory, library=None, managed_assembly=None, build_environment=None, verify_only=False):
     producer, checker = module('producer'), module('checker')
-    environment = json.loads((directory / 'environment.json').read_text(encoding='utf-8-sig'))
+    environment = strict_loads((directory / 'environment.json').read_text(encoding='utf-8-sig'))
     require(environment['mode'] == 'Functional' and environment['performance_measurements_started'] is False, 'functional protocol')
     require(environment['protocol'] == 'matched-five-policy-functional-v1' and environment['policies'] == list(POLICIES), 'five policies')
-    require(environment['fixed_visit_price'] == 1, 'fixed price')
+    require(same(environment['fixed_visit_price'], 1), 'fixed price')
     require(set(environment['source_sha256']) == set(SOURCES), 'source binding coverage')
     for name, expected in environment['source_sha256'].items():
-        require(digest(ROOT / name) == expected, f'current source mismatch: {name}')
+        check_source_binding(name, expected)
     require(digest(ROOT / 'inputs/traces.jsonl') == environment['input_sha256'], 'original input binding')
     require(digest(ROOT / 'results/campaign/certificates.jsonl') == environment['saved_certificate_sha256'], 'saved certificate binding')
     require(environment['runtime_files_distributed'] is False and environment['results_directory'] == 'results/native-policy-comparison', 'public result layout')
@@ -159,7 +172,7 @@ def audit(directory, library=None, managed_assembly=None, build_environment=None
         require(digest(library) == environment['library_sha256'], 'loaded allocator binary binding')
         require(digest(managed_assembly) == environment['managed_assembly_sha256'], 'managed binary binding')
         require(digest(build_environment) == environment['build_environment_sha256'], 'compilation manifest binding')
-        build = json.loads(build_environment.read_text(encoding='utf-8-sig'))
+        build = strict_loads(build_environment.read_text(encoding='utf-8-sig'))
         require(build['mode'] == 'Compile' and build['source_sha256']['allocator.cpp'] == environment['source_sha256']['native/allocator.cpp']
                 and build['library_sha256'] == environment['library_sha256'], 'allocator compilation source/binary match')
     # Binary identities remain recorded when files are not supplied. That mode
@@ -173,7 +186,7 @@ def audit(directory, library=None, managed_assembly=None, build_environment=None
     compressed = {name for name in environment['record_sha256'] if name.endswith('.gz')}
     require(set(environment['record_decoded']) == compressed, 'decoded binding coverage')
     for name, expected in environment['record_decoded'].items():
-        require(decoded_identity(directory / name) == expected, f'decoded binding mismatch: {name}')
+            require(same(decoded_identity(directory / name), expected), f'decoded binding mismatch: {name}')
 
     cases = {}
     for c in read_rows(directory / 'cases.jsonl'):
@@ -183,7 +196,7 @@ def audit(directory, library=None, managed_assembly=None, build_environment=None
     require(len(cases) == 207 and len(original) == 200, 'case denominators')
     for id_, r in original.items():
         c = cases[id_]
-        require(c['trace'] == r['trace'] and c['stratum'] == r['stratum'] and c['suite'] == 'retained-200', f'original trace/stratum: {id_}')
+        require(same(c['trace'], r['trace']) and c['stratum'] == r['stratum'] and c['suite'] == 'retained-200', f'original trace/stratum: {id_}')
     native = {id_ for id_, c in cases.items() if c['suite'] == 'native-controls-7'}
     require(native == {'native-wide-repeat', 'native-wide-rotate', 'native-wide-recycle', 'native-edge-capzero',
                        'native-edge-empty', 'native-edge-address64', 'native-edge-maxcost'}, 'native control identities')
@@ -194,17 +207,17 @@ def audit(directory, library=None, managed_assembly=None, build_environment=None
         trace = c['trace']
         declared_certificates[id_] = producer.solve(trace)['certificate']
         if id_ in saved:
-            require(declared_certificates[id_] == saved[id_], f'saved full certificate: {id_}')
+            require(same(declared_certificates[id_], saved[id_]), f'saved full certificate: {id_}')
         optima[id_] = (producer.solve(at_price(trace, 0))['certificate'], producer.solve(at_price(trace, 1), mode='direct')['certificate'])
         values[id_] = mandatory_values(trace)
     agreed = set()
     for r in read_rows(directory / 'planner-agreement.jsonl'):
         id_ = r['id'];require(id_ not in agreed and id_ in cases, 'agreement case identity');agreed.add(id_)
-        require(r['declared_visit_weight'] == cases[id_]['trace']['visit_weight'], 'original price retained')
+        require(same(r['declared_visit_weight'], cases[id_]['trace']['visit_weight']), 'original price retained')
         for price, key, expected in ((None, 'declared_certificate', declared_certificates[id_]),
                                      (0, 'rho0_certificate', optima[id_][0]), (1, 'rho1_certificate', optima[id_][1])):
             trace = cases[id_]['trace'] if price is None else at_price(cases[id_]['trace'], price)
-            require(r[key] == expected, f'Python/native full certificate/tie: {id_}/{key}')
+            require(same(r[key], expected), f'Python/native full certificate/tie: {id_}/{key}')
             require(checker.check(trace, r[key])['accepted'], f'strict agreement certificate: {id_}/{key}')
     require(agreed == set(cases), '207 agreement records')
 
@@ -216,7 +229,7 @@ def audit(directory, library=None, managed_assembly=None, build_environment=None
         price = 1 if policy == POLICIES[4] else 0
         optimal = policy in POLICIES[3:]
         trace = at_price(c['trace'], price)
-        require(r['planning_visit_weight'] == price and r['checker'] == ('optimality' if optimal else 'safety-only'), 'fair checker/price')
+        require(same(r['planning_visit_weight'], price) and r['checker'] == ('optimality' if optimal else 'safety-only'), 'fair checker/price')
         cert = r['certificate'];require(checker.check(trace, cert, optimal=optimal)['accepted'], f'checker: {key}')
         if optimal:
             expected = optima[id_][price]
@@ -224,20 +237,21 @@ def audit(directory, library=None, managed_assembly=None, build_environment=None
             kind = {'fresh': 'fresh', 'longest-feasible': 'greedy', 'four-step': 'periodic'}[policy]
             cuts = producer.baseline(trace, kind)['cuts']
             expected = producer.make_certificate(trace, cuts, [0]*(len(trace['steps'])+1))
-        require(cert == expected, f'complete plan/tie/spec: {key}')
+        require(same(cert, expected), f'complete plan/tie/spec: {key}')
         counts = accounting(trace, cert)
         for k, v in counts.items():
-            require(r[k] == v, f'native accounting {key}/{k}')
+            require(same(r[k], v), f'native accounting {key}/{k}')
         require(cert['total_cost'] == counts['publication_cost'] + price*counts['weighted_page_visits'], 'objective identity')
-        require(r['actual_values'] == values[id_] and r['passed'] is True, f'mandatory values: {key}')
-        require(r['rho0_optimum'] == optima[id_][0]['total_cost'] and r['rho1_optimum'] == optima[id_][1]['total_cost'], 'paired optimum accounting')
+        require(same(r['actual_values'], values[id_]) and r['passed'] is True, f'mandatory values: {key}')
+        require(same(r['rho0_optimum'], optima[id_][0]['total_cost']) and same(r['rho1_optimum'], optima[id_][1]['total_cost']), 'paired optimum accounting')
         require(r['publication_cost'] >= r['rho0_optimum'] and r['cost_at_fixed_visit_price'] >= r['rho1_optimum'], 'feasible lower bounds')
         rows.append(r)
     require(seen == {(id_, p) for id_ in cases for p in POLICIES}, '1035 matched policy records')
-    functional = json.loads((directory / 'functional-summary.json').read_text())
-    require(functional['status'] == 'FUNCTIONAL_PASSED' and functional['native_policy_replays'] == 1035
-            and functional['retained_cases'] == 200 and functional['native_controls'] == 7
-            and functional['targeted_controls'] == 134 and functional['performance_measurements_started'] is False, 'native functional summary')
+    functional = strict_loads((directory / 'functional-summary.json').read_text())
+    expected_functional = dict(status='FUNCTIONAL_PASSED', native_policy_replays=1035,
+        retained_cases=200, native_controls=7, targeted_controls=134,
+        performance_measurements_started=False)
+    require(all(same(functional[k], v) for k,v in expected_functional.items()), 'native functional summary')
     retained = [r for r in rows if r['suite'] == 'retained-200']
     summary = dict(status='SOURCE_SEPARATED_FUNCTIONAL_PASSED', retained_cases=200, retained_policy_records=len(retained),
                    native_control_cases=7, native_policy_records=len(rows)-len(retained), full_certificate_agreement_cases=207,
@@ -253,7 +267,8 @@ def audit(directory, library=None, managed_assembly=None, build_environment=None
     if verify_only:
         # JSON arrays deserialize as lists; normalize in-memory tuple group keys
         # through the same serialization before comparing the saved summary.
-        require(target.exists() and json.loads(target.read_text(encoding='utf-8')) == json.loads(json.dumps(summary)), 'saved summary differs from recomputed records')
+        require(target.exists() and same(strict_loads(target.read_text(encoding='utf-8')),
+                strict_loads(json.dumps(summary))), 'saved summary differs from recomputed records')
     else:
         require(not target.exists(), 'preserve prior independent summary; use --verify-only to recheck it')
         target.write_text(json.dumps(summary, indent=2, sort_keys=True)+'\n', encoding='utf-8')
