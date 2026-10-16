@@ -27,6 +27,19 @@ def bindings():
     return {name: digest(ROOT/name) for name in SOURCES}
 
 
+def verify_source_bindings(saved):
+    require(type(saved) is dict and set(saved) == set(SOURCES), 'device source coverage')
+    frozen = loads((ROOT/'data/measured_gpu_sources.json').read_text(encoding='utf-8'))
+    require(type(frozen) is dict and set(frozen) == {'native/evidence.py','native/gpu_pages.py'},
+            'original device auditors')
+    for name, expected in saved.items():
+        if digest(ROOT/name) == expected:
+            continue
+        require(name in frozen and type(frozen[name]) is str
+                and hashlib.sha256(frozen[name].encode('utf-8')).hexdigest() == expected,
+                'measured device source/input correspondence: '+name)
+
+
 def digest(path):
     value, total = hashlib.sha256(), 0
     with path.open('rb') as stream:
@@ -173,7 +186,7 @@ def audit(directory):
     require(len(raw) <= 2*1024**2, 'summary byte cap')
     saved = loads(raw.decode())
     require(type(saved) is dict and set(saved) == {'observed_utc','environment','source_sha256','counts','record_sha256'}, 'summary fields')
-    require(same(saved['source_sha256'],bindings()), 'current source/input correspondence')
+    verify_source_bindings(saved['source_sha256'])
     require(digest(directory/'executions.jsonl.gz') == saved['record_sha256'], 'retained record correspondence')
     expected_inputs = {r['id']:r for r in inputs()}
     seen, values, mandatory, steps, controls, transitions = set(), 0, 0, 0, 0, 0

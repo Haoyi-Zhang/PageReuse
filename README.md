@@ -45,6 +45,10 @@ The two structural manuscript diagrams are direct Python vector outputs in
 The offline policy auditor retains the original measured auditor bytes while
 checking current record semantics; the allocator, harness and planning source
 bindings remain exact. No retained clocks are relabeled as new measurements.
+The same separation applies to retained device conformance: its original two
+offline auditor sources remain bound and readable in `data/measured_gpu_sources.json`,
+while device kernels, driver, input and planner bindings remain exact and the
+current auditor rechecks every retained output. This does not rerun the device.
 
 The native adapter passes 207 positive cases, matches all 200 retained optima,
 rejects the 400 retained checker controls, and passes explicit empty/null-list,

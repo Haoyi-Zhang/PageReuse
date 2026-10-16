@@ -22,6 +22,14 @@ class DeviceEvidence(unittest.TestCase):
         p['format']='int8'
         self.assertLessEqual(study.payload(p,127),255)
 
+    def test_device_source_context_rejects_changed_original(self):
+        saved=study.loads((study.ROOT/'results/gpu-pages/summary.json').read_text())['source_sha256']
+        frozen=study.loads((study.ROOT/'data/measured_gpu_sources.json').read_text())
+        frozen['native/evidence.py']+=' changed'
+        with patch.object(study,'loads',return_value=frozen):
+            with self.assertRaisesRegex(AssertionError,'measured device source/input correspondence'):
+                study.verify_source_bindings(saved)
+
     def test_zero_cap_preserves_descriptor_consultation(self):
         item = next(r for r in study.inputs() if r['id']=='native-edge-capzero')
         cert = study.plan(item['trace'],'exact')
