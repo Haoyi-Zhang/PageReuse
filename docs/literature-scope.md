@@ -1,8 +1,8 @@
-# Literature scope and completed calibration
+# Literature scope and historical calibration
 
-## Status and method
+## Reading record and method
 
-The project closeout includes a **13 same-venue + 5 influential/foundational + 7 adjacent-venue full-paper calibration**. This exceeds the required 12+5+5 threshold. The row-level evidence is in `calibration-matrix.md` and `calibration-matrix.csv`; the manuscript bibliography contains 60 relevant scholarly sources, all cited in the paper.
+The historical reading record contains a **13 same-venue + 5 influential/foundational + 7 adjacent-venue full-paper calibration**. The row-level evidence is in `calibration-matrix.md` and `calibration-matrix.csv`; the manuscript bibliography contains 60 relevant scholarly sources, all cited in the paper.
 
 A work was counted as a full-paper calibration read only when the substantive paper was inspected far enough to record its motivating problem, general principle, correctness or performance argument, practical connection, evaluation breadth, artifact strength, narrative sequence, section pattern, and the role of figures or tables. An abstract, project page, metadata record, search snippet, or bibliography entry alone was not counted. Bibliography sizes were recorded only when directly available; no count was invented. “Full paper inspected” does not mean independently replicated.
 
@@ -10,11 +10,11 @@ The screening emphasized three questions:
 
 1. Does prior work already state the same certificate object or theorem?
 2. Which ingredients are established independently of this project?
-3. What evidence does TACO or the adjacent serving literature require before an abstraction becomes a systems contribution?
+3. How do the inspected architecture and serving studies connect abstractions to implementations and workloads?
 
-The access date for the completed closeout is 2026-09-15. No third-party paper PDF is redistributed. Primary scholarly URLs and the exact role of each source are recorded in `external_resources.csv`.
+The recorded access date is 2026-09-15. No third-party paper PDF is redistributed. Primary scholarly URLs and the exact role of each source are recorded in `external_resources.csv`.
 
-## Completed calibration groups
+## Historical calibration groups
 
 ### Same-venue TACO papers (13)
 
@@ -45,21 +45,20 @@ The following pieces are established or elementary rather than new general metho
 
 The project-specific contribution that survives is narrower: for complete sequential declared traces with immutable page incarnations, it makes the lifetime frontier, canonical cut accounting, exact weighted-publication recurrence, checker evidence, and a tight factor-two bound for longest feasible reuse explicit in one bounded contract. The written proofs and retained finite checks support that statement.
 
-## Novelty and significance decision
+## Literature comparison and implementation evidence
 
-No inspected work was found to state precisely the same combination of serial page-incarnation lives, canonical constant-list epochs, descriptor-publication cost, shortest-path optimality evidence, and the tight longest-reuse bound. That observation supports only a **composition-specific technical note**, not a “first,” “general,” “practical,” or architecture-level novelty claim.
+No inspected work was found to state precisely the same combination of serial page-incarnation lives, canonical constant-list epochs, descriptor-publication cost, shortest-path optimality evidence, and the tight longest-reuse bound. This composition-specific comparison does not establish a “first,” “general,” “practical,” or architecture-level novelty claim.
 
-The historical TACO significance gate resolved negatively. At that closeout,
+At the historical closeout,
 the artifact lacked native implementation and measured overhead. Subsequent
 CPU-buffer work supplies a sequential implementation, written refinement,
 native load observations and overhead measurements. It still supplies no
 authoritative external snapshot protocol, concurrent reclamation semantics,
 GPU/attention refinement, public serving trace or model-quality study. The
-current exact arms are slower than fresh on all fourteen case medians. These
-additions do not establish a submission-ready TACO systems article.
+current exact arms are slower than fresh on all fourteen case medians.
 
 The 25-paper calibration above is a historical reading record, not a claim that
 every full text has been reread for each code revision. The serialized
 same-guarantee comparison in `results/exact-document-workflow` supports
 document-to-native correspondence; its byte counts do not settle current
-complete-cost performance or significance.
+complete-cost performance.
