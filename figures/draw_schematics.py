@@ -90,7 +90,7 @@ def draw_all(out):
     d.edge('prod','check')
     d.text(5.65,-1,'serialized certificate',8.5,ha='left')
     d.arrow((1.625,-.5),(3.775,-1.5))
-    d.text(2.5,-.62,'original input',8.5)
+    d.text(2.7,-.30,'original input',8.5)
     d.edge('check','verdict','w','e')
     d.line([(-1.8,-3.1),(9.8,-3.1)],dashed=True)
     d.text(3.8,-3.65,'Consumed plan → CPU and device byte execution\nSequential boundaries, resident generations, masked loads')
