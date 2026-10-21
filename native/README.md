@@ -263,7 +263,8 @@ directory. Binaries, compiler/runtime caches and worker logs remain in an explic
 private work directory outside this artifact-root repository. The driver rejects
 in-repository build/runtime paths and refuses an existing result directory.
 An explicit private `-OutDir` (for example in `RUNNER_TEMP`) is supported for CI
-reproduction; the public dataset path remains stable.
+reproduction; the public dataset path remains stable. Use a new, nonexistent
+`$private/policy-records` directory for the example below.
 To reproduce from `artifact/` with an
 existing Zig compiler (a matching previously compiled current allocator may
 also be reused):
@@ -271,8 +272,8 @@ also be reused):
 ```powershell
 $private = '/absolute/path/outside/artifact'
 ./native/bounded.ps1 -Mode Compile -Zig /path/to/zig.exe -WorkRoot "$private/native-build" -WallSeconds 240 -MemoryMiB 2048
-./native/policies.ps1 -Library "$private/native-build/build/p054_allocator.dll" -BuildEnvironment "$private/native-build/compile/environment.json" -WorkRoot "$private/policy-runtime" -WallSeconds 120 -MemoryMiB 1024
-python -B ./native/check_policies.py ./results/native-policy-comparison --library "$private/native-build/build/p054_allocator.dll" --managed-assembly "$private/policy-runtime/policy_bridge.dll" --build-environment "$private/native-build/compile/environment.json"
+./native/policies.ps1 -Library "$private/native-build/build/p054_allocator.dll" -BuildEnvironment "$private/native-build/compile/environment.json" -WorkRoot "$private/policy-runtime" -OutDir "$private/policy-records" -WallSeconds 120 -MemoryMiB 1024
+python -B ./native/check_policies.py "$private/policy-records" --library "$private/native-build/build/p054_allocator.dll" --managed-assembly "$private/policy-runtime/policy_bridge.dll" --build-environment "$private/native-build/compile/environment.json"
 ```
 
 The driver records 200 original cases plus three wide workloads and four edge
