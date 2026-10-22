@@ -46,6 +46,12 @@ jobs:
             python -B native/test_policy_records.py -v
             python -B native/test_observation_groups.py -v
             python -B native/test_evidence.py -v
+            python -B native/test_complete_cost.py -v
+            python -B -O native/test_complete_cost.py -v
+            python -B native/test_complete_cost_sources.py -v
+            python -B -O native/test_complete_cost_sources.py -v
+            python -B native/check_complete_cost.py results/complete-cost
+            python -B -O native/check_complete_cost.py results/complete-cost
             python -B native/test_gpu_pages.py -v
             python -B -O native/test_gpu_pages.py -v
             python -B native/check_policies.py results/native-policy-comparison --verify-only

@@ -402,11 +402,21 @@ hashes. `check_complete_cost.py` uses source-separated Python semantics to check
 every actual publication, optimum, vector, count, byte total, clock schema and
 fixed call/order schedule. Scientific gates do not use bare Python `assert`.
 
+The two record-admission helpers have since changed. Their exact measured
+texts are retained in `data/measured_complete_cost_checkers.json` and checked
+against the unchanged `environment.json` bindings; they are never imported or
+executed. The current checker continues to admit and recompute every record.
+The planner, input checker, native executor and measurement drivers must still
+match their recorded bytes. The reported source scope distinguishes retained
+helpers from current execution sources; these are not new native measurements.
+
 ```sh
 python -B native/check_complete_cost.py results/complete-cost
 python -B -O native/check_complete_cost.py results/complete-cost
 python -B native/test_complete_cost.py -v
 python -B -O native/test_complete_cost.py -v
+python -B native/test_complete_cost_sources.py -v
+python -B -O native/test_complete_cost_sources.py -v
 python -B native/summarize_complete_cost.py results/complete-cost /new/private/table-output
 ```
 

@@ -39,3 +39,9 @@ hashes are in `environment.json`. Only private run identity/authority hash and
 native build paths/argv were omitted on publication; complete private originals
 remain preserved. No binary, compiler cache, work status or private audit log
 is included. Audit with normal and optimized Python as in `native/README.md`.
+
+The current record-admission helpers differ from the measured helpers. Their
+original text is retained in `data/measured_complete_cost_checkers.json`, bound
+to the unchanged source identities above and read only as data. Execution
+sources must still match; the current strict reader checks the retained data.
+This restores saved-data checking without relabeling it as a new measurement.

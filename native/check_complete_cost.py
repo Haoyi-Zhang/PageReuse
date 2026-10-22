@@ -9,6 +9,27 @@ PHASES=('acquisition','planning','serialization','publication','consumer','nativ
 FIELDS={'id','arm','round','position','objective','checker','frequency','full','phases','input_bytes','published_bytes','published_utf8','actual_values','actual_loads','actual_bytes','publications','descriptor_copies','sink','arena_bytes','passed'}
 SOURCES={'native/allocator.cpp','native/NativeBridge.cs','native/NativePolicies.cs','native/NativePolicyTests.cs','native/NativePolicyTiming.cs','native/NativeCompleteCost.cs','native/complete_cost.ps1','src/checker.py','src/producer.py','native/check_complete_cost.py','native/evidence.py'}
 def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest().upper()
+def source_binding_state(bindings):
+    """Bind measurement-time bytes without executing archived checker sources.
+
+    Only the two record-admission helpers may use their retained source text.
+    A changed planner, native executor, driver, or input checker still fails.
+    """
+    require(type(bindings) is dict and set(bindings)==SOURCES,'all measured source bindings')
+    historical=[];context=None
+    helper_names={'native/evidence.py','native/check_complete_cost.py'}
+    for name,expected in bindings.items():
+        if digest(ROOT/name)==expected:continue
+        require(name in helper_names,('measured execution source changed',name))
+        if context is None:
+            context=loads((ROOT/'data/measured_complete_cost_checkers.json').read_text(encoding='utf-8'))
+            require(type(context) is dict and set(context)==helper_names,'exact measured checker context')
+            for helper,source in context.items():
+                require(type(source) is str,'literal measured checker source')
+                require(hashlib.sha256(source.encode('utf-8')).hexdigest().upper()==bindings[helper],('measured checker source binding',helper))
+        historical.append(name)
+    return dict(measured_bindings=len(bindings),current_execution_sources_match=True,
+                retained_checker_sources=sorted(historical),archived_sources_executed=False)
 def integer(n,lo=0):require(type(n) is int and n>=lo,'nonnegative integer, not Boolean')
 def clock(c):
     require(type(c) is dict and set(c)=={'wall_ticks','process_cpu_100ns'},'exact clock fields')
@@ -28,8 +49,7 @@ def ratio(n,d):
 def audit(directory):
     env=loads((directory/'environment.json').read_text());protocol=loads((directory/'protocol.json').read_text())
     require(env['project_id']=='P054' and env['protocol']=='same-contract-complete-cost' and env['authority_kind']=='explicit-user-resume' and env['historical_reserved_slot_claimed'] is False,'scoped renewed authority, not fabricated reservation')
-    require(set(env['source_sha256'])==SOURCES,'all measured source bindings')
-    for n,h in env['source_sha256'].items():require(digest(ROOT/n)==h,('source',n))
+    source_scope=source_binding_state(env['source_sha256'])
     require(set(env['record_sha256'])=={'samples.jsonl.gz','completion.json','protocol.json','ready.json'},'all raw record bindings')
     for n,h in env['record_sha256'].items():require(digest(directory/n)==h,('record',n))
     require(protocol['inputs']==207 and protocol['rounds']==8 and protocol['measured_calls']==6624 and same(protocol['arms'],list(ARMS)),'fixed protocol')
@@ -78,7 +98,7 @@ def audit(directory):
     # Each phase total sums actual nested observations across those same calls.
     # It is NEVER substituted for the enclosing full-path observations.
     phases={a:{p:{'sum_wall_seconds':sum(r['phases'][p]['wall_ticks'] for (_,_,arm),r in per.items() if arm==a)/frequency,'sum_process_cpu_seconds':sum(r['phases'][p]['process_cpu_100ns'] for (_,_,arm),r in per.items() if arm==a)/1e7} for p in PHASES} for a in ARMS}
-    return dict(status='COMPLETE_COST_RECORDS_PASSED',inputs=207,retained_inputs=200,separate_controls=7,measured_native_calls=raw_count,warmup_native_calls=828,rounds=8,frequency=frequency,serialized_input_bytes_acquired=input_bytes,arms=by_arm,phases=phases,zero_full_samples=zeros,zero_phase_samples=phase_zero,cases=by_case,interpretation='Sums of actual enclosing invocation clocks, not phase medians; individual matched ratios retain zero policy; repetitions are not independent workloads; cached local-file CPU experiment only.')
+    return dict(status='COMPLETE_COST_RECORDS_PASSED',source_binding_scope=source_scope,inputs=207,retained_inputs=200,separate_controls=7,measured_native_calls=raw_count,warmup_native_calls=828,rounds=8,frequency=frequency,serialized_input_bytes_acquired=input_bytes,arms=by_arm,phases=phases,zero_full_samples=zeros,zero_phase_samples=phase_zero,cases=by_case,interpretation='Sums of actual enclosing invocation clocks, not phase medians; individual matched ratios retain zero policy; repetitions are not independent workloads; cached local-file CPU experiment only. Retained checker source bytes bind historical measurement context; current record admission is not a new native measurement.')
 def digest_bytes(b):return hashlib.sha256(b).hexdigest().upper()
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('directory',type=Path);ap.add_argument('--output',type=Path);a=ap.parse_args();result=audit(a.directory)
